@@ -1,0 +1,90 @@
+
+.nodisplay{
+    display: none;
+}
+.field-color-id{
+    display: none;  
+}
+
+.size {
+  display: none;
+ }
+
+ .color {
+  display: none;
+ }
+
+.unvisible{
+    display: none;
+}
+
+.visible {
+  display: inline;
+}
+
+/* radio_buttons */
+
+.radio_buttons div {
+    display: inline;
+    float: left;
+}
+.radio_buttons input {
+    position: absolute;
+    left: -9999px;
+}
+.radio_buttons label {
+    margin: 0 0 0 -1px;
+    padding: 8px 10px;
+    border: 1px solid #BBBBBB;
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .12);
+    cursor: pointer;
+    
+}
+.radio_buttons input:checked + label {
+    background: #3cbddc;
+    color: white;
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, .2);
+}
+
+/* radio_buttons */
+
+/* checkbox_buttons */
+.checkbox_buttons div {
+    display: inline;
+    float: left;
+}
+.checkbox_buttons input {
+    position: absolute;
+    left: -9999px;
+}
+.checkbox_buttons label {
+    margin: 0 0 0 -1px;
+    padding: 8px 10px;
+    border: 1px solid #BBBBBB;
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .12);
+    cursor: pointer;
+    
+}
+.checkbox_buttons input:checked + label {
+    background: #3cbddc;
+    color: white;
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, .2);
+}
+/* checkbox_buttons */
+
+#sum {
+    font-size: 30px;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin:0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}

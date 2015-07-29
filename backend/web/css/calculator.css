@@ -1,0 +1,252 @@
+body{
+    font-size: 14px;
+}
+
+.wrap > .container {
+  padding: 44px 0 0 0;
+}
+
+.form-control {
+  display:  inline;
+  height: inherit;
+  padding: inherit;
+  /*line-height: inherit;*/
+  color: inherit;
+  background-color: inherit;
+  background-image: inherit;
+  border: 1px #000000 solid;
+  border-radius: inherit;;
+  -webkit-box-shadow: inherit;
+  box-shadow: inherit;
+  -webkit-transition: inherit;
+  -o-transition: inherit;
+  transition: inherit;
+}
+
+.nodisplay{
+    display: none;
+}
+
+.form-group {
+  margin-bottom: inherit;
+  width: 100%;
+}
+
+
+
+//.help-block {
+//    display: none;
+//}
+
+.dropdown-menu{
+  display: none;  
+}
+
+
+.field-color-id{
+    display: none;  
+}
+
+.size {
+  display: none;
+ }
+
+ .color {
+  display: none;
+ }
+
+.unvisible{
+    display: none;
+}
+
+.visible {
+  display: inline;
+}
+
+
+
+
+.radio_buttons div {
+    display: inline;
+    float: left;
+}
+.radio_buttons input {
+    position: absolute;
+    left: -9999px;
+}
+.radio_buttons label {
+    margin: 0 0 0 -1px;
+    padding: 8px 10px;
+    border: 1px solid #BBBBBB;
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .12);
+    cursor: pointer;
+    
+}
+.radio_buttons input:checked + label {
+    background: gold;
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, .2);
+}
+
+.heading {
+    background: gold;
+    font-size: 18px;
+}
+
+
+
+.textarea{
+    width: 100%;
+}
+
+
+.field-prices-price{
+    display: inline;
+}
+
+.container {
+  width: 100%;
+}
+
+.widget-title{
+    display:inline-block;
+}
+
+thead > tr > th{
+    background: #4aa4ce;
+    color: white;
+}
+
+.range{
+    width:100%;
+}
+
+input.form-control{
+    padding:0px;
+}
+
+.item-list > li{
+    padding: 1px;
+}
+
+
+.price{
+    
+  float: right;
+  cursor: pointer;
+  border: 0 !important; 
+  border-bottom: 1px dotted !important;
+  width: 70px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+#sum {
+    font-size: 30px;
+}
+
+.view {
+      line-height: 0;
+}
+
+.nav-list > li > a {
+  background-color: #f8f8f8;
+  color: #585858;
+}
+.sidebar {
+  background-color: #f2f2f2;
+  border-style: solid;
+  border-color: #cccccc;
+  border-width: 0 1px 0 0;
+}
+
+.sidebar {
+  background-color: #f2f2f2;
+  border-style: solid;
+  border-color: #cccccc;
+  border-width: 0 1px 0 0;
+}
+
+.nav-list > li:hover > a {
+  background-color: #ffffff;
+  color: #266cad;
+}
+
+.search{
+  padding-left: 15px !important;
+  padding-right: 6px !important;
+}
+
+.create-form{
+  margin: 10px 0 10px 0;
+}
+
+.add{
+  line-height: 0;
+}
+
+
+
+
+/* slider root element */
+.slider {
+    background:#D5D5D5;
+    height:9px;
+    position:relative;
+    cursor:pointer;
+    border:1px solid #333;
+    width:100%;
+    margin:10px 0 20px 0;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-box-shadow:inset 0 0 8px #000;
+}
+
+/* progress bar (enabled with progress: true) */
+.progress {
+    height:9px;
+    background-color:#C5FF00;
+    display:none;
+    opacity:0.6;
+}
+
+/* drag handle */
+.handle {
+    background:#4aa4ce;
+    height:20px;
+    width:20px;
+    top:-8px;
+    position:absolute;
+    display:block;
+    margin-top:1px;
+    border:1px solid #000;
+    cursor:move;
+    
+ 
+
+}
+
+/* the input field */
+.range {
+    border:1px inset #ddd;
+    float:left;
+    font-size:20px;
+    padding:3px 0;
+    text-align:center;
+    width:50px;
+}
+
+
+
+/* get rid of those system borders being generated for A tags */
+a:active {
+    outline:none;
+}
+
+:focus {
+    -moz-outline-style:none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none;
+    margin:0;}

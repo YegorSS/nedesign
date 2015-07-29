@@ -1,0 +1,206 @@
+header.header{
+    background: linear-gradient(to bottom, #f3f3f3 0%, #dedede 100%);
+    padding: 0;
+}
+.logo{
+    padding: 0;
+}
+
+.span6{
+    height: 95px;
+}
+.head-title{
+    margin: -20px 0 0 0;
+}
+.head-title{
+    font-size: 40px;
+    margin: 20px 0 20px 150px;
+}
+.broad{
+    margin: 0 120px;
+    position: relative;
+    z-index: 2;
+    padding: 13px 0 14px;
+}
+
+.navbar-collapse {
+    padding: 0;
+}
+
+.navbar-nav > li > a{
+    font-size: 16px;
+    text-decoration: none;
+    color:black;
+}
+
+
+ul.nav li.dropdown:hover > ul.dropdown-menu{
+    display: block;
+}
+
+.nav-tabs .dropdown-menu, .nav-pills .dropdown-menu, .navbar .dropdown-menu{
+    margin-top: 0;
+}
+
+.navbar .nav > li > .dropdown-menu:after, .navbar .nav > li > .dropdown-menu:before{
+    content:none;
+}
+
+ul.nav li.dropdown:hover > ul.dropdown-menu>li>a{
+    position: relative;
+    z-index: 1000;
+}
+
+.active > a, .active > a:hover, .active > a:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #f3f3f3;
+  outline: 0;
+}
+
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+  background-color: #f3f3f3;
+  color: #333;
+}
+
+.star-rating {
+  line-height: 18px !important;
+  font-size: 18px !important;
+}
+
+.tab-content{
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.caption span{
+    margin-left: 100px;
+    height: auto !important;
+    padding-top: 5px !important;
+    font-size: 14px;
+}
+
+.navbar-nav{
+    margin-left: -30px;
+}
+
+.title-section{
+    margin-left: -10px;
+}
+ul.products{
+    padding: 0!important;
+}
+
+.carousel{
+    width: 1170px;
+}
+
+.nav-tabs > li > a {
+  margin-right: 0px;
+}
+
+.breadcrumb{
+    margin: 0px;
+    background: none;
+}
+
+.nopdl{
+    padding-left: 0;
+}
+
+#searchresults{
+    background-color: #f3f3f3;
+    text-align: left;
+    position: absolute;
+    z-index: 3;
+    width: 600px;
+}
+
+#searchresults ul{
+    text-align: left !important;
+    padding-left: 0 !important;
+}
+
+#searchresults ul li {
+    display: block !important;
+    padding: 5px 10px 5px 10px !important;
+}
+
+#searchresults ul li img{
+    margin-right: 10px;
+}
+
+#searchresults a{
+    font-size: 16px;
+}
+
+#searchinput{
+    width: 600px;
+}
+
+
+.dropdown-menu {
+    max-height: 400px !important;
+    overflow: auto;
+}
+
+
+
+/* Карта */
+.popin{
+    margin: 20px 0 0;
+    padding: 10px;
+    width: auto;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    background: #fff;
+    border-radius: 2px;
+}
+#map {
+    width: auto;
+    height: 600px;
+    background: #ccc;
+}
+#mapContent {
+    position: relative;
+    padding: 10px;
+    width: 350px;
+    height: 360px;
+    text-align:center;
+    overflow: hidden;
+}
+#mapContent h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -1px;
+}
+#mapContent .simple-contacts {
+    line-height: 30px;
+    font-size: 22px;
+    font-weight: 100;
+    letter-spacing: -1px;
+}
+#mapContent .big-contacts {
+    margin: 10px 0px;
+    line-height: 34px;
+    font-weight: 300;
+    font-size: 34px;
+    color: #2ca9df;
+    letter-spacing: -1px;
+}
+#mapContent .email-contacts {
+    margin: 20px 0 0;
+    font-family: arial;
+}
+#mapContent .email-contacts a {
+    font-family: arial;
+    font-weight: bold;
+}
+
+.h2{
+    font: normal 22px/26px Open Sans;
+    color: #383838;
+}
