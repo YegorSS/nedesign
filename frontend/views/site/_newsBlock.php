@@ -22,7 +22,9 @@ $i = true;
   	<?php foreach($news as $oneNews): ?>
     	<div class="item <?= ($i) ? 'active' : false ?>">
     		<div>
-    	  		<h4><a href='#'><?= $oneNews->title ?></a></h4>
+    	  		<h4>
+              <?= Html::a($oneNews->title, ['site/news', 'alias' => $oneNews->alias]) ?>
+            </h4>
     	  		<p><span class='glyphicon glyphicon-time'></span> <?= date_create($oneNews->created)->Format('Y-m-d') ?></p>
     	  		<p><?= mb_substr(strip_tags($oneNews->text), 0, 200) . "..." ?></p>
     	  	</div>

@@ -14,13 +14,13 @@ $(document).ready(function () {
        if (query.length > 2 ){ 
        $.ajax({
             type: "GET",
-            url: "site/search",
+            url: siteurl + "site/search",
             data: "SearchForm[text]=" + query,
             success: function(msg){
                 var posts = JSON.parse(msg);
                 result = '<ul>';
                 posts.forEach(function(entry) {
-                    result += '<li><img src="uploads/post/main/65/65'
+                    result += '<li><img src="'+ siteurl +'/uploads/post/main/65/65'
                     + entry['mainimage'] +
                     '" style="float:left"><a href="'
                             + entry['alias']+'">'

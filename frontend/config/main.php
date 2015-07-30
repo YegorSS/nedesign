@@ -17,6 +17,7 @@ return [
             'showScriptName' => false,
             'enableStrictParsing' => false,
             'rules' => [
+                'site/search' => 'site/search',
                 'rating' => 'site/rating',
                 'contact' => 'site/contact',
                 'about' => 'site/about',
