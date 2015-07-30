@@ -30,6 +30,7 @@ $(document).ready(function () {
                             '</p></li><br>';
                 });
                 result += '</ul>';
+                $('#searchClear').removeClass('unvisible');
                 if(posts.length == 0){
                     result = 'Не найдено';
                 }
@@ -41,8 +42,6 @@ $(document).ready(function () {
                 $("#searchresults").html(result);
     }
     });
-    
-    
     
     $('.searchlist').keyup(function(){
        var q = $('.post').length;
@@ -63,7 +62,12 @@ $(document).ready(function () {
     });
     
     
-    
+    $("#searchClear").click(function(){
+        result = false;
+        $("#searchinput").val('');
+        $("#searchresults").html('');
+        $('#searchClear').addClass('unvisible');
+    });
     
     
     

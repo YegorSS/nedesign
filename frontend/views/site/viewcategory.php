@@ -72,7 +72,7 @@ $this->params['breadcrumbs'][] = $category->header_meny;
         ]); ?>
  <?php elseif($category->type == 'news') : ?>
   <?php foreach($posts as $news): ?>
-    <article class="post-71 post type-post status-publish format-standard hentry category-uncategorized post__holder cat-1-id">
+    <article>
       <header class="post-header">
       <h3 class='post-title'>
         <?= Html::a($news->h_1, ['site/news', 'alias' => $news->alias]) ?>
@@ -86,7 +86,7 @@ $this->params['breadcrumbs'][] = $category->header_meny;
       <?php } ?>
       <div class="post_content">
         <p>
-        <?= mb_substr(strip_tags($news->text), 0, 300) . "..." ?>
+        <?= mb_substr(strip_tags($news->text), 0, 200) . "..." ?>
         </p>
         <p><span class='glyphicon glyphicon-time'></span> <?= date_create($news->created)->Format('Y-m-d') ?></p>
         <?= Html::a('Подробнее', ['site/news', 'alias' => $news->alias], ['class' => 'btn btn-primary']) ?>

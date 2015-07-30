@@ -14,18 +14,12 @@ AppAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>
-
-
-
-
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en-US"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en-US"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en-US"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en-US"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html lang="<?= Yii::$app->language ?>"> <!--<![endif]-->
-  
-
 <head>
 <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,8 +39,6 @@ AppAsset::register($this);
 
 <!--<![endif]-->
  <link rel="shortcut icon" href="<?= Yii::$app->request->baseUrl; ?>/favicon.ico" type="image/x-icon" />
-
-
 </head>
 <body class="home page page-id-203 page-template page-template-page-home-php has_jigoshop has_shop">
   <?php $this->beginBody() ?>
