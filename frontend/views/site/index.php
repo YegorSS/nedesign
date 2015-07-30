@@ -9,6 +9,11 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Url;
 
+$this->registerCssFile('@web/owl-carousel/owl.carousel.css', ['depends'=>'frontend\assets\AppAsset']);
+$this->registerCssFile('@web/owl-carousel/owl.theme.css', ['depends'=>'frontend\assets\AppAsset']);
+$this->registerJsFile('@web/owl-carousel/owl.carousel.js', ['depends'=>'frontend\assets\AppAsset']);
+$this->registerJsFile('@web/owl-carousel/owl_carusel_index.js', ['depends'=>'frontend\assets\AppAsset']);
+
 ?>
 
 
@@ -88,8 +93,33 @@ use yii\helpers\Url;
 <div class="extra-wrap"><div class="banner-wrap featured-banners type-3"><a href="#" class="banner_main_link"><h5>Executive</h5><p>Excepteur sint occaecat cupidatat non proident sunt </p></a></div> 
 <div class="banner-wrap featured-banners type-4"><a href="#" class="banner_main_link"><h5>1-2 Color</h5><p>Excepteur sint occaecat cupidatat non proident sunt </p></a></div> </div>
 </div>
+
+
+
+<?php foreach($categories->where(['type' => 'post'])->all() as $category): ?>
+<h3><?= $category->title ?>:</h3>
+<div class="home_featured">
+<ul id="owl-demo" class="owl-carousel owl-theme products" style='margin: 0px !important;'>
+  <?php foreach($category->posts as $post): ?>
+  <?php if($post->active) { ?>
+  <li class="item product" style='width: 94%'>
+    <div class="home_featured">
+      <a href="<?= Url::toRoute(['site/post', 'alias' => $post->alias]) ?>">
+          <div class="product-link-wrap">
+            <?= Html::img('@web/uploads/post/main/200/200'.$post->mainimage, ['style' => 'width:200px !important; height:200px !important']) ?>
+            <strong><?= $post->header_meny ?></strong>
+          </div>
+       </a>
+    </div>
+  </li>
+  <?php } ?>
+  <?php endforeach; ?>
+</ul>
+</div>
+<?php endforeach ?>
+
   
- 
+ <!--
   
   
 <?php foreach($categories->where(['type' => 'post'])->all() as $category): ?>
@@ -129,7 +159,7 @@ use yii\helpers\Url;
   
 <?php endforeach; ?>
   
-
+-->
 
 </div>
 </div> 
