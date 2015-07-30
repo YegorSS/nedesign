@@ -204,3 +204,7 @@ ul.products{
     font: normal 22px/26px Open Sans;
     color: #383838;
 }
+
+.unvisible{
+    display: none;
+}

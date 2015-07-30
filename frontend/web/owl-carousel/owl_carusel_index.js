@@ -12,6 +12,4 @@ $(document).ready(function () {
  
 
     owl.trigger('owl.play',1500); //owl.play event accept autoPlay speed as second parameter
-
-    //lalalalalaalal
 });
