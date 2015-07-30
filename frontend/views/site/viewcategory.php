@@ -86,7 +86,7 @@ $this->params['breadcrumbs'][] = $category->header_meny;
       <?php } ?>
       <div class="post_content">
         <p>
-        <?= mb_substr(strip_tags($news->text), 0, 200) . "..." ?>
+        <?= mb_substr(strip_tags($news->text), 0, 200, 'UTF-8') . "..." ?>
         </p>
         <p><span class='glyphicon glyphicon-time'></span> <?= date_create($news->created)->Format('Y-m-d') ?></p>
         <?= Html::a('Подробнее', ['site/news', 'alias' => $news->alias], ['class' => 'btn btn-primary']) ?>

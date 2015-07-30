@@ -26,7 +26,7 @@ $i = true;
               <?= Html::a($oneNews->title, ['site/news', 'alias' => $oneNews->alias]) ?>
             </h4>
     	  		<p><span class='glyphicon glyphicon-time'></span> <?= date_create($oneNews->created)->Format('Y-m-d') ?></p>
-    	  		<p><?= mb_substr(strip_tags($oneNews->text), 0, 200) . "..." ?></p>
+    	  		<p><?= mb_substr(strip_tags($oneNews->text), 0, 200, 'UTF-8') . "..." ?></p>
     	  	</div>
     	</div>
     	<?php $i = false; ?>
