@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $tegname;
       </figure>
       <div class="post_content">
         <div class="excerpt">
-        <?= mb_substr(strip_tags($post->text), 0, 400) . "..." ?>
+        <?= mb_substr(strip_tags($post->text), 0, 400, 'UTF-8') . "..." ?>
         </div>
         <?= Html::a('Подробнее', ['site/post', 'alias' => $post->alias], ['class' => 'btn btn-primary']) ?>
         <div class='clear'></div>

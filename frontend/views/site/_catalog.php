@@ -22,7 +22,7 @@ use yii\bootstrap\NavBar;
               }
               
               foreach($posts as $post){
-                $postItem[] = ['label' => $post->header_meny, 'url' => ['site/post', 'alias' => $post->alias], 'options' => ['class' => 'post']];
+                $postItem[] = ['label' => $post->header_meny, 'url' => ['site/post', 'alias' => $post->alias], 'options' => ['class' => 'post menu-item menu-item-type-post_type menu-item-object-page menu-item-1807']];
               }
                 if(isset($postItem)){
                 $menuItems[] =  ['label' => $category->header_meny, 'url' => ['site/category', 'id' => $category->id], 'items' => $postItem];

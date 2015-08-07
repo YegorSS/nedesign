@@ -12,11 +12,14 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'enableStrictParsing' => false,
             'rules' => [
+                'site/createcollback' => 'site/createcollback',
+                'site/createfeedback' => 'site/createfeedback',
                 'site/search' => 'site/search',
                 'rating' => 'site/rating',
                 'contact' => 'site/contact',

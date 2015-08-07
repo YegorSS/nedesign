@@ -265,8 +265,15 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
           $model->post = Yii::$app->request->referrer;
           $model->save();
-            Yii::$app->session->setFlash('success', 'Заказ звонка отправлен!');
-            return $this->redirect(Yii::$app->request->referrer);
+
+          Yii::$app->mailer->compose('collback', ['model' => $model])
+            ->setFrom('lalala@gmail.com')
+            ->setTo('w0683636476@yandex.ru')
+            ->setSubject('Поступил заказ звонка')
+            ->send();
+
+          Yii::$app->session->setFlash('success', 'Заказ звонка отправлен!');
+          return $this->redirect(Yii::$app->request->referrer);
         } else {
             return $this->redirect(Yii::$app->request->referrer);
         }
@@ -279,8 +286,15 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
           $model->post = Yii::$app->request->referrer;
           $model->save();
-            Yii::$app->session->setFlash('success', 'Заказ консультации отправлен!');
-            return $this->redirect(Yii::$app->request->referrer);
+
+          Yii::$app->mailer->compose('feedback', ['model' => $model])
+            ->setFrom('lalala@gmail.com')
+            ->setTo('w0683636476@yandex.ru')
+            ->setSubject('Поступил заказ консультации')
+            ->send();
+
+          Yii::$app->session->setFlash('success', 'Заказ консультации отправлен!');
+          return $this->redirect(Yii::$app->request->referrer);
         } else {
             return $this->redirect(Yii::$app->request->referrer);
         }
