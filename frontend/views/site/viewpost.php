@@ -1,8 +1,8 @@
 <?php
 /* @var $this yii\web\View */
 $this->title = $post->title;
-$this->registerMetaTag(['keywords' => $post->keywords]);
-$this->registerMetaTag(['description' => $post->description]);
+$this->registerMetaTag(['name' => 'keywords', 'content' => $post->keywords]);
+$this->registerMetaTag(['name' => 'description', 'content' => $post->description]);
 
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $post->header_meny;
         <?php foreach($post->postimage as $postimage){ ?>
         
         <a rel="prettyPhoto[product-gallery]" href="<?= Url::to('@web/uploads/post/images/' . $postimage->image) ?>" class="zoom" title='<?= $post->title ?>'>
-         <?= Html::img('@web/uploads/post/images/90/90'.$postimage->image, ['alt' => $post->title, 'class' => "attachment-90x90", 'width' => 90, 'heigh' => 90]) ?>
+         <?= Html::img('@web/uploads/post/images/90/90'.$postimage->image, ['alt' => $post->title, 'class' => "attachment-90x90", 'width' => 90, 'height' => 90]) ?>
         </a>
         
         <?php  } ?>

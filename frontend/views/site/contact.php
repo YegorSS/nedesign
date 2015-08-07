@@ -8,8 +8,9 @@ use yii\captcha\Captcha;
 /* @var $model \frontend\models\ContactForm */
 
 $this->title = $page->title;
-$this->registerMetaTag(['keywords' => $page->keywords]);
-$this->registerMetaTag(['description' => $page->description]);
+$this->registerMetaTag(['name' => 'keywords', 'content' => $page->keywords]);
+$this->registerMetaTag(['name' => 'description', 'content' => $page->description]);
+
 $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerJsFile('https://maps-api-ssl.google.com/maps/api/js?sensor=false', ['depends'=>'frontend\assets\AppAsset']);

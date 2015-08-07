@@ -1,8 +1,8 @@
 <?php
 /* @var $this yii\web\View */
 $this->title = $tegname;
-$this->registerMetaTag(['keywords' => $tegname]);
-$this->registerMetaTag(['description' => $tegname]);
+$this->registerMetaTag(['name' => 'keywords', 'content' => $tegname]);
+$this->registerMetaTag(['name' => 'description', 'content' => $tegname]);
 
 use yii\helpers\Html;
 use yii\bootstrap\Nav;

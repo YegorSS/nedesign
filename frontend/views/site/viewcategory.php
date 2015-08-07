@@ -1,8 +1,8 @@
 <?php
 /* @var $this yii\web\View */
 $this->title = $category->title;
-$this->registerMetaTag(['keywords' => $category->keywords]);
-$this->registerMetaTag(['description' => $category->description]);
+$this->registerMetaTag(['name' => 'keywords', 'content' => $category->keywords]);
+$this->registerMetaTag(['name' => 'description', 'content' => $category->description]);
 
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
@@ -65,7 +65,6 @@ $this->params['breadcrumbs'][] = $category->header_meny;
        </a>
       </li>
       <?php endforeach; ?>
-      <div class="clear"></div>
     </ul>
       <?= LinkPager::widget([
         'pagination' => $pages,
