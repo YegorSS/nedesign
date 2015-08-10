@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $tegname;
 
 <div class="container">
 <div class="row">
-  <div class="span12" style='margin: 15px'>
+  <div class="span12" style="margin-left: 15px;">
     <section class="title-section">
       <h1 itemprop="headline" class="title-header"><?= $tegname ?></h1>
       <h2 style="padding-bottom: 15px; font-size: 14px"><?= $post->h_1 ?></h2>   

@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="content-holder">
 <div class="container">
   <div class="row">
-  <div class="span12" style='margin: 15px'>
+  <div class="span12" style="margin-left: 15px;">
     <section class="title-section">
       <h1 class="title-header"><?= $page->h_1 ?></h1>
       <?= ($page->h_2) ? '<h2 style="padding-bottom: 15px; font-size: 14px">' .  $page->h_2 . '</h2>' : '<br>' ?>

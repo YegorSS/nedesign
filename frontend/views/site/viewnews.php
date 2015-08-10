@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $news->title;
 
 <div class="container">
 <div class="row">
-  <div class="span12" style='margin: 15px'>
+  <div class="span12" style="margin-left: 15px;">
     <section class="title-section">
       <h1 itemprop="headline" class="title-header"><?= $news->h_1 ?></h1>
       <h2 itemprop="alternativeHeadline" style="padding-bottom: 15px; font-size: 14px"><?= $news->h_2 ?></h2>      

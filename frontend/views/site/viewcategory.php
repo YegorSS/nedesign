@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $category->header_meny;
 <div class="content-holder">
 <div class="container">
   <div class="row">
-  <div class="span12" style='margin: 15px'>
+  <div class="span12" style="margin-left: 15px;">
     <section class="title-section">
       <h1 class="title-header"><?= $category->title ?></h1>
       <h2 style="padding-bottom: 15px; font-size: 14px"><?= $category->h_2 ?></h2>

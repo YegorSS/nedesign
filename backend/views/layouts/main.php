@@ -5,6 +5,8 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
+use common\models\Collback;
+use common\models\Feedback;
 
 //$this->registerCssFile('@web/css/ace-rtl.css', ['depends'=>'backend\assets\AppAsset']);
 //$this->registerCssFile('@web/css/ace-skins.css', ['depends'=>'backend\assets\AppAsset']);
@@ -66,7 +68,7 @@ AppAsset::register($this);
                     <ul class="clearfix" id="mobile-nav">
                         <li>
                             <a href="javascript:void(0)">
-                              <i class="menu-icon glyphicon glyphicon-edit"></i>
+                              <i class="icsw16-create-write icsw16-white"></i>
                               Материалы
                             </a>
                             <ul>
@@ -100,20 +102,19 @@ AppAsset::register($this);
                         </li>
                         <li>
                             <a class="dropdown-toggle" href='<?= Url::toRoute('collback/index') ?>'>
-                              <i class="menu-icon glyphicon glyphicon-earphone"></i>
-
+                              <i class="icsw16-phone-3 icsw16-white"></i>
                               <span class="menu-text">Заказы звонка</span>
                             </a>
                         </li>
                         <li>
                           <a class="dropdown-toggle" href='<?= Url::toRoute('feedback/index') ?>'>
-                              <i class="menu-icon glyphicon glyphicon-envelope"></i>
+                              <i class="icsw16-speech-bubbles icsw16-white"></i>
                               <span class="menu-text">Заказы консультации</span>
                           </a>
                         </li>
                         <li>
                           <a class="dropdown-toggle" href='<?= Url::toRoute(['calculator/calculator']) ?>'>
-                            <i class="glyphicon glyphicon-calculator"></i>
+                            <i class="icsw16-calculator icsw16-white"></i>
                             <span class="menu-text">Калькулятор</span>
                           </a>
                         </li>
@@ -138,8 +139,12 @@ AppAsset::register($this);
                                 <ul>
                                     <li><a href="<?= Yii::$app->homeUrl ?>" class="ptip_s"><i class="icsw16-home"></i></a></li>
                                     <li><a href="<?= Url::toRoute('posts/create') ?>" class="ptip_s" title="Создать материал"><i class="icsw16-create-write"></i></a></li>
-                                    <li><a href="#" class="ptip_s" title="Mailbox"><i class="icsw16-mail"></i><span class="badge badge-info">6</span></a></li>
-                                    <li><a href="#" class="ptip_s" title="Comments"><i class="icsw16-speech-bubbles"></i><span class="badge badge-important">14</span></a></li>
+                                    <li><a href="<?= Url::toRoute('collback/index') ?>" class="ptip_s" title="Заказы звонка"><i class="icsw16-phone-3"></i><span class="badge badge-info">
+                                    <?= Collback::find()->count() ?>
+                                    </span></a></li>
+                                    <li><a href="<?= Url::toRoute('feedback/index') ?>" class="ptip_s" title="Заказы консультации"><i class="icsw16-speech-bubbles"></i><span class="badge badge-important">
+                                    <?= Feedback::find()->count() ?>
+                                    </span></a></li>
                                     <li class="active"><span class="ptip_s" title="Statistics (active)"><i class="icsw16-graph"></i></span></li>
                                     <li><a href="#" class="ptip_s" title="Settings"><i class="icsw16-cog"></i></a></li>
                                 </ul>

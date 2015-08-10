@@ -17,6 +17,16 @@ $this->registerCssFile('@web/css/prettyPhoto.css', ['depends'=>'frontend\assets\
 $this->registerCssFile('@web/css/odometer-theme-plaza.css', ['depends'=>'frontend\assets\AppAsset']);
 $this->registerJsFile('@web/scripts/jquery.prettyPhoto.js', ['depends'=>'frontend\assets\AppAsset']);
 $this->registerJsFile('@web/scripts/odometer.js', ['depends'=>'frontend\assets\AppAsset']);
+$this->registerJsFile('@web/scripts/post.js', ['depends'=>'frontend\assets\AppAsset']);
+
+
+
+
+
+$this->registerCssFile('@web/owl-carousel/owl.carousel.css', ['depends'=>'frontend\assets\AppAsset']);
+$this->registerCssFile('@web/owl-carousel/owl.theme.css', ['depends'=>'frontend\assets\AppAsset']);
+$this->registerJsFile('@web/owl-carousel/owl.carousel.js', ['depends'=>'frontend\assets\AppAsset']);
+$this->registerJsFile('@web/owl-carousel/owl_carusel_index.js', ['depends'=>'frontend\assets\AppAsset']);
 
 
 
@@ -52,17 +62,18 @@ $this->params['breadcrumbs'][] = $post->header_meny;
         <?= Html::img('@web/uploads/post/main/300/300'.$post->mainimage, ['alt' => $post->title, 'itemprop' => "image"]) ?>
       </a>
       
-      <div class="thumbnails">
-        <?php foreach($post->postimage as $postimage){ ?>
-        
-        <a rel="prettyPhoto[product-gallery]" href="<?= Url::to('@web/uploads/post/images/' . $postimage->image) ?>" class="zoom" title='<?= $post->title ?>'>
-         <?= Html::img('@web/uploads/post/images/90/90'.$postimage->image, ['alt' => $post->title, 'class' => "attachment-90x90", 'width' => 90, 'height' => 90]) ?>
-        </a>
-        
-        <?php  } ?>
+
+
+      <div id="owl-thumb" class="thumbnails">
+        <?php foreach($post->postimage as $postimage): ?>
+          <div class="item">
+            <a rel="prettyPhoto[product-gallery]" href="<?= Url::to('@web/uploads/post/images/' . $postimage->image) ?>" class="zoom" title='<?= $post->title ?>'>
+              <?= Html::img('@web/uploads/post/images/90/90'.$postimage->image, ['alt' => $post->title, 'class' => "attachment-90x90", 'width' => 60, 'height' => 60]) ?>
+            </a>
+          </div>
+        <?php endforeach ?>
       </div>
-      
-    
+
     </div>
       
       

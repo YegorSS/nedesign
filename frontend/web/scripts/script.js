@@ -68,11 +68,6 @@ $(document).ready(function () {
         $("#searchresults").html('');
         $('#searchClear').addClass('unvisible');
     });
-    
-    
-    
-
-    
             
 });
 
