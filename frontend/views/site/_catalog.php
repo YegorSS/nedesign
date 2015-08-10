@@ -4,9 +4,10 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 ?>
 
-
-            
-
+<div class='container'>
+<div class='row'>
+<div class='col-xs-12'>
+<div style='margin-left: -30px;'>
 <?php
             NavBar::begin([
                 'options' => [
@@ -17,7 +18,7 @@ use yii\bootstrap\NavBar;
             //$menuItems[] = ['label' => '1design', 'url' => ['#']];
             foreach($categories->where(['type' => 'post'])->all() as $category){
               $posts = $category->getPosts()->where(['active' => true])->all();
-              if(count($posts) > 7 ){
+              if(count($posts) > 5 ){
                 $postItem[] = ['label' => '<input class="searchlist" >'];
               }
               
@@ -35,7 +36,7 @@ use yii\bootstrap\NavBar;
 
             foreach($categories->where(['type' => 'news'])->all() as $newscategory){
               
-                $newsItem[] = ['label' => $newscategory->header_meny, 'url' => ['site/category', 'id' => $newscategory->id]];
+                $newsItem[] = ['label' => $newscategory->header_meny, 'url' => ['site/category', 'id' => $newscategory->id], 'options' => ['class' => 'dropitem']];
               
                 
             }
@@ -47,7 +48,7 @@ use yii\bootstrap\NavBar;
             $menuItems[] = ['label' => 'О компании', 'url' => ['/site/about']];
             
             echo Nav::widget([
-                'options' => ['class' => 'navbar-nav list'],
+                'options' => ['class' => 'navbar-nav list navbar-collapse'],
                 'encodeLabels' => false,
                 'items' => $menuItems,
             ]);
@@ -56,4 +57,7 @@ use yii\bootstrap\NavBar;
             
             NavBar::end();
         ?>
-
+</div>
+</div>
+</div>
+</div>

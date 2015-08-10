@@ -14,7 +14,7 @@ header.header{
 }
 .head-title{
     font-size: 40px;
-    margin: 20px 0 20px 150px;
+    margin: 20px 0;
 }
 .broad{
     margin: 0 120px;
@@ -22,6 +22,9 @@ header.header{
     z-index: 2;
     padding: 13px 0 14px;
 }
+
+/* menu */
+
 
 .navbar-collapse {
     padding: 0;
@@ -64,6 +67,60 @@ ul.nav li.dropdown:hover > ul.dropdown-menu>li>a{
   color: #333;
 }
 
+.list li:before {
+    content: none; 
+}
+
+.dropdown-menu {
+    padding-top: 0;
+    padding-bottom: 0px;
+}
+
+.navbar-toggle{
+    border: 1px solid black;
+    color: black;
+    
+}
+
+.navbar-collapse{
+    margin-left: 0px;
+}
+/*
+.navbar-nav{
+    margin-left: -30px;
+}
+
+.dropdown-menu{
+    padding: 0px;
+}
+
+.dropdown-menu > li{
+    background: #383838;
+    border: none;
+    color: #fff;
+    padding: 0;
+    height: 40px;
+}
+
+
+
+.dropdown-menu > li > a {
+    background: #383838;
+    border: none;
+    color: #fff;
+    height: 40px;
+    vertical-align: center;
+    
+}
+
+.dropdown-menu > li > a:hover{
+    color: #fff;
+    background: #939393;
+}*/
+
+/* menu */
+
+
 .star-rating {
   line-height: 18px !important;
   font-size: 18px !important;
@@ -82,9 +139,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu>li>a{
     font-size: 14px;
 }
 
-.navbar-nav{
-    margin-left: -30px;
-}
+
 
 .title-section{
     margin-left: -10px;
@@ -208,3 +263,15 @@ ul.products{
 .unvisible{
     display: none;
 }
+/* Карта */
+
+
+/* картинки в списке */
+
+.product-link-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+}
+/* картинки в списке */
+
+

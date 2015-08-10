@@ -46,40 +46,40 @@ AppAsset::register($this);
   
  <header class="motopress-wrapper header">
 <div class="container">
-<div class="row">
+
 <div>
 <div class="row">
-<div class="span6">
+<div class="col-lg-2 col-md-3 col-sm-3 hidden-xs" style='padding:0'>
  
-<div class="logo pull-left">
+<div class="logo pull-left" style='margin-bottom:-55px'>
   <a href="<?= Url::home() ?>" class="logo_h logo_h__img"><?= Html::img('@web/img/logo.png') ?>
   </a>
-<p class="logo_tagline"></p> 
 </div>
+</div>
+<div class='col-lg-10 col-md-9 col-sm-9'>
   <div class='head-title'>Полиграфия</div>
   <?= $this->render('../site/_searchform') ?>
 </div>
-<div class="span6">
-  <div class="shop-nav">
-    
-  </div>
-</div>
+
 </div>
   
 <div class="nav-row">
-<div class="row broad">
-<div class="span12" style='height: 20px'>
+<div class="row broad" style='margin-left: -30px;'>
+<div class='col-lg-2 col-md-3 col-sm-3 hidden-xs'>
+</div>
+<div class='col-lg-10 col-md-9 col-sm-9'>
   <?= Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                           'homeLink' => ['label' => '1Design®', 'url' => ['/'], 'itemprop' => "url"],
                           'itemTemplate' => "<li itemscope itemtype='https://data-vocabulary.org/Breadcrumb'><span itemprop='title'>{link}</span></li>",
                           ]) ?>
 </div>
+
 </div>
 </div>
   
   
 </div>
-</div>
+
 </div>
 </header>
 

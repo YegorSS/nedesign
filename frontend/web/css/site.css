@@ -1403,8 +1403,6 @@ body #motopress-main.main-holder .content-holder .products ul li.product img, bo
 	border-radius:0;
 	box-shadow:none;
 	padding:0;
-	width:auto !important;
-	height:auto !important;
 }
 @media (max-width: 610px) {
 	body #motopress-main.main-holder .content-holder .products ul li.product img, body #motopress-main.main-holder .content-holder ul.products li.product img { width:100% !important; }
