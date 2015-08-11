@@ -2,13 +2,8 @@ header.header{
     background: linear-gradient(to bottom, #f3f3f3 0%, #dedede 100%);
     padding: 0;
 }
-.logo{
-    padding: 0;
-}
 
-.span6{
-    height: 95px;
-}
+
 .head-title{
     margin: -20px 0 0 0;
 }
@@ -17,7 +12,7 @@ header.header{
     margin: 20px 0;
 }
 .broad{
-    margin: 0 120px;
+    
     position: relative;
     z-index: 2;
     padding: 13px 0 14px;
@@ -148,8 +143,8 @@ ul.products{
     padding: 0!important;
 }
 
-.carousel{
-    width: 1170px;
+.product{
+    margin: 0 0 20px 17px !important;
 }
 
 .nav-tabs > li > a {

@@ -176,7 +176,7 @@ header.header .nav-row-inner {
 	z-index:2;
 	padding:13px 0 14px;
 }
-.logo { padding:0 0 23px 0; }
+
 .logo_link { text-decoration:none !important; }
 .logo_link:hover { color:inherit; }
 .logo_tagline {
@@ -613,8 +613,7 @@ header.header .nav-row-inner {
 .content-holder { padding-bottom:20px; }
 @media (max-width: 767px) {
 	.content-holder {
-		padding-left:15px;
-		padding-right:15px;
+		
 	}
 }
 .featured-thumbnail {

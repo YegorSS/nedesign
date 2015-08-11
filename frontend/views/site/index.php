@@ -38,12 +38,12 @@ $this->registerJsFile('@web/owl-carousel/owl_carusel_index.js', ['depends'=>'fro
 <div class="row">
 <div>
   
-  
+
   
   
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
-  <ol class="carousel-indicators">
+  <ol class="carousel-indicators hidden-xs hidden-sm">
     
     <?php $i = 0; ?>
     <?php foreach($carusel as $item): ?>
@@ -98,7 +98,7 @@ $this->registerJsFile('@web/owl-carousel/owl_carusel_index.js', ['depends'=>'fro
 
 <?php foreach($categories->where(['type' => 'post'])->all() as $category): ?>
 <h3><?= $category->title ?>:</h3>
-<div class="home_featured">
+<div class="home_featured" style='margin-right: -10px;'>
 <ul id="owl-demo" class="owl-carousel owl-theme products" style='margin: 0px !important;'>
   <?php foreach($category->posts as $post): ?>
   <?php if($post->active) { ?>
@@ -106,7 +106,7 @@ $this->registerJsFile('@web/owl-carousel/owl_carusel_index.js', ['depends'=>'fro
     <div class="home_featured">
       <a href="<?= Url::toRoute(['site/post', 'alias' => $post->alias]) ?>">
           <div class="product-link-wrap">
-            <?= Html::img('@web/uploads/post/main/200/200'.$post->mainimage, ['style' => 'width:200px !important; height:200px !important']) ?>
+            <?= Html::img('@web/uploads/post/main/200/200'.$post->mainimage) ?>
             <strong><?= $post->header_meny ?></strong>
           </div>
        </a>

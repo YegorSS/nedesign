@@ -6,8 +6,8 @@ use yii\bootstrap\NavBar;
 
 <div class='container'>
 <div class='row'>
-<div class='col-xs-12'>
-<div style='margin-left: -30px;'>
+<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12' style='margin-left: -30px'>
+<div>
 <?php
             NavBar::begin([
                 'options' => [

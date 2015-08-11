@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $tegname;
 
 <div class="container">
 <div class="row">
-  <div class="span12" style="margin-left: 15px;">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <section class="title-section">
       <h1 itemprop="headline" class="title-header"><?= $tegname ?></h1>
       <h2 style="padding-bottom: 15px; font-size: 14px"><?= $post->h_1 ?></h2>   
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $tegname;
 
     
   
-<div class="span8" style='margin: 0px' itemprop="articleBody">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" style='margin-left: -15px' itemprop="articleBody">
        
          
        <article class="post-71 post type-post status-publish format-standard hentry category-uncategorized post__holder cat-1-id">
@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $tegname;
  
   </div>
 
-  <div class="span4 sidebar">
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sidebar">
     <?= $this->render('_top', ['topposts' => $topposts]) ?>
     <?= $this->render('_collbackForm', ['collback' => $collback]) ?>
     <?= $this->render('_feedbackForm', ['feedback' => $feedback]) ?>

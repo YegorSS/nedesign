@@ -49,7 +49,7 @@ AppAsset::register($this);
 
 <div>
 <div class="row">
-<div class="col-lg-2 col-md-3 col-sm-3 hidden-xs" style='padding:0'>
+<div class="col-lg-2 col-md-3 col-sm-3 hidden-xs" style='margin-left: -15px'>
  
 <div class="logo pull-left" style='margin-bottom:-55px'>
   <a href="<?= Url::home() ?>" class="logo_h logo_h__img"><?= Html::img('@web/img/logo.png') ?>
@@ -64,10 +64,10 @@ AppAsset::register($this);
 </div>
   
 <div class="nav-row">
-<div class="row broad" style='margin-left: -30px;'>
+<div class="row broad">
 <div class='col-lg-2 col-md-3 col-sm-3 hidden-xs'>
 </div>
-<div class='col-lg-10 col-md-9 col-sm-9'>
+<div class='col-lg-10 col-md-9 col-sm-9' style='height: 14px;'>
   <?= Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                           'homeLink' => ['label' => '1Design®', 'url' => ['/'], 'itemprop' => "url"],
                           'itemTemplate' => "<li itemscope itemtype='https://data-vocabulary.org/Breadcrumb'><span itemprop='title'>{link}</span></li>",

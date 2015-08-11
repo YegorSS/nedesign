@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $category->header_meny;
 <div class="content-holder">
 <div class="container">
   <div class="row">
-  <div class="span12" style="margin-left: 15px;">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <section class="title-section">
       <h1 class="title-header"><?= $category->title ?></h1>
       <h2 style="padding-bottom: 15px; font-size: 14px"><?= $category->h_2 ?></h2>
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $category->header_meny;
   </div>
 </div>
 <div class="row">
-<div class="span8" style='margin: 0px'>
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" style='margin-left: -15px; margin-top: 20px'>
     
 
 
@@ -44,22 +44,10 @@ $this->params['breadcrumbs'][] = $category->header_meny;
     <ul class="products">
       <?php $i = 0; ?>
       <?php foreach($posts as $post): ?>
-      <li class="product 
-          
-      <?php $i++; 
-      
-        if ($i == 1){
-          echo 'first';
-        }
-        if ($i == 4){
-          echo 'last';
-          $i = 0;
-        }
-      
-      ?>">
+      <li class="product">
        <a href="<?= Url::toRoute(['site/post', 'alias' => $post->alias]) ?>">
           <div class="product-link-wrap">
-            <?= Html::img('@web/uploads/post/main/155/155'.$post->mainimage, ['style' => 'width:155px !important; height:155px !important']) ?>
+            <?= Html::img('@web/uploads/post/main/155/155'.$post->mainimage) ?>
             <strong><?= $post->header_meny ?></strong>
           </div>
        </a>
@@ -103,7 +91,7 @@ $this->params['breadcrumbs'][] = $category->header_meny;
   
 
 </div>
-  <div class="span4 sidebar">
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sidebar">
     <?= $this->render('_top', ['topposts' => $topposts]) ?>
     <?= $this->render('_collbackForm', ['collback' => $collback]) ?>
     <?= $this->render('_feedbackForm', ['feedback' => $feedback]) ?>

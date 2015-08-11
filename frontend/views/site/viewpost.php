@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $post->header_meny;
   <meta itemprop="brand" content="1Design®">
 <div class="container">
 <div class="row">
-  <div class="span12" style='margin-left: 15px;'>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <section class="title-section">
       <h1 class="title-header"><?= $post->h_1 ?></h1>
       <h2 style="padding-bottom: 15px; font-size: 14px"><?= $post->h_2 ?></h2>
@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $post->header_meny;
   </div>
 </div>
 <div class="row">
-<div class="col-xs-8 col-sm-8	col-md-8 col-lg-8">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" style='margin-left: -15px'>
 
 
  
@@ -158,20 +158,8 @@ s.parentNode.insertBefore(hcc, s.nextSibling);
     <h2>Просмотренная продукция:</h2>
     
     <ul class="products">
-      <?php $i = 0; ?>
       <?php foreach($lastposts as $lastpost): ?>
-      <li class="product 
-          
-      <?php $i++; 
-        if ($i == 1){
-          echo 'first';
-        }
-        if ($i == 4){
-          echo 'last';
-          $i = 0;
-        }
-      
-      ?>">
+      <li class="product">
        <a href="<?= Url::toRoute(['site/post', 'alias' => $lastpost->alias]) ?>">
           <div class="product-link-wrap">
             <?= Html::img('@web/uploads/post/main/155/155'.$lastpost->mainimage,['width' => 155, 'height' => 155]) ?>
@@ -189,7 +177,7 @@ s.parentNode.insertBefore(hcc, s.nextSibling);
     
   </div>
 </div>
-  <div class="col-xs-4 col-sm-4	col-md-4 col-lg-4 sidebar">
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sidebar">
     <?= $this->render('_top', ['topposts' => $topposts]) ?>
     <?= $this->render('_collbackForm', ['collback' => $collback]) ?>
     <?= $this->render('_feedbackForm', ['feedback' => $feedback]) ?>

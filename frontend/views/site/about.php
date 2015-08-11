@@ -17,25 +17,27 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="content-holder">
 <div class="container">
   <div class="row">
-  <div class="span12" style="margin-left: 15px;">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <section class="title-section">
       <h1 class="title-header"><?= $page->h_1 ?></h1>
       <?= ($page->h_2) ? '<h2 style="padding-bottom: 15px; font-size: 14px">' .  $page->h_2 . '</h2>' : '<br>' ?>
     </section>
   </div>
 </div>
-  <br>
+<br>
+  
 <div class="row">
-<div class="span8" style='margin: 0px'>
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" style='margin-left: -15px; margin-top: 20px'>
 <?= $page->text ?>
 
 </div>
-  <div class="span4 sidebar">
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sidebar">
     <?= $this->render('_top', ['topposts' => $topposts]) ?>
     <?= $this->render('_collbackForm', ['collback' => $collback]) ?>
     <?= $this->render('_feedbackForm', ['feedback' => $feedback]) ?>
   </div>
 </div>
+
 </div>
 </div>
 
