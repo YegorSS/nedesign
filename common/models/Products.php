@@ -27,4 +27,9 @@ class Products extends ActiveRecord
     {
         return $this->hasMany(Relations::className(), ['product_id' => 'id']);
     }
+
+    public function getMatrelations()
+    {
+        return $this->hasMany(Matrelations::className(), ['product_id' => 'id']);
+    }
 }

@@ -10,6 +10,8 @@ use common\models\Variants;
 use common\models\Size;
 use common\models\Colors;
 use common\models\Relations;
+use common\models\Matrelations;
+use common\models\Materials;
 
 
 use Yii;
@@ -32,7 +34,8 @@ class CalculatorController extends Controller
                         'actions' => ['index', 'logout', 'updateprice', 'createproduct', 'editproduct', 'deleteproduct',
                                       'createvariant', 'deletevariant', 'editvariant', 'createsize', 'editsize',
                                       'deletesize', 'createcolor', 'editcolor', 'deletecolor', 'createservice',
-                                      'editservice', 'deleteservice'],
+                                      'editservice', 'deleteservice', 'updatematerialprice', 'creatematerial', 
+                                      'deletematerial', 'creatematrelation'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -57,6 +60,7 @@ class CalculatorController extends Controller
       $services = Services::find()->all();
       $workprice = Prices::find()->where(['product_id' => $product->id]);
       $newprice = new Prices;
+      $materials = Materials::find()->all();
       
       
       if ($product->load(Yii::$app->request->post()) && $product->validate()) {
@@ -79,7 +83,9 @@ class CalculatorController extends Controller
       return $this->render('result', ['product' => $product,
                                       'services' => $services,
                                       'products' => $products,
-                                      'newprice' => $newprice]);
+                                      'newprice' => $newprice,
+                                      'materials' => $materials,
+                                      ]);
     }
   
   public function actionUpdateprice($id){
@@ -96,6 +102,59 @@ class CalculatorController extends Controller
         $price->price = str_replace(",", ".", $_POST["Prices"]["price"]);
         $price->save();
       }
+  }
+
+  public function actionUpdatematerialprice($id){
+    $material = $this->findMaterial($id);
+
+
+    if (isset($_POST["Materials"]["price"])){
+        $material->price = $_POST["Materials"]["price"];
+        $material->save();
+    }
+
+  }
+
+  public function actionCreatematerial($product_id){
+    $product = $this->findProduct($product_id);
+    $material = new Materials();
+    $matrelation = new Matrelations();
+
+        if ($material->load(Yii::$app->request->post()) && $material->validate()) {
+          
+          $material->title = Yii::$app->request->post()["Materials"]["title"];
+          $material->price = Yii::$app->request->post()["Materials"]["price"];
+          $material->save();
+
+          $matrelation->product_id = $product->id;
+          $matrelation->material_id = $material->id;
+          $matrelation->save();
+          
+          return $this->redirect(['result', 'id' => $product->id]);
+        }
+    }
+
+  public function actionDeletematerial($id,$product_id){
+    $material = $this->findMaterial($id);
+
+    foreach($material->matrelations as $matrelation){
+      $matrelation->delete();
+    }
+
+    $material->delete();
+    
+    return $this->redirect(['result', 'id' => $product_id]);
+  }
+
+  public function actionCreatematrelation(){
+    $matrelation = new Matrelations();
+
+    if ($matrelation->load(Yii::$app->request->post()) && $matrelation->validate()) {
+      $matrelation->product_id = Yii::$app->request->post()["Matrelations"]["product_id"];
+      $matrelation->material_id = Yii::$app->request->post()['Matrelations']['material_id'];
+      $matrelation->save();
+      return $this->redirect(['result', 'id' => $matrelation->product_id]);
+    }
   }
     
   public function actionCreateproduct(){
@@ -473,6 +532,15 @@ class CalculatorController extends Controller
   protected function findService($id)
     {
         if (($model = Services::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+  protected function findMaterial($id)
+    {
+        if (($model = Materials::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

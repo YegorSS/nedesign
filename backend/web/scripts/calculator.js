@@ -68,13 +68,18 @@ $(document).ready(function () {
                 checkbox += ' + ' + $('#serv'+i+':checked').val();
             }
         }
+
+        var materials = ' + 0';
+        for (var key in material) {
+            materials += ' + ' + material[key] * $('#mat' + key).val();
+        }
         
         var sum = $('.textarea').val();
-        $('#sum').text(eval(sum + ' + ' + checkbox));
+        $('#sum').text(eval(sum + ' + ' + checkbox + ' + ' + materials));
         
         //sum = window.result(quantity, colorQuantity, priceWork, colorPrice, firstPrice, service2);
         
-        $('.formula').text(quantity +' * ('+colorQuantity+ ' * ' + priceWork +' + '+colorPrice+') + ' + firstPrice + checkbox);
+        $('.formula').text(quantity +' * ('+colorQuantity+ ' * ' + priceWork +' + '+colorPrice+') + ' + firstPrice + checkbox + materials);
         //$('#sum').text(sum);
 	});
 

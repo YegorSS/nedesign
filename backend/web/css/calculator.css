@@ -104,6 +104,10 @@ body{
     display: inline;
 }
 
+.field-materials-price {
+    display: inline;
+}
+
 .container {
   width: 100%;
 }

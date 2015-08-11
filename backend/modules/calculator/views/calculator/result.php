@@ -148,7 +148,14 @@ $this->title = $product->title;
   
   <hr>
   
-  
+    <?php foreach($product->matrelations as $matrelations): ?>
+      <?= $matrelations->materials->title ?>
+      <input id='mat<?= $matrelations->materials->id ?>' type='number' class='matquantity' value='0'> * <?= $matrelations->materials->price ?>грн.
+      <br><br>    
+    <?php endforeach ?>
+
+
+  <hr>
   <div id='sum'></div>
   <hr>
  
@@ -278,6 +285,45 @@ $this->title = $product->title;
   
    
 </ul>
+
+
+<div class="widget-box transparent">
+    <div class="widget-header">
+      <h4 class="widget-title lighter smaller">Доп. материалы:</h4>
+    </div>
+    <div class="view unvisible" style='padding-bottom: 30px;'>
+      <?= $this->render('create_material',['product' => $product]) ?>
+    </div>
+    <div class="view unvisible" style='padding-bottom: 30px;'>
+      <?= $this->render('create_matrelation',['product' => $product]) ?>
+    </div>
+    <div class='widget-body'>
+    <?php foreach($product->matrelations as $matrelations): ?>
+    
+        
+        <ul class="item-list ui-sortable">
+          <li class='clearfix ui-sortable-handle'>
+          <?php $form = ActiveForm::begin(['options' => [
+                'onchange' => 'matprice('. $matrelations->materials->id .')',
+                'class' => 'matform'. $matrelations->materials->id
+             ]]); ?>
+            <?= $matrelations->materials->title ?>
+            <div class="pull-right easy-pie-chart percentage"> 
+              <?= $form->field($matrelations->materials, 'price')->textInput(['class' => 'price form-control'])->label(false) ?>
+              <?= $form->field($matrelations->materials, 'id')->hiddenInput()->label(false) ?>
+            </div>
+            <div class="widget-toolbar view unvisible">
+    <a data-toggle="modal" data-target="#editmaterial<?= $matrelations->materials->id ?>" href="<?= Url::toRoute(['editmaterial', 'id' => $matrelations->materials->id, 'product_id' => $product->id]); ?>"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a href="<?= Url::toRoute(['deletematerial', 'id' => $matrelations->materials->id, 'product_id' => $product->id]); ?>" onclick="return confirm('Вы уверенны?!')"><i class='ace-icon fa fa-trash-o bigger-130'></i></a>
+    </div>
+          <?php ActiveForm::end(); ?>
+          </li>
+        </ul>
+    <?php endforeach ?>
+    </div>
+</div>
+
+
 </div>
 </div>
 </div>
@@ -362,12 +408,30 @@ $this->title = $product->title;
               <?php } ?>
         <?php endforeach; ?>
     <?php endforeach; ?>
+
+    var material = [];
+    <?php foreach($product->matrelations as $matrelations): ?>
+      material[<?= $matrelations->materials->id ?>] = <?= $matrelations->materials->price ?>;
+    <?php endforeach ?>
     
   function call(id) {
       var msg   = $('.form' + id).serialize();
         $.ajax({
           type: 'POST',
           url: 'updateprice?id='+id ,
+          data: msg,
+          error:  function(){
+                alert('Возникла ошибка: ');
+            }
+        });
+ 
+    }
+
+    function matprice(id) {
+      var msg   = $('.matform' + id).serialize();
+        $.ajax({
+          type: 'POST',
+          url: 'updatematerialprice?id='+id ,
           data: msg,
           error:  function(){
                 alert('Возникла ошибка: ');
