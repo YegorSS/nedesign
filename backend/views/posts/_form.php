@@ -11,6 +11,7 @@ use dosamigos\ckeditor\CKEditor;
 /* @var $form yii\widgets\ActiveForm */
 
 $this->registerCssFile('@web/css/admin_style.css', ['depends'=>'backend\assets\AppAsset']);
+$this->registerJsFile('@web/assets/f7a8a83/js/bootstrap.js', ['depends'=>'backend\assets\AppAsset']);
 ?>
 
     <?php $form = ActiveForm::begin([
