@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-//$this->registerCssFile('@web/css/ace-part2.css', ['depends'=>'backend\assets\AppAsset']);
+$this->registerCssFile('@web/css/ace-part2.css', ['depends'=>'backend\assets\AppAsset']);
 $this->registerCssFile('@web/css/ace-rtl.css', ['depends'=>'backend\assets\AppAsset']);
 $this->registerCssFile('@web/css/ace-skins.css', ['depends'=>'backend\assets\AppAsset']);
 $this->registerCssFile('@web/css/ace.css', ['depends'=>'backend\assets\AppAsset']);
