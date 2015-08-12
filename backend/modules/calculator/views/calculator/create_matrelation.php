@@ -20,7 +20,9 @@ $materials = Materials::find()->all();
     ],
 ]); ?>
 
-<?= $form->field($matrelation, 'material_id')->dropDownList(ArrayHelper::map($materials, 'id', 'title'))->label(false) ?>
+<?= $form->field($matrelation, 'material_id')->dropDownList(ArrayHelper::map($materials, 'id', 'title'), ['style'  => 'width: 82%; padding:0;
+    float: left;
+    margin-right: 10px;'])->label(false) ?>
 <?= $form->field($matrelation, 'product_id')->hiddenInput(['value' => $product->id])->label(false) ?>
 
 <?= Html::submitButton('+', ['class' => 'btn btn-primary add', 'style' => 'float:right']) ?>

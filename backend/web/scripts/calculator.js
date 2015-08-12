@@ -69,13 +69,17 @@ $(document).ready(function () {
             }
         }
 
+        var dopservice = eval(checkbox);
+
         var materials = ' + 0';
         for (var key in material) {
             materials += ' + ' + material[key] * $('#mat' + key).val();
         }
         
+        var dopmat = eval(materials);
+
         var sum = $('.textarea').val();
-        $('#sum').text(eval(sum + ' + ' + checkbox + ' + ' + materials));
+        $('#sum').text(eval(sum));
         
         //sum = window.result(quantity, colorQuantity, priceWork, colorPrice, firstPrice, service2);
         

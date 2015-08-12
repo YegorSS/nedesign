@@ -107,7 +107,7 @@ class CalculatorController extends Controller
 
 
     if (isset($_POST["Materials"]["price"])){
-        $material->price = $_POST["Materials"]["price"];
+        $material->price = str_replace(",", ".", $_POST["Materials"]["price"]);
         $material->save();
     }
 
@@ -121,7 +121,7 @@ class CalculatorController extends Controller
         if ($material->load(Yii::$app->request->post()) && $material->validate()) {
           
           $material->title = Yii::$app->request->post()["Materials"]["title"];
-          $material->price = Yii::$app->request->post()["Materials"]["price"];
+          $material->price = str_replace(",", ".", Yii::$app->request->post()["Materials"]["price"]);
           $material->save();
 
           $matrelation->product_id = $product->id;
@@ -166,7 +166,7 @@ class CalculatorController extends Controller
 
     if ($material->load(Yii::$app->request->post()) && $material->validate()){
         $material->title = Yii::$app->request->post()['Materials']['title'];
-        $material->price = Yii::$app->request->post()['Materials']['price'];
+        $material->price = str_replace(",", ".", Yii::$app->request->post()['Materials']['price']);
         $material->save();
         return $this->redirect(['result', 'id' => $product_id]);
     } else{
