@@ -35,7 +35,7 @@ class CalculatorController extends Controller
                                       'createvariant', 'deletevariant', 'editvariant', 'createsize', 'editsize',
                                       'deletesize', 'createcolor', 'editcolor', 'deletecolor', 'createservice',
                                       'editservice', 'deleteservice', 'updatematerialprice', 'creatematerial', 
-                                      'deletematerial', 'creatematrelation'],
+                                      'deletematerial', 'creatematrelation', 'editmaterial'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -155,6 +155,11 @@ class CalculatorController extends Controller
       $matrelation->save();
       return $this->redirect(['result', 'id' => $matrelation->product_id]);
     }
+  }
+
+  public function actionEditmaterial($id){
+    $material = $this->findMaterial($id);
+    return $this->render('create_material', ['material' => $material]);
   }
     
   public function actionCreateproduct(){
