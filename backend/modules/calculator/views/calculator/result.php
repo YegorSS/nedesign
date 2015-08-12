@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-$this->registerCssFile('@web/css/ace-part2.css', ['depends'=>'backend\assets\AppAsset']);
+//$this->registerCssFile('@web/css/ace-part2.css', ['depends'=>'backend\assets\AppAsset']);
 $this->registerCssFile('@web/css/ace-rtl.css', ['depends'=>'backend\assets\AppAsset']);
 $this->registerCssFile('@web/css/ace-skins.css', ['depends'=>'backend\assets\AppAsset']);
 $this->registerCssFile('@web/css/ace.css', ['depends'=>'backend\assets\AppAsset']);
@@ -314,11 +314,22 @@ $this->title = $product->title;
             </div>
             <div class="widget-toolbar view unvisible">
     <a data-toggle="modal" data-target="#editmaterial<?= $matrelations->materials->id ?>" href="<?= Url::toRoute(['editmaterial', 'id' => $matrelations->materials->id, 'product_id' => $product->id]); ?>"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a href="<?= Url::toRoute(['deletematrelation', 'id' => $matrelations->id, 'product_id' => $product->id]); ?>"><i class='glyphicon glyphicon-minus-sign'></i></a>
     <a href="<?= Url::toRoute(['deletematerial', 'id' => $matrelations->materials->id, 'product_id' => $product->id]); ?>" onclick="return confirm('Вы уверенны?!')"><i class='ace-icon fa fa-trash-o bigger-130'></i></a>
     </div>
           <?php ActiveForm::end(); ?>
           </li>
         </ul>
+
+        <!-- Modal -->
+      <div class="modal fade" id="editmaterial<?= $matrelations->materials->id ?>" tabindex="-1" role="dialog" aria-labelledby="editmaterial<?= $matrelations->materials->id ?>" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          </div>
+        </div>
+      </div>
+<!-- /Modal -->
+
     <?php endforeach ?>
     </div>
 

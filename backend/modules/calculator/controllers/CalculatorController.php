@@ -12,8 +12,6 @@ use common\models\Colors;
 use common\models\Relations;
 use common\models\Matrelations;
 use common\models\Materials;
-
-
 use Yii;
 
 
@@ -35,7 +33,7 @@ class CalculatorController extends Controller
                                       'createvariant', 'deletevariant', 'editvariant', 'createsize', 'editsize',
                                       'deletesize', 'createcolor', 'editcolor', 'deletecolor', 'createservice',
                                       'editservice', 'deleteservice', 'updatematerialprice', 'creatematerial', 
-                                      'deletematerial', 'creatematrelation', 'editmaterial'],
+                                      'deletematerial', 'creatematrelation', 'editmaterial', 'deletematrelation'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -51,7 +49,6 @@ class CalculatorController extends Controller
       $product = Products::find()->one();
       return $this->redirect(['result', 'id' => $product->id]);
     }
-    
     
     public function actionResult($id){
       $this->layout = 'layout';
@@ -73,6 +70,7 @@ class CalculatorController extends Controller
         $price->price = str_replace(",", ".", $_POST["Prices"]["price"]);
         $price->save();
       }
+
       if (isset($_POST["Prices"]["color_id"]) && isset($_POST["Prices"]["size_id"])){
         $price = new Prices;
         $price->color_id = $_POST["Prices"]["color_id"];
@@ -157,9 +155,23 @@ class CalculatorController extends Controller
     }
   }
 
-  public function actionEditmaterial($id){
+  public function actionDeletematrelation($id, $product_id){
+    $this->findMaterelation($id)->delete();
+    return $this->redirect(['result', 'id' => $product_id]);
+  }
+
+  public function actionEditmaterial($id, $product_id){
+    $this->layout = 'modal';
     $material = $this->findMaterial($id);
-    return $this->render('create_material', ['material' => $material]);
+
+    if ($material->load(Yii::$app->request->post()) && $material->validate()){
+        $material->title = Yii::$app->request->post()['Materials']['title'];
+        $material->price = Yii::$app->request->post()['Materials']['price'];
+        $material->save();
+        return $this->redirect(['result', 'id' => $product_id]);
+    } else{
+      return $this->render('edit_material', ['material' => $material, 'product_id' => $product_id]);
+    }
   }
     
   public function actionCreateproduct(){
@@ -490,13 +502,6 @@ class CalculatorController extends Controller
     return $this->redirect(['result', 'id' => $product_id]);
        
     }
-    
-    
-    
-    
-    
-    
-    
   
   protected function findProduct($id)
     {
@@ -551,4 +556,12 @@ class CalculatorController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+  protected function findMaterelation($id){
+    if (($model = Matrelations::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+  }
 }

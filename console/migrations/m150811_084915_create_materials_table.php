@@ -10,12 +10,12 @@ class m150811_084915_create_materials_table extends Migration
         $this->createTable('materials', [
             'id' => 'pk',
             'title' => Schema::TYPE_STRING . ' NOT NULL',
-            'price' => Schema::TYPE_INTEGER,
+            'price' => Schema::TYPE_DECIMAL . '(8,2)',
         ]);
 
          $this->insert('materials', [
             'title' => 'Клише (цена за сантиметр)',
-            'price' => 100,
+            'price' => 100.00,
         ]);
     }
 
