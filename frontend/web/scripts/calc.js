@@ -24,10 +24,6 @@ $(document).ready(function () {
 
 		$('.size' + sizeId).addClass("visible");
 	});
-    
-    
-    
-    
 
 	$('.summary').on("change click keyup", function(){
 		var priceSize;
@@ -64,9 +60,18 @@ $(document).ready(function () {
         var checkbox = ' + 0';
         for(var i = 0; i < $('.serv').length; i++ ){
             if($('#serv'+i+':checked').val()){
-                checkbox += ' + ' + $('#serv'+i+':checked').val();
+                checkbox += ' + ' + $('#serv' + i + ':checked').val();
             }
         }
+
+        var dopservice = eval(checkbox);
+
+        var materials = ' + 0';
+        for (var key in material) {
+            materials += ' + ' + material[key] * $('#mat' + key).val();
+        }
+        
+        var dopmat = eval(materials);
         
         var sum = $('#products-formula').val();
         //$('#sum').text(eval(sum + ' + '+ checkbox));
@@ -76,16 +81,17 @@ $(document).ready(function () {
         
         //sum = window.result(quantity, colorQuantity, priceWork, colorPrice, firstPrice, service2);
         
-        $('.formula').text(quantity +' * ('+colorQuantity+ ' * ' + priceWork +' + ' + colorPrice + ') + ' + firstPrice + checkbox);
+        $('.formula').text(quantity +' * ('+colorQuantity+ ' * ' + priceWork +' + ' + colorPrice + ') + ' + firstPrice);
         //$('#sum').text(sum);
         
         
   
       $('#check').click(function(){
-        if(eval(sum + ' + '+ checkbox)){
+        //if(eval(sum)){
+
             $('#sum').removeClass();
-            $('#odometer').html(Math.round(eval(sum + ' + '+ checkbox)));
-        }
+            $('#odometer').html(Math.round(eval(sum)));
+        //}
       });
         
     

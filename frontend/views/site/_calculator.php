@@ -94,13 +94,19 @@
     <?php endforeach; ?>
   <?php endforeach; ?>
   <div class="clear"></div>
-  
+  <?php foreach($product->matrelations as $matrelations): ?>
+      <?= $matrelations->materials->title ?>
+      <input id='mat<?= $matrelations->materials->id ?>' type='number' class='matquantity' value='0'> * <?= $matrelations->materials->price ?>грн.
+      <br><br>    
+    <?php endforeach ?>
   <br>
   
   <button id='check' style='float:left' class='btn btn-primary'>Расчитать</button>
   <div id='sum' class='unvisible'>
     <div id="odometer" class="odometer" style='font-size: 27px; margin-left: 10px;'></div> грн.
   </div>
+
+  <div id='ttt'></div>
   <div class="clear"></div>
   </div>
   <br>
@@ -133,7 +139,12 @@
   <?php endforeach; ?>
 </div>
 
-
+<script>
+var material = [];
+    <?php foreach($product->matrelations as $matrelations): ?>
+      material[<?= $matrelations->materials->id ?>] = <?= $matrelations->materials->price ?>;
+    <?php endforeach ?>
+</script>
   
       
 

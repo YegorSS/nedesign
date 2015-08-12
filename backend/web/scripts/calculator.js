@@ -25,7 +25,7 @@ $(document).ready(function () {
 		$('.size' + sizeId).addClass("visible");
 	});
 
-	$('*').on("change click", function(){
+	$('*').on("change click keyup", function(){
 		var priceSize;
 
 

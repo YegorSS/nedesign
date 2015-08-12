@@ -15,7 +15,7 @@ class m150523_122643_create_products_table extends Migration
 
         $this->insert('products', [
             'title' => 'Пакеты',
-            'formula' => 'quantity * (colorQuantity * priceWork + colorPrice) + firstPrice'
+            'formula' => 'quantity * (colorQuantity * priceWork + colorPrice) + firstPrice + dopservice + dopmat'
         ]);
     }
 

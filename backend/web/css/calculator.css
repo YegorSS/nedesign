@@ -14,7 +14,7 @@ body{
   color: inherit;
   background-color: inherit;
   background-image: inherit;
-  border: 1px #000000 solid;
+  border: 1px solid #d5d5d5;
   border-radius: inherit;;
   -webkit-box-shadow: inherit;
   box-shadow: inherit;
@@ -34,9 +34,9 @@ body{
 
 
 
-//.help-block {
-//    display: none;
-//}
+.help-block {
+    display: none;
+}
 
 .dropdown-menu{
   display: none;  
@@ -254,3 +254,7 @@ a:active {
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none;
     margin:0;}
+
+select {
+      border: 1px solid #d5d5d5;
+}
