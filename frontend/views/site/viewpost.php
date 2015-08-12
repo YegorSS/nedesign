@@ -168,8 +168,8 @@ s.parentNode.insertBefore(hcc, s.nextSibling);
        </a>
       </li>
       <?php endforeach; ?>
-      <div class="clear"></div>
     </ul>
+      
     
   </div>
   

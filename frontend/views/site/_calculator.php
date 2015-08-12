@@ -97,7 +97,7 @@
   <br>
   <?php foreach($product->matrelations as $matrelations): ?>
       <?= $matrelations->materials->title ?><br>
-      <input id='mat<?= $matrelations->materials->id ?>' type='number' class='matquantity' value='0'  style='width: 50px'> * <?= $matrelations->materials->price ?>грн.
+      <input id='mat<?= $matrelations->materials->id ?>' type='number' class='matquantity' value='0' style='width: 50px'> * <?= $matrelations->materials->price ?>грн.
       <br><br>    
     <?php endforeach ?>
   <br>

@@ -144,13 +144,11 @@ $this->title = $product->title;
     <?php endforeach; ?>
   <?php endforeach; ?>
   
-  
-  
   <hr>
   
     <?php foreach($product->matrelations as $matrelations): ?>
-      <?= $matrelations->materials->title ?>
-      <input id='mat<?= $matrelations->materials->id ?>' type='number' class='matquantity' value='0'> * <?= $matrelations->materials->price ?>грн.
+      <?= $matrelations->materials->title ?><br>
+      <input id='mat<?= $matrelations->materials->id ?>' type='number' class='matquantity' value='0' style='width: 50px'> * <?= $matrelations->materials->price ?>грн.
       <br><br>    
     <?php endforeach ?>
 
