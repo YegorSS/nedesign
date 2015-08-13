@@ -27,7 +27,7 @@ $this->registerJsFile('@web/owl-carousel/owl_carusel_index.js', ['depends'=>'fro
 <div class="content-holder">
 <div class="container">
 <div class="row">
-  <div class="span12" style='margin-left: 15px;'>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <section class="title-section">
       <h1 class="title-header"><?= $page->h_1 ?></h1>
       <h2 style="padding-bottom: 15px; font-size: 14px"><?= $page->h_2 ?></h2>
@@ -36,12 +36,7 @@ $this->registerJsFile('@web/owl-carousel/owl_carusel_index.js', ['depends'=>'fro
 </div>
 
 <div class="row">
-<div>
-  
-
-  
-  
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <div id="carousel-example-generic" class="carousel slide col-lg-12 col-md-12 col-sm-12 col-xs-12" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators hidden-xs hidden-sm">
     
@@ -66,9 +61,6 @@ $this->registerJsFile('@web/owl-carousel/owl_carusel_index.js', ['depends'=>'fro
     <?php endforeach; ?>
     
     
-   <!-- !!! -->
-  </div>
-
   <!-- Controls -->
   <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
@@ -76,33 +68,38 @@ $this->registerJsFile('@web/owl-carousel/owl_carusel_index.js', ['depends'=>'fro
   <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
+  </div>
+
 </div>
-  
+</div>
 
   
   
-<div class="row">
-<div class="span12">
-<div id="post-203" class="post-203 page type-page status-publish hentry page">
-<div class="row">
-<div class="span12"><div class="featured_wrap">
+<div class="row"><br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="featured_wrap">
 <div class="extra-wrap">
 <div class="banner-wrap featured-banners type-1"><a href="#" class="banner_main_link"><h5>Full Color</h5><p>Excepteur sint occaecat cupidatat non proident sunt </p></a></div> 
 <div class="banner-wrap featured-banners type-2"><a href="#" class="banner_main_link"><h5>Instant</h5><p>Excepteur sint occaecat cupidatat non proident sunt </p></a></div> 
 </div>
 <div class="extra-wrap"><div class="banner-wrap featured-banners type-3"><a href="#" class="banner_main_link"><h5>Executive</h5><p>Excepteur sint occaecat cupidatat non proident sunt </p></a></div> 
-<div class="banner-wrap featured-banners type-4"><a href="#" class="banner_main_link"><h5>1-2 Color</h5><p>Excepteur sint occaecat cupidatat non proident sunt </p></a></div> </div>
+<div class="banner-wrap featured-banners type-4"><a href="#" class="banner_main_link"><h5>1-2 Color</h5><p>Excepteur sint occaecat cupidatat non proident sunt </p></a>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 
-
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <?php foreach($categories->where(['type' => 'post'])->all() as $category): ?>
 <h3><?= $category->title ?>:</h3>
-<div class="home_featured" style='margin-right: -10px;'>
-<ul id="owl-demo" class="owl-carousel owl-theme products" style='margin: 0px !important;'>
+<div class="home_featured">
+<ul id="owl-demo" class="owl-carousel owl-theme products" style='margin-left: 0px !important;'>
   <?php foreach($category->posts as $post): ?>
   <?php if($post->active) { ?>
-  <li class="item product" style='width: 94%'>
+  <li class="item product" style='width: 99%; margin-left: 0px !important;'>
     <div class="home_featured">
       <a href="<?= Url::toRoute(['site/post', 'alias' => $post->alias]) ?>">
           <div class="product-link-wrap">
@@ -162,14 +159,13 @@ $this->registerJsFile('@web/owl-carousel/owl_carusel_index.js', ['depends'=>'fro
 -->
 
 </div>
-</div> 
+</div>
+
 <div class="clear"></div>
  
-</div> 
-</div>
-</div>
-</div>
-</div>
+ 
+
+
 </div>
 </div>
 
