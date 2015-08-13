@@ -14,6 +14,7 @@ $this->registerCssFile('@web/owl-carousel/owl.theme.css', ['depends'=>'frontend\
 $this->registerJsFile('@web/owl-carousel/owl.carousel.js', ['depends'=>'frontend\assets\AppAsset']);
 $this->registerJsFile('@web/owl-carousel/owl_carusel_index.js', ['depends'=>'frontend\assets\AppAsset']);
 
+//$this->params['lalala'] = 'bebebe';
 ?>
 
 

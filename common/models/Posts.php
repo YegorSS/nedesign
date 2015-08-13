@@ -134,7 +134,7 @@ class Posts extends \yii\db\ActiveRecord
                     'images' => [
                         [
                           'loc' => Url::to('@web/uploads/post/main/' . $model->mainimage),
-                          'caption' => $model->header_menu,
+                          'caption' => $model->header_meny,
                           'title' => $model->title,
                         ]
                     ],

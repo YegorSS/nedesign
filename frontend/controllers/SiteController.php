@@ -15,6 +15,8 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\data\ActiveDataProvider;
 use yii\data\Pagination;
+use yii\helpers\Url;
+use yii\helpers\StringHelper;
 
 use common\models\Categories;
 use common\models\Carusel;
@@ -89,16 +91,17 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $categories = Categories::find()->where(['active' => true]);
-        $carusel = Carusel::find()->where(['active' => true])->all();
-        $page = $this->findPages(1);
-        return $this->render('index', ['categories' => $categories, 'carusel' => $carusel, 'page' => $page]);
+      $this->view->params['model'] = 'Pages';
+      $this->view->params['id'] = 1;
+      $categories = Categories::find()->where(['active' => true]);
+      $carusel = Carusel::find()->where(['active' => true])->all();
+      $page = $this->findPages(1);
+      return $this->render('index', ['categories' => $categories, 'carusel' => $carusel, 'page' => $page]);
     }
 
     
     public function actionPost($alias)
     {
-      
       $post = $this->findPost($alias);
       $categories = Categories::find()->where(['active' => true]);
       $topposts = Posts::find()->where(['active' => true])->limit(5)->orderBy('(rate / voites) DESC')->all();
@@ -106,6 +109,8 @@ class SiteController extends Controller
       $collback = new Collback();
       $feedback = new Feedback();
       
+      $this->view->params['model'] = 'Posts';
+      $this->view->params['id'] = $post->id;
       
       $_SESSION = Yii::$app->session;
       //$_SESSION->remove('viewPost');
@@ -144,7 +149,6 @@ class SiteController extends Controller
 
     public function actionNews($alias)
     {
-      
       $news = $this->findNews($alias);
       $categories = Categories::find()->where(['active' => true]);
       $topposts = Posts::find()->where(['active' => true])->limit(5)->orderBy('(rate / voites) DESC')->all();
@@ -152,6 +156,8 @@ class SiteController extends Controller
       $collback = new Collback();
       $feedback = new Feedback();
       
+      $this->view->params['model'] = 'News';
+      $this->view->params['id'] = $news->id;
       
       return $this->render('viewnews', ['news' => $news,
           'categories' => $categories,
@@ -167,6 +173,9 @@ class SiteController extends Controller
       $topposts = Posts::find()->where(['active' => true])->limit(5)->orderBy('(rate / voites) DESC')->all();
       $collback = new Collback;
       $feedback = new Feedback();
+
+      $this->view->params['model'] = 'Category';
+      $this->view->params['id'] = $id;
 
       if($category->type == 'post')
       {
@@ -243,6 +252,10 @@ class SiteController extends Controller
     {
       $categories = Categories::find()->where(['active' => true]);
       $page = $this->findPages(2);
+
+      $this->view->params['model'] = 'Pages';
+      $this->view->params['id'] = 2;
+
       return $this->render('contact', ['categories' => $categories, 'page' => $page]);
     }
 
@@ -254,6 +267,9 @@ class SiteController extends Controller
       
         $collback = new Collback();
         $feedback = new Feedback();
+
+        $this->view->params['model'] = 'Pages';
+        $this->view->params['id'] = 3;
         
         return $this->render('about', ['page' => $page, 'categories' => $categories, 'topposts' => $topposts, 'collback' => $collback, 'feedback' => $feedback]);
     }
@@ -313,6 +329,88 @@ class SiteController extends Controller
       
       return json_encode($posts->limit(10)->asArray()->all());
       
+    }
+
+    public function actionRss($type, $id)
+    { 
+      //if($type == 'Pages'){
+      //  $query = Pages::find($id);
+      //}
+
+      switch($type){
+        case 'Pages':
+          $query = Pages::find()->where(['id' => $id]);
+          $title = $query->one()->title;
+          $link = Url::toRoute($query->one()->alias);
+          $description = StringHelper::truncateWords($query->one()->description, 50);
+          break;
+        case 'Posts':
+          $query = Posts::find()->where(['id' => $id]);
+          $title = $query->one()->title;
+          $link = Url::toRoute(['site/posts', 'alias'=> $query->one()->alias]);
+          $description = StringHelper::truncateWords($query->one()->description, 50);
+          break;
+        case 'News':
+          $query = News::find()->where(['id' => $id]);
+          $title = $query->one()->title;
+          $link = Url::toRoute(['site/news', 'alias'=> $query->one()->alias]);
+          $description = StringHelper::truncateWords($query->one()->description, 50);
+          break;
+        case 'Category':
+          $category = $this->findCategory($id);
+
+          if($category->type == 'post'){
+            $query = Posts::find()->where(['category_id' => $id]);
+          }else{
+            $query = News::find()->where(['category_id' => $id]);
+          }
+
+          $title = $category->title;
+          $link = Url::toRoute(['site/category', 'id'=> $category->id]);
+          $description = StringHelper::truncateWords($category->description, 50);
+          break;
+      }
+
+      $dataProvider = new ActiveDataProvider([
+          'query' => $query,
+      ]);
+  
+        $response = Yii::$app->getResponse();
+        $headers = $response->getHeaders();
+  
+        $headers->set('Content-Type', 'application/rss+xml; charset=utf-8');
+  
+        $response->content = \Zelenin\yii\extensions\Rss\RssView::widget([
+            'dataProvider' => $dataProvider,
+            'channel' => [
+                'title' => $title,
+                'link' => $link,
+                'description' => $description,
+                'language' => Yii::$app->language
+            ],
+            'items' => [
+                'title' => function ($model, $widget) {
+                        return $model->title;
+                    },
+                'description' => function ($model, $widget) {
+                        return StringHelper::truncateWords($model->description, 50);
+                    },
+                'link' => function ($model, $widget) {
+                        return Url::toRoute(['post/view', 'id' => $model->id], true);
+                    },
+               // 'author' => function ($model, $widget) {
+               //         return $model->user->email . ' (' . $model->user->username . ')';
+               //     },
+                //'guid' => function ($model, $widget) {
+                //        $date = \DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'));
+                //        return 'https://www.1design.org ' . $date->format(DATE_RSS);
+                //    },
+                'pubDate' => function ($model, $widget) {
+                        $date = \DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'));
+                        return $date->format(DATE_RSS);
+                      }
+            ]
+      ]);
     }
     
     protected function findPost($alias)

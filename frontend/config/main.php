@@ -18,6 +18,8 @@ return [
             'showScriptName' => false,
             'enableStrictParsing' => false,
             'rules' => [
+                ['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
+                'site/rss' => 'site/rss',
                 'site/createcollback' => 'site/createcollback',
                 'site/createfeedback' => 'site/createfeedback',
                 'site/search' => 'site/search',
@@ -29,7 +31,6 @@ return [
                 '<alias:[\a-z\-]+>' => 'site/post',
                 '/' => 'site/index',
                 '<teg:[\а-я1-9\-]+>' => 'site/teg',
-                ['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
             ],
         ],
         'cache' => [

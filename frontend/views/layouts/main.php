@@ -66,21 +66,19 @@ AppAsset::register($this);
 
 
 <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
-                                <div class="social pull-right">
-                                  <a itemprop="sameAs" class="twitter" href="https://twitter.com/1DESIGN_ltd" rel="nofollow">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                    <a itemprop="sameAs" class="facebook" href="https://www.facebook.com/1Design.org" rel="nofollow">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                    <a itemprop="sameAs" class="gplus" href="https://plus.google.com/+1designOrgTM/posts" rel="nofollow">
-                                        <i class="fa fa-google-plus"></i>
-                                    </a>
-                                    <a class="rss" href="#" rel="nofollow">
-                                        <i class="fa fa-rss"></i>
-                                    </a>
-                                </div>
-                            </div>
+  <div class="social pull-right">
+    <a itemprop="sameAs" class="twitter" href="https://twitter.com/1DESIGN_ltd" rel="nofollow">
+        <i class="fa fa-twitter"></i>
+    </a>
+    <a itemprop="sameAs" class="facebook" href="https://www.facebook.com/1Design.org" rel="nofollow">
+        <i class="fa fa-facebook"></i>
+    </a>
+    <a itemprop="sameAs" class="gplus" href="https://plus.google.com/+1designOrgTM/posts" rel="nofollow">
+        <i class="fa fa-google-plus"></i>
+    </a>
+    <?= Html::a('<i class="fa fa-rss"></i>', $url = ['site/rss', 'type' => $this->params['model'], 'id' => $this->params['id']] ) ?>
+  </div>
+ </div>
 
 
 
