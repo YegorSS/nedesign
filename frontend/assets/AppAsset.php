@@ -22,6 +22,7 @@ class AppAsset extends AssetBundle
         'http://fonts.googleapis.com/css?family=Open+Sans&#038;subset=latin',
         'css/site.css',
         'css/style.css',
+        'css/font-awesome.css',
     ];
     public $js = [
         'scripts/script.js',

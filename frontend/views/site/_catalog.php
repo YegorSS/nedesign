@@ -11,7 +11,7 @@ use yii\bootstrap\NavBar;
 <?php
             NavBar::begin([
                 'options' => [
-                    'class' => 'nav nav__primary clearfix', 'role' => false
+                    'class' => 'nav nav__primary clearfix'
                 ],
             ]);
             $menuItems[] = ['label' => 'Главная', 'url' => ['/site/index']];

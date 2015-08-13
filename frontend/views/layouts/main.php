@@ -56,10 +56,33 @@ AppAsset::register($this);
   </a>
 </div>
 </div>
-<div class='col-lg-10 col-md-9 col-sm-9'>
+<div class='col-lg-7 col-md-6 col-sm-6'>
   <div class='head-title'>Полиграфия</div>
   <?= $this->render('../site/_searchform') ?>
 </div>
+
+
+
+
+
+<div class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
+                                <div class="social pull-right">
+                                  <a itemprop="sameAs" class="twitter" href="https://twitter.com/1DESIGN_ltd" rel="nofollow">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                    <a itemprop="sameAs" class="facebook" href="https://www.facebook.com/1Design.org" rel="nofollow">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                    <a itemprop="sameAs" class="gplus" href="https://plus.google.com/+1designOrgTM/posts" rel="nofollow">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                    <a class="rss" href="#" rel="nofollow">
+                                        <i class="fa fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
 
 </div>
   
@@ -72,6 +95,7 @@ AppAsset::register($this);
                           'homeLink' => ['label' => '1Design®', 'url' => ['/'], 'itemprop' => "url"],
                           'itemTemplate' => "<li itemscope itemtype='https://data-vocabulary.org/Breadcrumb'><span itemprop='title'>{link}</span></li>",
                           ]) ?>
+
 </div>
 
 </div>
