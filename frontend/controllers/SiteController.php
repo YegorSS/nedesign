@@ -341,19 +341,19 @@ class SiteController extends Controller
         case 'Pages':
           $query = Pages::find()->where(['id' => $id]);
           $title = $query->one()->title;
-          $link = Url::toRoute($query->one()->alias);
+          $link = Url::toRoute($query->one()->alias, true);
           $description = StringHelper::truncateWords($query->one()->description, 50);
           break;
         case 'Posts':
           $query = Posts::find()->where(['id' => $id]);
           $title = $query->one()->title;
-          $link = Url::toRoute(['site/posts', 'alias'=> $query->one()->alias]);
+          $link = Url::toRoute(['site/posts', 'alias'=> $query->one()->alias], true);
           $description = StringHelper::truncateWords($query->one()->description, 50);
           break;
         case 'News':
           $query = News::find()->where(['id' => $id]);
           $title = $query->one()->title;
-          $link = Url::toRoute(['site/news', 'alias'=> $query->one()->alias]);
+          $link = Url::toRoute(['site/news', 'alias'=> $query->one()->alias], true);
           $description = StringHelper::truncateWords($query->one()->description, 50);
           break;
         case 'Category':
@@ -366,7 +366,7 @@ class SiteController extends Controller
           }
 
           $title = $category->title;
-          $link = Url::toRoute(['site/category', 'id'=> $category->id]);
+          $link = Url::toRoute(['site/category', 'id'=> $category->id], true);
           $description = StringHelper::truncateWords($category->description, 50);
           break;
       }
