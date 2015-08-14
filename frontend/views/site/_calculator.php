@@ -94,11 +94,28 @@
     <?php endforeach; ?>
   <?php endforeach; ?>
   <div class="clear"></div>
+
+<br>
+
+
+
+<?php foreach($product->matrelations as $matrelation): ?>
+  <div class="checkbox_buttons">
+<input id="dopserv<?= $matrelation->materials->id ?>" type="checkbox" class="dopserv" value="( <?= $matrelation->materials->workprice ?> *  quantity)">
+<label for='dopserv<?= $matrelation->materials->id ?>'> <?= $matrelation->materials->title ?></label>
+</div>
+<?php endforeach ?>
+
+
+
+
   <br>
   <?php foreach($product->matrelations as $matrelations): ?>
+    <div id='matcount<?= $matrelations->materials->id ?>' class='unvisible'>
       <?= $matrelations->materials->title ?><br>
       <input id='mat<?= $matrelations->materials->id ?>' type='number' class='matquantity' value='0' style='width: 50px'> * <?= $matrelations->materials->price ?>грн.
-      <br><br>    
+      <br><br>
+      </div>
     <?php endforeach ?>
   <br>
   
@@ -142,8 +159,10 @@
 
 <script>
 var material = [];
+var dopworkprice = [];
     <?php foreach($product->matrelations as $matrelations): ?>
       material[<?= $matrelations->materials->id ?>] = <?= $matrelations->materials->price ?>;
+      dopworkprice[<?= $matrelations->materials->id ?>] = <?= $matrelations->materials->workprice ?>;
     <?php endforeach ?>
 </script>
   

@@ -143,13 +143,21 @@ $this->title = $product->title;
     <?php } ?>
     <?php endforeach; ?>
   <?php endforeach; ?>
-  
+  <hr>
+<?php foreach($product->matrelations as $matrelation): ?>
+<input id="dopserv<?= $matrelation->materials->id ?>" type="checkbox" class="dopserv" value="( <?= $matrelation->materials->workprice ?> *  quantity)"> - <?= $matrelation->materials->title ?><br>
+<?php endforeach ?>
+
+
+
   <hr>
   
-    <?php foreach($product->matrelations as $matrelations): ?>
-      <?= $matrelations->materials->title ?><br>
-      <input id='mat<?= $matrelations->materials->id ?>' type='number' class='matquantity' value='0' style='width: 50px'> * <?= $matrelations->materials->price ?>грн.
+    <?php foreach($product->matrelations as $matrelation): ?>
+      <div id='matcount<?= $matrelation->materials->id ?>' class='unvisible'>
+      <?= $matrelation->materials->title ?><br>
+      <input id='mat<?= $matrelation->materials->id ?>' type='number' class='matquantity' value='0' style='width: 50px'> * <?= $matrelation->materials->price ?>грн.
       <br><br>    
+      </div>
     <?php endforeach ?>
 
 
@@ -403,6 +411,71 @@ $this->title = $product->title;
   <?php endforeach; ?>
 
     </div>
+
+
+
+
+
+
+<div class="widget-box transparent">
+    <div class="widget-header">
+      <h4 class="widget-title lighter smaller">Доп. работы:</h4>
+    </div>
+    <div class="view unvisible" style='padding-bottom: 30px;'>
+      <?= $this->render('create_material',['product' => $product]) ?>
+    </div>
+    <div class="view unvisible" style='padding-bottom: 30px;'>
+      <?= $this->render('create_matrelation',['product' => $product]) ?>
+    </div>
+    <div class='widget-body'>
+    <?php foreach($product->matrelations as $matrelations): ?>
+    
+        
+        <ul class="item-list ui-sortable">
+          <li class='clearfix ui-sortable-handle'>
+          <?php $form = ActiveForm::begin(['options' => [
+                'onchange' => 'matprice('. $matrelations->materials->id .')',
+                'class' => 'matform'. $matrelations->materials->id
+             ]]); ?>
+            <?= $matrelations->materials->title ?>
+            <div class="pull-right easy-pie-chart percentage"> 
+              <?= $form->field($matrelations->materials, 'workprice')->textInput(['class' => 'price form-control'])->label(false) ?>
+              <?= $form->field($matrelations->materials, 'id')->hiddenInput()->label(false) ?>
+            </div>
+            <div class="widget-toolbar view unvisible">
+    <a data-toggle="modal" data-target="#editmaterial<?= $matrelations->materials->id ?>" href="<?= Url::toRoute(['editmaterial', 'id' => $matrelations->materials->id, 'product_id' => $product->id]); ?>"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a href="<?= Url::toRoute(['deletematrelation', 'id' => $matrelations->id, 'product_id' => $product->id]); ?>"><i class='glyphicon glyphicon-minus-sign'></i></a>
+    <a href="<?= Url::toRoute(['deletematerial', 'id' => $matrelations->materials->id, 'product_id' => $product->id]); ?>" onclick="return confirm('Вы уверенны?!')"><i class='ace-icon fa fa-trash-o bigger-130'></i></a>
+    </div>
+          <?php ActiveForm::end(); ?>
+          </li>
+        </ul>
+
+        <!-- Modal -->
+      <div class="modal fade" id="editmaterial<?= $matrelations->materials->id ?>" tabindex="-1" role="dialog" aria-labelledby="editmaterial<?= $matrelations->materials->id ?>" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          </div>
+        </div>
+      </div>
+<!-- /Modal -->
+
+    <?php endforeach ?>
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
 </div>
 </div>
 </div>
@@ -424,8 +497,10 @@ $this->title = $product->title;
     <?php endforeach; ?>
 
     var material = [];
+    var dopworkprice = [];
     <?php foreach($product->matrelations as $matrelations): ?>
       material[<?= $matrelations->materials->id ?>] = <?= $matrelations->materials->price ?>;
+      dopworkprice[<?= $matrelations->materials->id ?>] = <?= $matrelations->materials->workprice ?>;
     <?php endforeach ?>
     
   function call(id) {

@@ -108,6 +108,7 @@ class CalculatorController extends Controller
 
     if (isset($_POST["Materials"]["price"])){
         $material->price = str_replace(",", ".", $_POST["Materials"]["price"]);
+        $material->workprice = str_replace(",", ".", $_POST["Materials"]["workprice"]);
         $material->save();
     }
 
@@ -122,6 +123,7 @@ class CalculatorController extends Controller
           
           $material->title = Yii::$app->request->post()["Materials"]["title"];
           $material->price = str_replace(",", ".", Yii::$app->request->post()["Materials"]["price"]);
+          $material->workprice = str_replace(",", ".", Yii::$app->request->post()["Materials"]["workprice"]);
           $material->save();
 
           $matrelation->product_id = $product->id;

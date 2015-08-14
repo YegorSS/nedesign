@@ -68,13 +68,26 @@ $(document).ready(function () {
                 checkbox += ' + ' + $('#serv'+i+':checked').val();
             }
         }
-
         var dopservice = eval(checkbox);
 
+        
+
+        var checkdopworkprice = ' + 0';
         var materials = ' + 0';
-        for (var key in material) {
-            materials += ' + ' + material[key] * $('#mat' + key).val();
+        for (var key in dopworkprice) {
+            if($('#dopserv'+key+':checked').val()){
+               checkdopworkprice += ' + ' + $('#dopserv'+key+':checked').val();
+                for (var matkey in material) {
+                    materials += ' + ' + material[matkey] * $('#mat' + matkey).val();
+                }
+               $('#matcount' + key).css('display', 'inline');
+            }else{
+                $('#matcount' + key).css('display', 'none');
+            }
+
         }
+
+        var dopwork = eval(checkdopworkprice);
         
         var dopmat = eval(materials);
 
@@ -83,7 +96,7 @@ $(document).ready(function () {
         
         //sum = window.result(quantity, colorQuantity, priceWork, colorPrice, firstPrice, service2);
         
-        $('.formula').text(quantity +' * ('+colorQuantity+ ' * ' + priceWork +' + '+colorPrice+') + ' + firstPrice + checkbox + materials);
+        $('.formula').text(quantity +' * ('+colorQuantity+ ' * ' + priceWork +' + '+colorPrice+') + ' + firstPrice + checkbox + materials +  checkdopworkprice);
         //$('#sum').text(sum);
 	});
 
