@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $post->header_meny;
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <section class="title-section">
       <h1 class="title-header"><?= $post->h_1 ?></h1>
-      <h2 style="padding-bottom: 15px; font-size: 14px"><?= $post->h_2 ?></h2>
+      <?= ($post->h_2) ? '<h2 style="padding-bottom: 15px; font-size: 14px">' .  $post->h_2 . '</h2>' : '<br>' ?>
     </section>
   </div>
 </div>
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $post->header_meny;
   <div id="post-1900" class="post-1900 product type-product status-publish hentry">
     <div class="row">
     <div class="images col-xs-6">
-      <a href="<?= Url::to('@web/uploads/post/main/'.$post->mainimage) ?>" class="zoom" rel="prettyPhoto" title='<?= $post->title ?>'>
+      <a href="<?= Url::to('@web/uploads/post/main/'.$post->mainimage) ?>" class="zoom" data-rel="prettyPhoto" title='<?= $post->title ?>'>
         <?= Html::img('@web/uploads/post/main/300/300'.$post->mainimage, ['alt' => $post->title, 'itemprop' => "image"]) ?>
       </a>
       
@@ -67,7 +67,7 @@ $this->params['breadcrumbs'][] = $post->header_meny;
       <div id="owl-thumb" class="thumbnails">
         <?php foreach($post->postimage as $postimage): ?>
           <div class="item">
-            <a rel="prettyPhoto[product-gallery]" href="<?= Url::to('@web/uploads/post/images/' . $postimage->image) ?>" class="zoom" title='<?= $post->title ?>'>
+            <a data-rel="prettyPhoto[product-gallery]" href="<?= Url::to('@web/uploads/post/images/' . $postimage->image) ?>" class="zoom" title='<?= $post->title ?>'>
               <?= Html::img('@web/uploads/post/images/90/90'.$postimage->image, ['alt' => $post->title, 'class' => "attachment-90x90", 'width' => 60, 'height' => 60]) ?>
             </a>
           </div>

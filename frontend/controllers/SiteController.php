@@ -413,16 +413,16 @@ class SiteController extends Controller
                // 'author' => function ($model, $widget) {
                //         return $model->user->email . ' (' . $model->user->username . ')';
                //     },
-                'guid' => function ($model, $widget) {
-                    if (isset($model->categories)){
-                      if( $model->categories->type == 'news'){
-                        $date = \DateTime::createFromFormat('Y-m-d H:i:s', $model->created);
-                        return Url::toRoute('/news/'.$model->alias, true) . ' ' . $date->format(DATE_RSS);
-                      }
-                    }
-                        $date = \DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'));
-                        return Url::toRoute('/'.$model->alias, true) . ' ' . $date->format(DATE_RSS);
-                    },
+               // 'guid' => function ($model, $widget) {
+               //     if (isset($model->categories)){
+               //       if( $model->categories->type == 'news'){
+               //         $date = \DateTime::createFromFormat('Y-m-d H:i:s', $model->created);
+               //         return Url::toRoute('/news/'.$model->alias, true) . ' ' . $date->format(DATE_RSS);
+               //       }
+               //     }
+               //         $date = \DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'));
+               //         return Url::toRoute('/'.$model->alias, true) . ' ' . $date->format(DATE_RSS);
+               //     },
                 'pubDate' => function ($model, $widget) {
                     if (isset($model->categories)){
                       if( $model->categories->type == 'news'){

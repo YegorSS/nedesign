@@ -24,7 +24,7 @@ $this->registerJsFile('@web/scripts/gmaps.js', ['depends'=>'frontend\assets\AppA
   <div class="span12" style="margin-left: 15px;">
     <section class="title-section">
       <h1 class="title-header"><?= $page->h_1 ?></h1>
-      <h2 style="padding-bottom: 15px; font-size: 14px"><?= $page->h_2 ?></h2>
+      <?= ($page->h_2) ? '<h2 style="padding-bottom: 15px; font-size: 14px">' .  $page->h_2 . '</h2>' : '<br>' ?>
     </section>
   </div>
 </div>

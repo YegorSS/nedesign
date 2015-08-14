@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $news->title;
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <section class="title-section">
           <h1 class="title-header"><?= $news->h_1 ?></h1>
-          <h2 style="padding-bottom: 15px; font-size: 14px"><?= $news->h_2 ?></h2>      
+          <?= ($news->h_2) ? '<h2 style="padding-bottom: 15px; font-size: 14px">' .  $news->h_2 . '</h2>' : '<br>' ?>      
         </section>
       </div>
     </div>

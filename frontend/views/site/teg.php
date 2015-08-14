@@ -25,14 +25,14 @@ $this->params['breadcrumbs'][] = $tegname;
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <section class="title-section">
-          <h1 itemprop="headline" class="title-header"><?= $tegname ?></h1>
+          <h1 class="title-header"><?= $tegname ?></h1>
           <h2 style="padding-bottom: 15px; font-size: 14px"><?= $post->h_1 ?></h2>   
         </section>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" style='margin-left: -15px' itemprop="articleBody"> 
-        <article class="post-71 post type-post status-publish format-standard hentry category-uncategorized post__holder cat-1-id">
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" style='margin-left: -15px'> 
+        <div><br>
           <figure class="featured-thumbnail thumbnail ">
             <?= Html::img('@web/uploads/post/main/155/155' . $post->mainimage) ?>
           </figure>
@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $tegname;
             <?= Html::a('Подробнее', ['site/post', 'alias' => $post->alias], ['class' => 'btn btn-primary']) ?>
             <div class='clear'></div>
           </div>
-        </article>
+        </div>
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sidebar">
         <?= $this->render('_top', ['topposts' => $topposts]) ?>

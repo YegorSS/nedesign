@@ -24,7 +24,7 @@ $this->registerJsFile('@web/owl-carousel/owl_carusel_index.js', ['depends'=>'fro
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <section class="title-section">
           <h1 class="title-header"><?= $page->h_1 ?></h1>
-          <h2 style="padding-bottom: 15px; font-size: 14px"><?= $page->h_2 ?></h2>
+          <?= ($page->h_2) ? '<h2 style="padding-bottom: 15px; font-size: 14px">' .  $page->h_2 . '</h2>' : '<br>' ?>
         </section>
       </div>
     </div>

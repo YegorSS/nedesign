@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $category->header_meny;
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <section class="title-section">
           <h1 class="title-header"><?= $category->title ?></h1>
-          <h2 style="padding-bottom: 15px; font-size: 14px"><?= $category->h_2 ?></h2>
+          <?= ($category->h_2) ? '<h2 style="padding-bottom: 15px; font-size: 14px">' .  $category->h_2 . '</h2>' : '<br>' ?>
         </section>
       </div>
     </div>
@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $category->header_meny;
           <?= LinkPager::widget(['pagination' => $pages,]); ?>
         <?php elseif($category->type == 'news') : ?>
           <?php foreach($posts as $news): ?>
-            <article>
+            <div>
               <header class="post-header">
                 <h3 class='post-title'>
                   <?= Html::a($news->h_1, ['site/news', 'alias' => $news->alias]) ?>
@@ -65,7 +65,7 @@ $this->params['breadcrumbs'][] = $category->header_meny;
                 <?= Html::a('Подробнее', ['site/news', 'alias' => $news->alias], ['class' => 'btn btn-primary']) ?>
                 <div class='clear'></div>
               </div>
-            </article>
+            </div>
           <?php endforeach ?>
           <?= LinkPager::widget(['pagination' => $pages,]); ?>
         <?php endif ?>
