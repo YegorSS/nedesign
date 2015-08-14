@@ -28,7 +28,7 @@ $this->registerJsFile('@web/scripts/gmaps.js', ['depends'=>'frontend\assets\AppA
     </section>
   </div>
 </div>
-  <br>
+<br>
 <div class="row">
 		<div class="span3" style='margin: 0px;'>
 			<h3>Адрес ООО "1Дизайн"</h3>
