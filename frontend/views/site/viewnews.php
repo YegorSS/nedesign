@@ -20,7 +20,7 @@ $this->registerJsFile('@web/scripts/odometer.js', ['depends'=>'frontend\assets\A
 
 
 //$this->params['breadcrumbs'][] = 'Новости';
-$this->params['breadcrumbs'][] = ['label' => $news->catagories->header_meny, 'url' => ['site/category', 'id' => $news->catagories->id], 'itemprop' => "url"];
+$this->params['breadcrumbs'][] = ['label' => $news->categories->header_meny, 'url' => ['site/category', 'id' => $news->categories->id], 'itemprop' => "url"];
 $this->params['breadcrumbs'][] = $news->title;
 ?>
 
@@ -39,7 +39,6 @@ $this->params['breadcrumbs'][] = $news->title;
 <div class="row">
   
 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" style='margin-left: -15px; margin-top: 20px'>
-     
         <?= $news->text ?>
        
 </div>

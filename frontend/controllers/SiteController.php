@@ -347,7 +347,7 @@ class SiteController extends Controller
         case 'Posts':
           $query = Posts::find()->where(['id' => $id]);
           $title = $query->one()->title;
-          $link = Url::toRoute(['site/posts', 'alias'=> $query->one()->alias], true);
+          $link = Url::toRoute(['site/post', 'alias'=> $query->one()->alias], true);
           $description = StringHelper::truncateWords($query->one()->description, 50);
           break;
         case 'News':
@@ -355,6 +355,7 @@ class SiteController extends Controller
           $title = $query->one()->title;
           $link = Url::toRoute(['site/news', 'alias'=> $query->one()->alias], true);
           $description = StringHelper::truncateWords($query->one()->description, 50);
+          $itemLink = 'news';
           break;
         case 'Category':
           $category = $this->findCategory($id);
@@ -369,6 +370,12 @@ class SiteController extends Controller
           $link = Url::toRoute(['site/category', 'id'=> $category->id], true);
           $description = StringHelper::truncateWords($category->description, 50);
           break;
+
+        default:
+          $query = Pages::find()->where(['id' => 1]);
+          $title = $query->one()->title;
+          $link = Url::toRoute($query->one()->alias, true);
+          $description = StringHelper::truncateWords($query->one()->description, 50);
       }
 
       $dataProvider = new ActiveDataProvider([
@@ -396,14 +403,19 @@ class SiteController extends Controller
                         return StringHelper::truncateWords($model->description, 50);
                     },
                 'link' => function ($model, $widget) {
-                        return Url::toRoute(['post/view', 'id' => $model->id], true);
+                    if (isset($model->categories)){
+                      if( $model->categories->type == 'news'){
+                        return Url::toRoute( '/news/'.$model->alias, true);
+                      }
+                    }
+                        return Url::toRoute( '/'.$model->alias, true);
                     },
                // 'author' => function ($model, $widget) {
                //         return $model->user->email . ' (' . $model->user->username . ')';
                //     },
                 //'guid' => function ($model, $widget) {
                 //        $date = \DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'));
-                //        return 'https://www.1design.org ' . $date->format(DATE_RSS);
+                //        return Url::toRoute(['post/view', 'id' => $model->id], true) .' ' . $date->format(DATE_RSS);
                 //    },
                 'pubDate' => function ($model, $widget) {
                         $date = \DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'));

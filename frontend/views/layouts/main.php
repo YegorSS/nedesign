@@ -76,7 +76,7 @@ AppAsset::register($this);
     <a itemprop="sameAs" class="gplus" href="https://plus.google.com/+1designOrgTM/posts" rel="nofollow">
         <i class="fa fa-google-plus"></i>
     </a>
-    <?= Html::a('<i class="fa fa-rss"></i>', $url = ['site/rss', 'type' => $this->params['model'], 'id' => $this->params['id']] ) ?>
+    <?= Html::a('<i class="fa fa-rss"></i>', $url = ['site/rss', 'type' => isset($this->params['model']) ? $this->params['model'] : false , 'id' => isset($this->params['id']) ? $this->params['id'] : false] ) ?>
   </div>
  </div>
 

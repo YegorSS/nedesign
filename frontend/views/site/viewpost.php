@@ -30,7 +30,7 @@ $this->registerJsFile('@web/owl-carousel/owl_carusel_index.js', ['depends'=>'fro
 
 
 
-$this->params['breadcrumbs'][] = ['label' => $post->catagories->header_meny, 'url' => ['category', 'id' => $post->catagories->id], 'itemprop' => "url"];
+$this->params['breadcrumbs'][] = ['label' => $post->categories->header_meny, 'url' => ['category', 'id' => $post->categories->id], 'itemprop' => "url"];
 $this->params['breadcrumbs'][] = $post->header_meny;
 ?>
 
