@@ -26,32 +26,27 @@ $this->params['breadcrumbs'][] = $news->title;
 
 <?= $this->render('_catalog', ['categories' => $categories]) ?>
 <div class="content-holder">
-
-<div class="container">
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <section class="title-section">
-      <h1 class="title-header"><?= $news->h_1 ?></h1>
-      <h2 style="padding-bottom: 15px; font-size: 14px"><?= $news->h_2 ?></h2>      
-    </section>
-  </div>
-</div>
-<div class="row">
-  
-<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" style='margin-left: -15px; margin-top: 20px'>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <section class="title-section">
+          <h1 class="title-header"><?= $news->h_1 ?></h1>
+          <h2 style="padding-bottom: 15px; font-size: 14px"><?= $news->h_2 ?></h2>      
+        </section>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" style='margin-left: -15px; margin-top: 20px'>
         <?= $news->text ?>
-       
-</div>
-
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sidebar">
-    <?= $this->render('_top', ['topposts' => $topposts]) ?>
-    <?= $this->render('_collbackForm', ['collback' => $collback]) ?>
-    <?= $this->render('_feedbackForm', ['feedback' => $feedback]) ?>
-    <?= $this->render('_newsBlock') ?>
-    
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sidebar">
+        <?= $this->render('_top', ['topposts' => $topposts]) ?>
+        <?= $this->render('_collbackForm', ['collback' => $collback]) ?>
+        <?= $this->render('_feedbackForm', ['feedback' => $feedback]) ?>
+        <?= $this->render('_newsBlock') ?>
+      </div>
+    </div>
   </div>
-</div>
-</div>
 </div>
 
  <?= $this->render('_footer',['page' => $news, 'type' => 'news']) ?>
