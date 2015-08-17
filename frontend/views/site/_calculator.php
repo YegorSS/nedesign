@@ -100,24 +100,20 @@
 
 
 <?php foreach($product->matrelations as $matrelation): ?>
-  <div class="checkbox_buttons">
+  <div class="checkbox_buttons" style='display: inline'>
 <input id="dopserv<?= $matrelation->materials->id ?>" type="checkbox" class="dopserv" value="( <?= $matrelation->materials->workprice ?> *  quantity)">
 <label for='dopserv<?= $matrelation->materials->id ?>'> <?= $matrelation->materials->title ?></label>
 </div>
+
+    <div id='matcount<?= $matrelation->materials->id ?>' class='unvisible'>
+      <input id='mat<?= $matrelation->materials->id ?>' type='number' class='matquantity' value='0' style='width: 50px'> * <?= $matrelation->materials->price ?>грн.
+      </div>
+<br>
 <?php endforeach ?>
 
+<br>
 
 
-
-  <br>
-  <?php foreach($product->matrelations as $matrelations): ?>
-    <div id='matcount<?= $matrelations->materials->id ?>' class='unvisible'>
-      <?= $matrelations->materials->title ?><br>
-      <input id='mat<?= $matrelations->materials->id ?>' type='number' class='matquantity' value='0' style='width: 50px'> * <?= $matrelations->materials->price ?>грн.
-      <br><br>
-      </div>
-    <?php endforeach ?>
-  <br>
   
   <button id='check' style='float:left' class='btn btn-primary'>Расчитать</button>
   <div id='sum' class='unvisible'>
