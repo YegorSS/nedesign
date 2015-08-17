@@ -145,20 +145,15 @@ $this->title = $product->title;
   <?php endforeach; ?>
   <hr>
 <?php foreach($product->matrelations as $matrelation): ?>
-<input id="dopserv<?= $matrelation->materials->id ?>" type="checkbox" class="dopserv" value="( <?= $matrelation->materials->workprice ?> *  quantity)"> - <?= $matrelation->materials->title ?><br>
+<input id="dopserv<?= $matrelation->materials->id ?>" type="checkbox" class="dopserv" value="( <?= $matrelation->materials->workprice ?> *  quantity)"> - <?= $matrelation->materials->title ?>
+
+      <div id='matcount<?= $matrelation->materials->id ?>' class='unvisible'>
+      <input id='mat<?= $matrelation->materials->id ?>' type='number' class='matquantity' value='0' style='width: 50px'> * <?= $matrelation->materials->price ?>грн.
+      </div>
+<br>
 <?php endforeach ?>
 
 
-
-  <hr>
-  
-    <?php foreach($product->matrelations as $matrelation): ?>
-      <div id='matcount<?= $matrelation->materials->id ?>' class='unvisible'>
-      <?= $matrelation->materials->title ?><br>
-      <input id='mat<?= $matrelation->materials->id ?>' type='number' class='matquantity' value='0' style='width: 50px'> * <?= $matrelation->materials->price ?>грн.
-      <br><br>    
-      </div>
-    <?php endforeach ?>
 
 
   <hr>
@@ -235,8 +230,8 @@ $this->title = $product->title;
   <?php if(isset($color->prices)){ ?>
 <li class='clearfix ui-sortable-handle'>
       <?php $form = ActiveForm::begin(['options' => [
-                'onchange' => 'call('. $color->prices->id .')',
-                'class' => 'form'. $color->prices->id
+                //'onchange' => 'call('. $color->prices->id .')',
+                'class' => 'form'. $color->prices->id . ' priceform'
              ]]); ?>
   <?= $color->title ?>
   <div class="pull-right easy-pie-chart percentage"> 
@@ -247,11 +242,8 @@ $this->title = $product->title;
     <a data-toggle="modal" data-target="#editcolor<?= $color->id ?>" href="<?= Url::toRoute(['editcolor', 'id' => $color->id, 'product_id' => $product->id]); ?>"><span class="glyphicon glyphicon-pencil"></span></a>
     <a href="<?= Url::toRoute(['deletecolor', 'id' => $color->id, 'product_id' => $product->id]); ?>" onclick="return confirm('Вы уверенны?!')"><i class='ace-icon fa fa-trash-o bigger-130'></i></a>
     </div>
-    <?= $form->field($color->prices, 'id')->hiddenInput()->label(false) ?>
-    <?php ActiveForm::end(['options' => [
-                'onchange' => 'call('. $color->prices->id .')',
-                'class' => 'form'. $color->prices->id
-             ]]); ?>
+    <?= $form->field($color->prices, 'id')->hiddenInput(['class' => 'id'])->label(false) ?>
+    <?php ActiveForm::end(); ?>
 </li>
   
 <!-- Modal -->
@@ -310,13 +302,13 @@ $this->title = $product->title;
         <ul class="item-list ui-sortable">
           <li class='clearfix ui-sortable-handle'>
           <?php $form = ActiveForm::begin(['options' => [
-                'onchange' => 'matprice('. $matrelations->materials->id .')',
-                'class' => 'matform'. $matrelations->materials->id
+                //'onchange' => 'matprice('. $matrelations->materials->id .')',
+                'class' => 'matform'. $matrelations->materials->id . ' matform'
              ]]); ?>
             <?= $matrelations->materials->title ?>
             <div class="pull-right easy-pie-chart percentage"> 
               <?= $form->field($matrelations->materials, 'price')->textInput(['class' => 'price form-control'])->label(false) ?>
-              <?= $form->field($matrelations->materials, 'id')->hiddenInput()->label(false) ?>
+              <?= $form->field($matrelations->materials, 'id')->hiddenInput(['class' => 'id'])->label(false) ?>
             </div>
             <div class="widget-toolbar view unvisible">
     <a data-toggle="modal" data-target="#editmaterial<?= $matrelations->materials->id ?>" href="<?= Url::toRoute(['editmaterial', 'id' => $matrelations->materials->id, 'product_id' => $product->id]); ?>"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -394,14 +386,14 @@ $this->title = $product->title;
     <?php if($price->product_id == $product->id || $price->product_id == 0){ ?>
   <li class='clearfix ui-sortable-handle'>
     <?php $form = ActiveForm::begin(['options' => [
-                'onchange' => 'call('. $price->id .')',
-                'class' => 'form'. $price->id
+                //'onchange' => 'call('. $price->id .')',
+                'class' => 'form'. $price->id. ' priceform'
              ]]); ?>
       <?= (isset($price->size_id)) ? $price->size['title'] : 'service'. $relation->services['id'] ?>
     <div class="pull-right easy-pie-chart percentage">
       <?= $form->field($price, 'price')->textInput(['class' => 'form-control price sizew'. $price->size['id'].' service'. $relation->services['id'] ])->label(false) ?>
     </div>
-    <?= $form->field($price, 'id')->hiddenInput()->label(false) ?>
+    <?= $form->field($price, 'id')->hiddenInput(['class' => 'id'])->label(false) ?>
     <?php ActiveForm::end(); ?>
   </li>
     <?php } ?>
@@ -434,13 +426,13 @@ $this->title = $product->title;
         <ul class="item-list ui-sortable">
           <li class='clearfix ui-sortable-handle'>
           <?php $form = ActiveForm::begin(['options' => [
-                'onchange' => 'matprice('. $matrelations->materials->id .')',
-                'class' => 'matform'. $matrelations->materials->id
+                //'onchange' => 'matprice('. $matrelations->materials->id .')',
+                'class' => 'matform'. $matrelations->materials->id . ' matform'
              ]]); ?>
             <?= $matrelations->materials->title ?>
             <div class="pull-right easy-pie-chart percentage"> 
               <?= $form->field($matrelations->materials, 'workprice')->textInput(['class' => 'price form-control'])->label(false) ?>
-              <?= $form->field($matrelations->materials, 'id')->hiddenInput()->label(false) ?>
+              <?= $form->field($matrelations->materials, 'id')->hiddenInput(['class' => 'id'])->label(false) ?>
             </div>
             <div class="widget-toolbar view unvisible">
     <a data-toggle="modal" data-target="#editmaterial<?= $matrelations->materials->id ?>" href="<?= Url::toRoute(['editmaterial', 'id' => $matrelations->materials->id, 'product_id' => $product->id]); ?>"><span class="glyphicon glyphicon-pencil"></span></a>

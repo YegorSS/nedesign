@@ -132,4 +132,31 @@ $(document).ready(function () {
         var col2 = $('.colorQuantity2').val();
         $('.colorQuantity2').val(parseInt(col2) + 1);
     });
+
+    $('.priceform').on('change keyup', function(){
+        var msg   = $(this).serialize();
+        $.ajax({
+          type: 'POST',
+          url: 'updateprice?id='+ $( this ).find('.id').val() ,
+          data: msg,
+          error:  function(){
+                alert('Возникла ошибка: ');
+            }
+        });
+    });
+
+    $('.matform').on('change keyup', function(){
+    //    //console.log( $( this ).serialize());
+    var msg   = $( this ).serialize();
+        $.ajax({
+          type: 'POST',
+          url: 'updatematerialprice?id=' + $( this ).find('.id').val() ,
+          data: msg,
+          error:  function(){
+                alert('Возникла ошибка: ');
+            }
+        });
+    });
+
+
 });

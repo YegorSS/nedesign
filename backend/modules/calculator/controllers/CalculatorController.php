@@ -107,11 +107,14 @@ class CalculatorController extends Controller
 
 
     if (isset($_POST["Materials"]["price"])){
-        $material->price = str_replace(",", ".", $_POST["Materials"]["price"]);
-        $material->workprice = str_replace(",", ".", $_POST["Materials"]["workprice"]);
-        $material->save();
+      $material->price = str_replace(",", ".", $_POST["Materials"]["price"]);
+      $material->save();
     }
-
+    if (isset($_POST["Materials"]["workprice"])){
+      $material->workprice = str_replace(",", ".", $_POST["Materials"]["workprice"]);
+      $material->save();
+    }
+    
   }
 
   public function actionCreatematerial($product_id){
