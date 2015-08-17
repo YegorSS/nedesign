@@ -148,7 +148,14 @@ $this->title = $product->title;
 <input id="dopserv<?= $matrelation->materials->id ?>" type="checkbox" class="dopserv" value="( <?= $matrelation->materials->workprice ?> *  quantity)"> - <?= $matrelation->materials->title ?>
 
       <div id='matcount<?= $matrelation->materials->id ?>' class='unvisible'>
-      <input id='mat<?= $matrelation->materials->id ?>' type='number' class='matquantity' value='0' style='width: 50px'> * <?= $matrelation->materials->price ?>грн.
+        <div style='display: inline-block; padding: 10px'>
+          <p>Длинна, см:</p>
+          <input id='matshir<?= $matrelation->materials->id ?>' type='number' class='matquantity' value='1' style='width: 50px'>
+        </div>
+        <div style='display: inline-block; padding: 10px'>
+          <p>Высота, см:</p>
+          <input id='matvys<?= $matrelation->materials->id ?>' type='number' class='matquantity' value='1' style='width: 50px'>
+        </div>
       </div>
 <br>
 <?php endforeach ?>
@@ -404,11 +411,6 @@ $this->title = $product->title;
 
     </div>
 
-
-
-
-
-
 <div class="widget-box transparent">
     <div class="widget-header">
       <h4 class="widget-title lighter smaller">Доп. работы:</h4>
@@ -461,13 +463,6 @@ $this->title = $product->title;
 
 </div>
 
-
-
-
-
-
-
-
 </div>
 </div>
 </div>
@@ -494,30 +489,4 @@ $this->title = $product->title;
       material[<?= $matrelations->materials->id ?>] = <?= $matrelations->materials->price ?>;
       dopworkprice[<?= $matrelations->materials->id ?>] = <?= $matrelations->materials->workprice ?>;
     <?php endforeach ?>
-    
-  function call(id) {
-      var msg   = $('.form' + id).serialize();
-        $.ajax({
-          type: 'POST',
-          url: 'updateprice?id='+id ,
-          data: msg,
-          error:  function(){
-                alert('Возникла ошибка: ');
-            }
-        });
- 
-    }
-
-    function matprice(id) {
-      var msg   = $('.matform' + id).serialize();
-        $.ajax({
-          type: 'POST',
-          url: 'updatematerialprice?id='+id ,
-          data: msg,
-          error:  function(){
-                alert('Возникла ошибка: ');
-            }
-        });
- 
-    }
 </script>
