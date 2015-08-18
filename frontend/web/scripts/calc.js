@@ -67,12 +67,16 @@ $(document).ready(function () {
         var dopservice = eval(checkbox);
 
         var checkdopworkprice = ' + 0';
+
         var materials = ' + 0';
+        
         for (var key in dopworkprice) {
             if($('#dopserv'+key+':checked').val()){
                checkdopworkprice += ' + ' + $('#dopserv'+key+':checked').val();
                 for (var matkey in material) {
-                    materials += ' + ' + material[matkey] * $('#mat' + matkey).val();
+
+                    var qty = Math.ceil($('#matshir' + matkey).val() * $('#matvys' + matkey).val());
+                    materials += ' + ' + material[matkey] * qty;
                 }
                $('#matcount' + key).css('display', 'inline');
             }else{

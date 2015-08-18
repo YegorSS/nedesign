@@ -73,6 +73,7 @@ $(document).ready(function () {
         
 
         var checkdopworkprice = ' + 0';
+        
         var materials = ' + 0';
         for (var key in dopworkprice) {
             if($('#dopserv'+key+':checked').val()){

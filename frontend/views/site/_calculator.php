@@ -99,17 +99,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <?php foreach($product->matrelations as $matrelation): ?>
   <div class="checkbox_buttons" style='display: inline'>
 <input id="dopserv<?= $matrelation->materials->id ?>" type="checkbox" class="dopserv" value="( <?= $matrelation->materials->workprice ?> *  quantity)">
-<label for='dopserv<?= $matrelation->materials->id ?>'> <?= $matrelation->materials->title ?></label>
+<label for='dopserv<?= $matrelation->materials->id ?>'><?= $matrelation->materials->title ?></label>
 </div>
 
-    <div id='matcount<?= $matrelation->materials->id ?>' class='unvisible'>
-      <input id='mat<?= $matrelation->materials->id ?>' type='number' class='matquantity' value='0' style='width: 50px'> * <?= $matrelation->materials->price ?>грн.
+      <div id='matcount<?= $matrelation->materials->id ?>' class='unvisible'>
+        <div style='display: inline-block; padding: 10px'>
+          <p>Длинна, см:</p>
+          <input id='matshir<?= $matrelation->materials->id ?>' type='number' class='matquantity' value='1' style='width: 50px'>
+        </div>
+        <div style='display: inline-block; padding: 10px'>
+          <p>Высота, см:</p>
+          <input id='matvys<?= $matrelation->materials->id ?>' type='number' class='matquantity' value='1' style='width: 50px'>
+        </div>
       </div>
 <br>
 <?php endforeach ?>
+
+
+
+
+
 
 <br>
 
