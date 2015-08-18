@@ -8,24 +8,25 @@ use yii\helpers\Url;
   <meta itemprop="brand" content="1Design®">
   <meta itemprop="founder" content="Владимир Соловьев">
   <meta itemprop="description" content='Полиграфия Киев. Дизайн-студия 1Дизайн®'>
-  <meta itemprop="url" content="<?= \Yii::$app->urlManager->createAbsoluteUrl('/') ?>">
-  <meta itemprop="logo" content="<?= \Yii::$app->urlManager->createAbsoluteUrl('img/logo.png') ?>"> 
-  <meta itemprop="sameAs" content="https://twitter.com/1DESIGN_ltd">
-  <meta itemprop="sameAs" content="https://www.facebook.com/1Design.org">
-  <meta itemprop="sameAs" content="https://plus.google.com/+1designOrgTM/postsd">
+  <link itemprop="url" href="<?= \Yii::$app->urlManager->createAbsoluteUrl('/') ?>">
+  <link itemprop="logo" href="<?= \Yii::$app->urlManager->createAbsoluteUrl('img/logo.png') ?>"> 
+  <link itemprop="sameAs" href="https://twitter.com/1DESIGN_ltd">
+  <link itemprop="sameAs" href="https://www.facebook.com/1Design.org">
+  <link itemprop="sameAs" href="https://plus.google.com/+1designOrgTM/postsd">
   <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
       <meta itemprop="addressCountry" content='Украина'>
       <meta itemprop="addressLocality" content='г. Киев'>
       <meta itemprop="streetAddress" content='просп. Московский 11, оф. 205'>
   </div>
-  <div itemprop="ContactPoint" itemscope itemtype="https://schema.org/ContactPoint">
+  <div itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
       <meta itemprop="telephone" content='+38 044 500 25 11'>
       <meta itemprop="contactType" content='customer service'>
   </div>
-  <div itemprop="ContactPoint" itemscope itemtype="https://schema.org/ContactPoint">
+  <div itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
       <meta itemprop="telephone" content='+38 0800 21 25 11'>
       <meta itemprop="contactType" content='sales'>
   </div>
+  <meta itemprop="telephone" content='+38 044 500 25 11'>
 
 
 </div>
