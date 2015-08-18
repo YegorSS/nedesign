@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 
 $this->registerJsFile('@web/scripts/calc.js', ['depends'=>'frontend\assets\AppAsset']);

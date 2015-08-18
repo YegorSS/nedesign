@@ -60,7 +60,9 @@ return [
             'models' => [
                 // your models
                 'common\models\Posts',
-                'common\models\Categories'
+                'common\models\Categories',
+                'common\models\News',
+                'common\models\Pages'
                 
             ],
             'urls'=> [

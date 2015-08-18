@@ -7,6 +7,7 @@ use yii\web\UploadedFile;
 use yii\imagine\Image;
 use himiklab\sitemap\behaviors\SitemapBehavior;
 use yii\helpers\Url;
+use common\models\Postimage;
 /**
  * This is the model class for table "Posts".
  *
@@ -121,23 +122,37 @@ class Posts extends \yii\db\ActiveRecord
             'class' => SitemapBehavior::className(),
             'scope' => function ($model) {
                 /** @var \yii\db\ActiveQuery $model */
-                $model->select(['alias','title','mainimage']);
+                $model->select(['id','alias','title','mainimage','header_meny']);
                 $model->andWhere(['active' => true]);
             },
             'dataClosure' => function ($model) {
                 /** @var self $model */
+                $img[] = [
+                          'loc' => Url::to('@web/uploads/post/main/' . $model->mainimage),
+                          'caption' => $model->header_meny,
+                          'title' => $model->title,
+                        ];
+
+                foreach($model->postimage as $image){
+                    $img[] = [
+                          'loc' => Url::to('@web/uploads/post/images/' . $image->image),
+                          'caption' => $model->header_meny,
+                          'title' => $model->title,
+                        ];
+                    $img[] = [
+                          'loc' => Url::to('@web/uploads/post/images/90/90' . $image->image),
+                          'caption' => $model->header_meny,
+                          'title' => $model->title,
+                        ];
+                }
+
+
                 return [
                     'loc' => Url::to('@web/' . $model->alias, true),
                     'lastmod' => strtotime(date("m.d.y")),
                     'changefreq' => SitemapBehavior::CHANGEFREQ_DAILY,
                     'priority' => 0.8,
-                    'images' => [
-                        [
-                          'loc' => Url::to('@web/uploads/post/main/' . $model->mainimage),
-                          'caption' => $model->header_meny,
-                          'title' => $model->title,
-                        ]
-                    ],
+                    'images' => $img
                 ];
             }
         ],
