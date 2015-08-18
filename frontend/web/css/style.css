@@ -251,7 +251,7 @@ ul.products{
 }
 
 .h2{
-    font: normal 22px/26px Open Sans;
+    font: normal 22px/26px "Open Sans";
     color: #383838;
 }
 
@@ -270,7 +270,7 @@ ul.products{
 /* картинки в списке */
 
 /* Соц. кнопки */
-    .social a {
+.social a {
     display: table-cell;
     padding: 0;
     width: 40px;
@@ -280,5 +280,6 @@ ul.products{
     color: #939393; 
     vertical-align: middle;
     background: none;
+}
     /*border-bottom: 5px solid #2ca9df;*/
 /* Соц. кнопки */

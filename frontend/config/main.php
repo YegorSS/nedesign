@@ -59,18 +59,18 @@ return [
             'class' => 'himiklab\sitemap\Sitemap',
             'models' => [
                 // your models
+                'common\models\Pages',
                 'common\models\Posts',
                 'common\models\Categories',
                 'common\models\News',
-                'common\models\Pages'
                 
             ],
             'urls'=> [
                // your additional urls
-               [
-                   'loc' => '@web',
-                   'changefreq' => \himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
-                   'priority' => 0.8,
+               //[
+               //    'loc' => '@web',
+               //    'changefreq' => \himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
+               //    'priority' => 0.8,
                  //  'news' => [
                  //      'publication'   => [
                  //           'name'          => 'Example Blog',
@@ -92,7 +92,7 @@ return [
                     //        'license'       => 'http://example.com/license',
                   //      ],
                    // ],
-               ],
+              // ],
            ],
            'enableGzip' => true, // default is false
            'cacheExpire' => 1, // 1 second. Default is 24 hours
