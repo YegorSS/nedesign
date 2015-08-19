@@ -17,7 +17,7 @@ use yii\bootstrap\NavBar;
             $menuItems[] = ['label' => 'Главная', 'url' => ['/site/index']];
             //$menuItems[] = ['label' => '1design', 'url' => ['#']];
             foreach($categories->where(['type' => 'post'])->all() as $category){
-              $posts = $category->getPosts()->where(['active' => true])->all();
+              $posts = $category->getPosts()->where(['active' => true])->orderBy('header_meny')->all();
               if(count($posts) > 5 ){
                 $postItem[] = ['label' => '<input class="searchlist" >'];
               }
@@ -26,7 +26,7 @@ use yii\bootstrap\NavBar;
                 $postItem[] = ['label' => $post->header_meny, 'url' => ['site/post', 'alias' => $post->alias], 'options' => ['class' => 'post']];
               }
                 if(isset($postItem)){
-                $menuItems[] =  ['label' => $category->header_meny, 'url' => ['site/category', 'id' => $category->id], 'items' => $postItem];
+                $menuItems[] =  ['label' => $category->header_meny, 'url' => ['site/category', 'id' => $category->id], 'linkOptions' => ['data-toggle' => false], 'items' => $postItem];
                 unset($postItem);
                 }else{
                   $menuItems[] =  ['label' => $category->header_meny, 'url' => ['site/category', 'id' => $category->id]];
@@ -43,7 +43,7 @@ use yii\bootstrap\NavBar;
 
 
             
-            $menuItems[] = ['label' => 'Новости', 'url' => ['#'], 'items' => $newsItem];
+            $menuItems[] = ['label' => 'Новости', 'url' => ['#'], 'linkOptions' => ['data-toggle' => 'dropdown'], 'items' => $newsItem];
             $menuItems[] = ['label' => 'Контакты', 'url' => ['/site/contact']];
             $menuItems[] = ['label' => 'О компании', 'url' => ['/site/about']];
             

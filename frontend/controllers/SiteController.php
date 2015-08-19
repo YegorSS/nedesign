@@ -179,7 +179,7 @@ class SiteController extends Controller
 
       if($category->type == 'post')
       {
-        $query = Posts::find()->where(['active' => true])->andWhere(['category_id' => $category->id]);
+        $query = Posts::find()->where(['active' => true])->andWhere(['category_id' => $category->id])->orderBy('header_meny');
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize'=>20]);
         $posts = $query->offset($pages->offset)
