@@ -19,7 +19,7 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/responsive.css',
-        'http://fonts.googleapis.com/css?family=Open+Sans&#038;subset=latin',
+        //'http://fonts.googleapis.com/css?family=Open+Sans&#038;subset=latin',
         'css/site.css',
         'css/style.css',
         'css/font-awesome.css',
