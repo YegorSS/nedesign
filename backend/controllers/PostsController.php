@@ -15,6 +15,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 use yii\imagine\Image;
+use yii\helpers\Url;
 
 /**
  * PostsController implements the CRUD actions for Posts model.
@@ -215,9 +216,12 @@ class PostsController extends Controller
       $mime = \yii\helpers\FileHelper::getMimeType($uploadedFile->tempName);
       $file = time()."_".$uploadedFile->name;
 
-      $url = Yii::getAlias('@web').'/../../frontend/web/uploads/ckeditor/'.$file;
 
+      $url = Url::to('@front/uploads/ckeditor/'.$file);
       $uploadPath = Yii::getAlias('@webroot').'/../../frontend/web/uploads/ckeditor/'.$file;
+
+      //$url = Url::to('@web/../../frontend/web/uploads/ckeditor/'.$file, true);
+      //$uploadPath = Url::to('@webroot/../../frontend/web/uploads/ckeditor/'.$file, true);
       //extensive suitability check before doing anything with the file…
       if ($uploadedFile==null)
       {

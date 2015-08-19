@@ -116,8 +116,7 @@ class NewsController extends Controller
       $mime = \yii\helpers\FileHelper::getMimeType($uploadedFile->tempName);
       $file = time()."_".$uploadedFile->name;
 
-      $url = Yii::getAlias('@web').'/../../frontend/web/uploads/ckeditor/'.$file;
-
+      $url = Url::to('@front/uploads/ckeditor/'.$file);
       $uploadPath = Yii::getAlias('@webroot').'/../../frontend/web/uploads/ckeditor/'.$file;
       //extensive suitability check before doing anything with the file…
       if ($uploadedFile==null)
