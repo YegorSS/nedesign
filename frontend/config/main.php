@@ -12,7 +12,9 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
-        
+        'assetManager' => [
+          'bundles' => require(__DIR__.'/../assets/assets-prod.php'),
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

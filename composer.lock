@@ -374,16 +374,16 @@
         },
         {
             "name": "bower-asset/blueimp-load-image",
-            "version": "1.13.1",
+            "version": "1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blueimp/JavaScript-Load-Image.git",
-                "reference": "32808581869db984cddb6a974fb3394d898428e6"
+                "reference": "464fa505204e2a6592805e799a4b5f63578bea09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blueimp/JavaScript-Load-Image/zipball/32808581869db984cddb6a974fb3394d898428e6",
-                "reference": "32808581869db984cddb6a974fb3394d898428e6",
+                "url": "https://api.github.com/repos/blueimp/JavaScript-Load-Image/zipball/464fa505204e2a6592805e799a4b5f63578bea09",
+                "reference": "464fa505204e2a6592805e799a4b5f63578bea09",
                 "shasum": ""
             },
             "type": "bower-asset-library",
@@ -1005,12 +1005,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-fileinput.git",
-                "reference": "77b2b355b52dd1b4487ed5143e4553d6f612c247"
+                "reference": "084447f095888ddb09a95a1a363842ca87e01c9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/77b2b355b52dd1b4487ed5143e4553d6f612c247",
-                "reference": "77b2b355b52dd1b4487ed5143e4553d6f612c247",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/084447f095888ddb09a95a1a363842ca87e01c9d",
+                "reference": "084447f095888ddb09a95a1a363842ca87e01c9d",
                 "shasum": ""
             },
             "require": {
@@ -1047,7 +1047,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-07-30 12:13:45"
+            "time": "2015-08-17 13:03:50"
         },
         {
             "name": "kartik-v/yii2-widget-rating",

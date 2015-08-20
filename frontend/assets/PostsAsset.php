@@ -23,6 +23,8 @@ class PostsAsset extends AssetBundle
         'css/odometer-theme-plaza.css',
         'owl-carousel/owl.carousel.css',
         'owl-carousel/owl.theme.css',
+        //'css/post.min.css'
+        
     ];
     public $js = [
         'scripts/calc.js',
@@ -31,6 +33,7 @@ class PostsAsset extends AssetBundle
         'scripts/post.js',
         'owl-carousel/owl.carousel.js',
         'owl-carousel/owl_carusel_index.js',
+        //'scripts/post.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
