@@ -20,12 +20,12 @@ $this->params['breadcrumbs'][] = $tegname;
 
 
 <?= $this->render('_catalog', ['categories' => $categories]) ?>
-<div class="content-holder">
+<div class="content-holder" itemscope itemtype="http://schema.org/Product">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <section class="title-section">
-          <h1 class="title-header"><?= $tegname ?></h1>
+          <h1 itemprop="name" class="title-header"><?= $tegname ?></h1>
           <h2 style="padding-bottom: 15px; font-size: 14px"><?= $post->h_1 ?></h2>   
         </section>
       </div>
@@ -34,10 +34,10 @@ $this->params['breadcrumbs'][] = $tegname;
       <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" style='margin-left: -15px'> 
         <div><br>
           <figure class="featured-thumbnail thumbnail ">
-            <?= Html::img('@web/uploads/post/main/155/155' . $post->mainimage) ?>
+            <?= Html::img('@web/uploads/post/main/155/155' . $post->mainimage, ['itemprop' => 'image']) ?>
           </figure>
           <div class="post_content">
-            <div class="excerpt">
+            <div class="excerpt" itemprop="description">
               <?= mb_substr(strip_tags($post->text), 0, 400, 'UTF-8') . "..." ?>
             </div>
             <?= Html::a('Подробнее', ['site/post', 'alias' => $post->alias], ['class' => 'btn btn-primary']) ?>

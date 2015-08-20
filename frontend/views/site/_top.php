@@ -11,7 +11,7 @@ use kartik\rating\StarRating;
       <?php foreach($topposts as $post): ?>
         <li>
           <a href="<?= Url::toRoute(['site/post', 'alias' => $post->alias]) ?>">
-            <?= Html::img('@web/uploads/post/main/65/65'.$post->mainimage, ['style' => 'width:65px !important; height:65px !important']) ?>
+            <?= Html::img('@web/uploads/post/main/65/65'.$post->mainimage, ['width' => '65px', 'height' => '65px']) ?>
             <span class="js_widget_product_title"><?= $post->header_meny ?></span>
           </a>
           
