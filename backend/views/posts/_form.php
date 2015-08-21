@@ -158,6 +158,7 @@ $this->registerJsFile('@web/assets/f7a8a83/js/bootstrap.js', ['depends'=>'backen
     <label class="col-sm-2 control-label right">Картинки</label>
     <div class="col-sm-10" style='margin-bottom: 15px;'>
       <?= $form->field($postimage, 'image[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label(false) ?>
+      <div id='imagealt'></div>
 
       <?php Pjax::begin(); ?>
       <?php foreach($model->postimage as $image): ?>
