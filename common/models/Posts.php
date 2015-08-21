@@ -50,6 +50,8 @@ class Posts extends \yii\db\ActiveRecord
             [['minorder'], 'integer'],
             [['category_id'], 'integer'],
             [['product_id'], 'integer'],
+            [['altmainimage'], 'string'],
+            [['titlemainimage'], 'string'],
             [['mainimage'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, gif', 'checkExtensionByMimeType' => false],
             [['title', 'header_meny', 'h_1', 'h_2', 'keywords', 'description', 'alias'], 'string', 'max' => 255],
             [['active'], 'safe']
@@ -78,6 +80,8 @@ class Posts extends \yii\db\ActiveRecord
             'minorder' => 'Минимальный заказ',
             'rate' => 'Сумма голосов',
             'voites' => 'Кол-во проголосовавших',
+            'altmainimage' => 'Alt картинки',
+            'titlemainimage' => 'Title картинки'
         ];
     }
     

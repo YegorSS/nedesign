@@ -142,6 +142,16 @@ $this->registerJsFile('@web/assets/f7a8a83/js/bootstrap.js', ['depends'=>'backen
         <?= $model->mainimage; ?> - <?= Html::a('X', ['posts/deletemainimage', 'id' => $model->id]); ?>
       </div>
     <?php } ?>
+
+    <label class="col-sm-2 control-label right">Alt главной картинки</label>
+    <div class="col-sm-10">
+      <?= $form->field($model, 'altmainimage')->textInput(['maxlength' => true])->label(false) ?>
+    </div>
+
+    <label class="col-sm-2 control-label right">Title главной картинки</label>
+    <div class="col-sm-10">
+      <?= $form->field($model, 'titlemainimage')->textInput(['maxlength' => true])->label(false) ?>
+    </div>
   
     <?php Pjax::end(); ?>
     
