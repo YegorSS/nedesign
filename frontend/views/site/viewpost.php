@@ -42,7 +42,6 @@ $this->params['breadcrumbs'][] = $post->header_meny;
 <div class="row">
 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" style='margin-left: -15px'>
 
-
  
   <div id="post-1900" class="post-1900 product type-product status-publish hentry">
     <div class="row">
