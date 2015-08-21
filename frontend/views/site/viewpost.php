@@ -10,10 +10,10 @@ use yii\bootstrap\NavBar;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-//use frontend\assets\PostsAsset;
+use frontend\assets\PostsAsset;
 
 
-//PostsAsset::register($this);
+PostsAsset::register($this);
 
 
 

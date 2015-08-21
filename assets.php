@@ -14,10 +14,10 @@ return [
     //'cssCompressor' => 'java -jar yuicompressor.jar --type css {from} -o {to}',
     // The list of asset bundles to compress:
     'bundles' => [
-        //'\frontend\assets\AppAsset',
-        '\frontend\assets\PostsAsset',
-        // 'yii\web\YiiAsset',
-        // 'yii\web\JqueryAsset',
+        //'yii\web\JqueryAsset',
+        //'yii\web\YiiAsset',
+        '\frontend\assets\AppAsset',
+        //'\frontend\assets\PostsAsset',
     ],
     // Asset bundle for compression output:
     'targets' => [
