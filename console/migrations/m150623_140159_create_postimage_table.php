@@ -11,6 +11,8 @@ class m150623_140159_create_postimage_table extends Migration
             'id' => 'pk',
             'image' => Schema::TYPE_STRING,
             'post_id' => Schema::TYPE_INTEGER,
+            'title' => Schema::TYPE_STRING,
+            'alt' => Schema::TYPE_STRING,
             ]);
     }
 

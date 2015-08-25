@@ -100,11 +100,15 @@ class PostsController extends Controller
           
           $model->save();
           
+          $i = 0;
           foreach(UploadedFile::getInstances($postimage, 'image') as $image){
             $postimage = new Postimage;
-            $postimage->image = $image;
+            $postimage->image = $image->name;
             $postimage->post_id = $model->id;
+            $postimage->title = Yii::$app->request->post()["Postimage"]['title'][$i];
+            $postimage->alt = Yii::$app->request->post()["Postimage"]['alt'][$i];
             $postimage->save();
+            $i++;
           }
           
           
@@ -147,11 +151,15 @@ class PostsController extends Controller
           $postimage->uploadimages();
           $model->save();
           
+          $i = 0;
           foreach(UploadedFile::getInstances($postimage, 'image') as $image){
             $postimage = new Postimage;
-            $postimage->image = $image;
+            $postimage->image = $image->name;
             $postimage->post_id = $model->id;
+            $postimage->title = Yii::$app->request->post()["Postimage"]['title'][$i];
+            $postimage->alt = Yii::$app->request->post()["Postimage"]['alt'][$i];
             $postimage->save();
+            $i++;
           }
             return $this->redirect(['index']);
             

@@ -29,6 +29,9 @@ class Postimage extends \yii\db\ActiveRecord
     {
         return [
             [['post_id'], 'integer'],
+            [['alt'], 'string'],
+            [['title'], 'string'],
+            [['image'], 'string'],
         ];
     }
 
@@ -41,6 +44,8 @@ class Postimage extends \yii\db\ActiveRecord
             'id' => 'ID',
             'image' => 'Image',
             'post_id' => 'Post ID',
+            'title' => 'Title',
+            'alt' => 'Alt'
         ];
     }
     
