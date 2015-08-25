@@ -1,4 +1,6 @@
-
+<?php
+use common\models\Kurs;
+?>
       
       
       
@@ -181,6 +183,8 @@ var dopworkprice = [];
       material[<?= $matrelations->materials->id ?>] = <?= $matrelations->materials->price ?>;
       dopworkprice[<?= $matrelations->materials->id ?>] = <?= $matrelations->materials->workprice ?>;
     <?php endforeach ?>
+var materialsKurs = <?= Kurs::findOne(1)->materials ?>;
+var worksKurs = <?= Kurs::findOne(1)->works ?>;
 </script>
   
       

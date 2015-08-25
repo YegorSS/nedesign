@@ -90,3 +90,10 @@ use yii\helpers\Url;
     </div>
   </div>
 </footer>
+<div id="toTop">
+<p id="back-top" style="display: block;">
+<a href='#top'>
+<span></span>
+</a>
+</p>
+</div>

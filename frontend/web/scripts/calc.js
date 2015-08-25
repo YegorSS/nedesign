@@ -35,6 +35,8 @@ $(document).ready(function () {
         var colorQuantity2;
         var colorQuantity;
         var sum;
+
+        
         
 
 		priceSize = +$('.size:checked').attr('value');
