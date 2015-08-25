@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $post->header_meny;
     <div class="row">
     <div class="images col-xs-6">
       <a href="<?= Url::to('@web/uploads/post/main/'.$post->mainimage) ?>" class="zoom" data-rel="prettyPhoto" title='<?= $post->title ?>'>
-        <?= Html::img('@web/uploads/post/main/300/300'.$post->mainimage, ['alt' => $post->title, 'itemprop' => "image", 'width' => '300px', 'height' => '300px']) ?>
+        <?= Html::img('@web/uploads/post/main/300/300'.$post->mainimage, ['title' => $post->titlemainimage, 'alt' => $post->altmainimage, 'itemprop' => "image", 'width' => '300px', 'height' => '300px']) ?>
       </a>
       
 
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $post->header_meny;
         <?php foreach($post->postimage as $postimage): ?>
           <div class="item">
             <a data-rel="prettyPhoto[product-gallery]" href="<?= Url::to('@web/uploads/post/images/' . $postimage->image) ?>" class="zoom" title='<?= $post->title ?>'>
-              <?= Html::img('@web/uploads/post/images/90/90'.$postimage->image, ['alt' => $post->title, 'class' => "attachment-90x90", 'width' => '60px', 'height' => '60px']) ?>
+              <?= Html::img('@web/uploads/post/images/90/90'.$postimage->image, ['alt' => $postimage->alt, 'title' => $postimage->title, 'class' => "attachment-90x90", 'width' => '60px', 'height' => '60px']) ?>
             </a>
           </div>
         <?php endforeach ?>
@@ -150,7 +150,7 @@ s.parentNode.insertBefore(hcc, s.nextSibling);
       <li class="product">
        <a href="<?= Url::toRoute(['site/post', 'alias' => $lastpost->alias]) ?>">
           <div class="product-link-wrap">
-            <?= Html::img('@web/uploads/post/main/155/155'.$lastpost->mainimage,['width' => '155px', 'height' => '155px']) ?>
+            <?= Html::img('@web/uploads/post/main/155/155'.$lastpost->mainimage,['width' => '155px', 'height' => '155px', 'title' => $lastpost->titlemainimage, 'alt' => $lastpost->altmainimage]) ?>
             <strong><?= $lastpost->header_meny ?></strong>
           </div>
        </a>

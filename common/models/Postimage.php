@@ -31,7 +31,7 @@ class Postimage extends \yii\db\ActiveRecord
             [['post_id'], 'integer'],
             [['alt'], 'string'],
             [['title'], 'string'],
-            [['image'], 'string'],
+            //[['image'], 'string'],
         ];
     }
 

@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $category->header_meny;
               <li class="product">
                 <a href="<?= Url::toRoute(['site/post', 'alias' => $post->alias]) ?>">
                   <div class="product-link-wrap">
-                    <?= Html::img('@web/uploads/post/main/155/155'.$post->mainimage) ?>
+                    <?= Html::img('@web/uploads/post/main/155/155'.$post->mainimage, ['title' => $post->titlemainimage, 'alt' => $post->altmainimage, 'width' => '155px', 'height' => '155px']) ?>
                     <strong><?= $post->header_meny ?></strong>
                   </div>
                 </a>

@@ -126,27 +126,27 @@ class Posts extends \yii\db\ActiveRecord
             'class' => SitemapBehavior::className(),
             'scope' => function ($model) {
                 /** @var \yii\db\ActiveQuery $model */
-                $model->select(['id','alias','title','mainimage','header_meny']);
+                $model->select(['id','alias','title','mainimage','header_meny', 'altmainimage', 'titlemainimage']);
                 $model->andWhere(['active' => true]);
             },
             'dataClosure' => function ($model) {
                 /** @var self $model */
                 $img[] = [
                           'loc' => Url::to('@web/uploads/post/main/' . $model->mainimage),
-                          'caption' => $model->header_meny,
-                          'title' => $model->title,
+                          'caption' => $model->altmainimage,
+                          'title' => $model->titlemainimage,
                         ];
 
                 foreach($model->postimage as $image){
                     $img[] = [
                           'loc' => Url::to('@web/uploads/post/images/' . $image->image),
-                          'caption' => $model->header_meny,
-                          'title' => $model->title,
+                          'caption' => $image->alt,
+                          'title' => $image->title,
                         ];
                     $img[] = [
                           'loc' => Url::to('@web/uploads/post/images/90/90' . $image->image),
-                          'caption' => $model->header_meny,
-                          'title' => $model->title,
+                          'caption' => $image->alt,
+                          'title' => $image->title,
                         ];
                 }
 

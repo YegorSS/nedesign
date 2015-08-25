@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $tegname;
       <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" style='margin-left: -15px'> 
         <div><br>
           <figure class="featured-thumbnail thumbnail ">
-            <?= Html::img('@web/uploads/post/main/155/155' . $post->mainimage, ['itemprop' => 'image']) ?>
+            <?= Html::img('@web/uploads/post/main/155/155' . $post->mainimage, ['itemprop' => 'image', 'title' => $post->titlemainimage, 'alt' => $post->altmainimage, 'width' => '155px', 'height' => '155px']) ?>
           </figure>
           <div class="post_content">
             <div class="excerpt" itemprop="description">

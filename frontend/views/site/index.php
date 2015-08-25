@@ -106,7 +106,7 @@ $this->registerJsFile('@web/owl-carousel/owl_carusel_index.js', ['depends'=>'fro
                     <div class="home_featured">
                       <a href="<?= Url::toRoute(['site/post', 'alias' => $post->alias]) ?>">
                         <div class="product-link-wrap">
-                          <?= Html::img('@web/uploads/post/main/200/200'.$post->mainimage) ?>
+                          <?= Html::img('@web/uploads/post/main/200/200'.$post->mainimage, ['title' => $post->titlemainimage, 'alt' => $post->altmainimage, 'width' => '155px', 'height' => '155px']) ?>
                           <strong><?= $post->header_meny ?></strong>
                         </div>
                       </a>
