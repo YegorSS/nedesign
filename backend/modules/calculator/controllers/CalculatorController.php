@@ -12,6 +12,7 @@ use common\models\Colors;
 use common\models\Relations;
 use common\models\Matrelations;
 use common\models\Materials;
+use common\models\Kurs;
 use Yii;
 
 
@@ -33,7 +34,7 @@ class CalculatorController extends Controller
                                       'createvariant', 'deletevariant', 'editvariant', 'createsize', 'editsize',
                                       'deletesize', 'createcolor', 'editcolor', 'deletecolor', 'createservice',
                                       'editservice', 'deleteservice', 'updatematerialprice', 'creatematerial', 
-                                      'deletematerial', 'creatematrelation', 'editmaterial', 'deletematrelation'],
+                                      'deletematerial', 'creatematrelation', 'editmaterial', 'deletematrelation', 'updatekurs'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -52,6 +53,7 @@ class CalculatorController extends Controller
     
     public function actionResult($id){
       $this->layout = 'layout';
+      $kurs = Kurs::findOne(1);
       $products = Products::find()->all();  
       $product = $this->findProduct($id);
       $services = Services::find()->all();
@@ -83,6 +85,7 @@ class CalculatorController extends Controller
                                       'products' => $products,
                                       'newprice' => $newprice,
                                       'materials' => $materials,
+                                      'kurs' => $kurs,
                                       ]);
     }
   
@@ -100,6 +103,13 @@ class CalculatorController extends Controller
         $price->price = str_replace(",", ".", $_POST["Prices"]["price"]);
         $price->save();
       }
+  }
+
+  public function actionUpdatekurs(){
+    $kurs = Kurs::findOne(1);
+    if ($kurs->load(Yii::$app->request->post()) && $kurs->validate()) {
+      $kurs->save();
+    }
   }
 
   public function actionUpdatematerialprice($id){

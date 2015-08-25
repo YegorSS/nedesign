@@ -37,6 +37,9 @@ $(document).ready(function () {
         var colorQuantity2;
         var colorQuantity;
         var sum;
+
+        var materialsKurs = $('#kurs-materials').val();
+        var worksKurs = $('#kurs-works').val();
         
 
 		priceSize = +$('.size:checked').attr('value');
@@ -154,6 +157,19 @@ $(document).ready(function () {
         $.ajax({
           type: 'POST',
           url: 'updatematerialprice?id=' + $( this ).find('.id').val() ,
+          data: msg,
+          error:  function(){
+                alert('Возникла ошибка: ');
+            }
+        });
+    });
+
+    $('.kurs').on('change keyup', function(){
+    //console.log( $( this ).serialize());
+    var msg   = $( this ).serialize();
+        $.ajax({
+          type: 'POST',
+          url: 'updatekurs' ,
           data: msg,
           error:  function(){
                 alert('Возникла ошибка: ');

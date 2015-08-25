@@ -195,6 +195,11 @@ $this->title = $product->title;
   <div class="widget-box transparent">
     <div class="widget-header">
       <h4 class="widget-title lighter smaller">Материалы:</h4>
+<?php $form = ActiveForm::begin([
+                    'options' => ['class' => 'kurs']
+                    ]); ?>
+<?= $form->field($kurs, 'materials')->textInput(['class' => 'price form-control'])->label(false) ?>
+<?php ActiveForm::end(); ?>
     </div>
     <div class='widget-body'>
     
@@ -355,6 +360,11 @@ $this->title = $product->title;
   <div class="widget-box transparent">
     <div class="widget-header">
       <h4 class="widget-title lighter smaller">Работа: </h4>
+      <?php $form = ActiveForm::begin([
+                    'options' => ['class' => 'kurs']
+                    ]); ?>
+        <?= $form->field($kurs, 'works')->textInput(['class' => 'price form-control'])->label(false) ?>
+      <?php ActiveForm::end(); ?>
     </div>
     <div class='widget-body'>
   
