@@ -10,7 +10,10 @@ use yii\widgets\ActiveForm;
 
 <div class="collback-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => ['enctype' => 'multipart/form-data',
+                      'class' => 'form-horizontal',
+                     ]]); ?>
   
 <label class="col-sm-2 control-label right">Телефон</label>
 <div class="col-sm-10">
@@ -38,7 +41,7 @@ use yii\widgets\ActiveForm;
 </div>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Изменить', ['class' => $model->isNewRecord ? 'fixBottom btn-success' : 'fixBottom btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

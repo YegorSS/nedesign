@@ -9,9 +9,12 @@ use dosamigos\ckeditor\CKEditor;
 $this->registerCssFile('@web/css/admin_style.css', ['depends'=>'backend\assets\AppAsset']);
 ?>
 
-<div class="categories-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+
+    <?php $form = ActiveForm::begin([
+        'options' => ['enctype' => 'multipart/form-data',
+                      'class' => 'form-horizontal',
+                     ]]); ?>
 <label class="col-sm-2 control-label right">Title</label>
 <div class="col-sm-10">
     <?= $form->field($model, 'title')->textInput(['maxlength' => true])->label(false) ?>
@@ -81,9 +84,9 @@ $this->registerCssFile('@web/css/admin_style.css', ['depends'=>'backend\assets\A
     <?= $form->field($model, 'parent_id')->hiddenInput()->label(false) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Изменить', ['class' => $model->isNewRecord ? 'btn-success fixBottom' : 'btn-primary fixBottom', 'style' => 'position: relative;']) ?>
     </div>
-
+    
     <?php ActiveForm::end(); ?>
 
-</div>
+

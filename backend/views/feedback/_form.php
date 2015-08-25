@@ -9,9 +9,11 @@ use yii\widgets\ActiveForm;
 $this->registerCssFile('@web/css/admin_style.css', ['depends'=>'backend\assets\AppAsset']);
 ?>
 
-<div class="feedback-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => ['enctype' => 'multipart/form-data',
+                      'class' => 'form-horizontal',
+                     ]]); ?>
 
   <label class="col-sm-2 control-label right">Имя</label>
 <div class="col-sm-10">
@@ -49,9 +51,9 @@ $this->registerCssFile('@web/css/admin_style.css', ['depends'=>'backend\assets\A
 </div>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Изменить', ['class' => $model->isNewRecord ? 'fixBottom btn-success' : 'fixBottom btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
 
-</div>
+

@@ -170,7 +170,7 @@ $this->registerJsFile('@web/assets/f7a8a83/js/bootstrap.js', ['depends'=>'backen
 </div>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Изменить', ['class' => $model->isNewRecord ? 'btn-success fixBottom' : 'btn-primary fixBottom']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
