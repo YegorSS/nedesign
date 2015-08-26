@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $post->header_meny;
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <section class="title-section">
       <h1 class="title-header"><?= $post->h_1 ?></h1>
-      <?= ($post->h_2) ? '<h2 style="padding-bottom: 15px; font-size: 14px">' .  $post->h_2 . '</h2>' : '<br>' ?>
+      <br>
     </section>
   </div>
 </div>
@@ -99,6 +99,7 @@ echo $this->render('_calculator', [
       <!-- Tab panes -->
       <div class="tab-content panel">
         <div class="tab-pane fade in active" id="home" itemprop="description">
+          <?= ($post->h_2) ? '<h2 style="padding-bottom: 15px; font-size: 14px">' .  $post->h_2 . '</h2>' : false ?>
           <?= $post->text ?>
           <?php if($post->tegs): ?>
           <div>
@@ -167,6 +168,7 @@ s.parentNode.insertBefore(hcc, s.nextSibling);
 </div>
   <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 sidebar">
     <?= $this->render('_top', ['topposts' => $topposts]) ?>
+    <?= $this->render('_order_block') ?>
     <?= $this->render('_collbackForm', ['collback' => $collback]) ?>
     <?= $this->render('_feedbackForm', ['feedback' => $feedback]) ?>
     <?= $this->render('_newsBlock') ?>

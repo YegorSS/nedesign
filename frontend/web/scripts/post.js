@@ -37,7 +37,9 @@ $('body,html').animate({scrollTop:0},800);
 
 
 
-
+$('#carousel-order').carousel({
+  interval: 15000
+})
 
     
             
