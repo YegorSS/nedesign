@@ -45,30 +45,31 @@ $this->params['breadcrumbs'][] = $post->header_meny;
  
   <div id="post-1900" class="post-1900 product type-product status-publish hentry">
     <div class="row">
-    <div class="images col-xs-6">
-      <a href="<?= Url::to('@web/uploads/post/main/'.$post->mainimage) ?>" class="zoom" data-rel="prettyPhoto" title='<?= $post->title ?>'>
-        <?= Html::img('@web/uploads/post/main/300/300'.$post->mainimage, ['title' => $post->titlemainimage, 'alt' => $post->altmainimage, 'itemprop' => "image", 'width' => '300px', 'height' => '300px']) ?>
-      </a>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <div class='images'>
+        <a href="<?= Url::to('@web/uploads/post/main/'.$post->mainimage) ?>" class="zoom" data-rel="prettyPhoto" title='<?= $post->title ?>'>
+          <?= Html::img('@web/uploads/post/main/300/300'.$post->mainimage, ['title' => $post->titlemainimage, 'alt' => $post->altmainimage, 'itemprop' => "image", 'width' => '300px', 'height' => '300px']) ?>
+        </a>
       
 
 
-      <div id="owl-thumb" class="thumbnails">
-        <?php foreach($post->postimage as $postimage): ?>
-          <div class="item">
-            <a data-rel="prettyPhoto[product-gallery]" href="<?= Url::to('@web/uploads/post/images/' . $postimage->image) ?>" class="zoom" title='<?= $post->title ?>'>
-              <?= Html::img('@web/uploads/post/images/90/90'.$postimage->image, ['alt' => $postimage->alt, 'title' => $postimage->title, 'class' => "attachment-90x90", 'width' => '60px', 'height' => '60px']) ?>
-            </a>
-          </div>
-        <?php endforeach ?>
+        <div id="owl-thumb" class="thumbnails">
+          <?php foreach($post->postimage as $postimage): ?>
+           <div class="item">
+             <a data-rel="prettyPhoto[product-gallery]" href="<?= Url::to('@web/uploads/post/images/' . $postimage->image) ?>" class="zoom" title='<?= $post->title ?>'>
+               <?= Html::img('@web/uploads/post/images/90/90'.$postimage->image, ['alt' => $postimage->alt, 'title' => $postimage->title, 'class' => "attachment-90x90", 'width' => '60px', 'height' => '60px']) ?>
+             </a>
+           </div>
+         <?php endforeach ?>
+        </div>
       </div>
-
     </div>
       
       
       
       
-    <div class="summary col-xs-6">
-      
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <div class='summary' style='float: none'>
     
       
       
@@ -81,7 +82,7 @@ echo $this->render('_calculator', [
      ?>
       
       
-      
+      </div>
     </div>
     </div>
     
@@ -91,7 +92,7 @@ echo $this->render('_calculator', [
         <?php if(!empty($post->price)){ ?>
           <li><a href="#price" data-toggle="tab">Цены</a></li>
         <?php } ?>
-        <li><a href="#messages" data-toggle="tab" onclick='comments()'>Вопросы</a></li>
+        <li><a href="#messages" data-toggle="tab">Вопросы</a></li>
         <li style="float:right"><a href="#settings" data-toggle="tab">Доставка</a></li>
         <li style="float:right"><a href="#profile" data-toggle="tab">Оплата</a></li>
       </ul>
@@ -119,22 +120,8 @@ echo $this->render('_calculator', [
         </div>
         <div class="tab-pane fade" id="price"><?= $post->price ?></div>
         <div class="tab-pane fade" id="profile"><h4>Оплата в компании ООО «1Дизайн» производится по безналичному расчету</h4></div>
-        <div class="tab-pane fade" id="messages"><div id="hypercomments_widget"></div>
-<script type="text/javascript">
-  function comments(){
-_hcwp = window._hcwp || [];
-_hcwp.push({widget:"Stream", widget_id: 61067});
-(function() {
-if("HC_LOAD_INIT" in window)return;
-HC_LOAD_INIT = true;
-var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
-var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
-hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/61067/"+lang+"/widget.js";
-var s = document.getElementsByTagName("script")[0];
-s.parentNode.insertBefore(hcc, s.nextSibling);
-})();}
-</script>
-<!-- <a href="http://hypercomments.com" class="hc-link" title="comments widget">comments powered by HyperComments</a>--></div> 
+        <div class="tab-pane fade" id="messages">
+        </div> 
         <div class="tab-pane fade" id="settings">
           <h4>Компания «1Дизайн» доставит Ваш заказ в города:</h4>
 
