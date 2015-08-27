@@ -283,7 +283,7 @@ class SiteController extends Controller
           $model->save();
 
           Yii::$app->mailer->compose('collback', ['model' => $model])
-            ->setFrom('lalala@gmail.com')
+            ->setFrom('p@charlotteprinting.net')
             ->setTo('w0683636476@yandex.ru')
             ->setSubject('Поступил заказ звонка')
             ->send();
@@ -304,7 +304,7 @@ class SiteController extends Controller
           $model->save();
 
           Yii::$app->mailer->compose('feedback', ['model' => $model])
-            ->setFrom('lalala@gmail.com')
+            ->setFrom('p@charlotteprinting.net')
             ->setTo('w0683636476@yandex.ru')
             ->setSubject('Поступил заказ консультации')
             ->send();
