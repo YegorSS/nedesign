@@ -35,6 +35,7 @@ use common\models\Size;
 use common\models\Colors;
 use common\models\Relations;
 use common\models\News;
+use common\models\Orders;
 
 /**
  * Site controller
@@ -436,6 +437,24 @@ class SiteController extends Controller
                       }
             ]
       ]);
+    }
+
+    public function actionCreateorder(){
+      $model = new Orders();
+      if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+          $model->save();
+
+          //Yii::$app->mailer->compose('feedback', ['model' => $model])
+          //  ->setFrom('p@charlotteprinting.net')
+          //  ->setTo('w0683636476@yandex.ru')
+          //  ->setSubject('Поступил заказ консультации')
+          //  ->send();
+
+          Yii::$app->session->setFlash('success', 'Заказ отправлен!');
+          return $this->redirect(Yii::$app->request->referrer);
+        } else {
+            return $this->redirect(Yii::$app->request->referrer);
+        }
     }
     
     protected function findPost($alias)

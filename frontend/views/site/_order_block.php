@@ -1,8 +1,8 @@
 <?php
 use yii\helpers\Html;
-use common\models\Orders;
+use common\models\Car_orders;
 
-$orders = Orders::find()->orderBy('sort')->all();
+$car_orders = Car_orders::find()->orderBy('sort')->all();
 $i = 1;
 ?>
 <div class='h2'>Как оформить заказ:
@@ -20,11 +20,11 @@ $i = 1;
 <div id="carousel-order" class="carousel slide" data-ride="carousel" style='width: auto; min-height: 200px;'>
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    <?php foreach($orders as $order): ?>
+    <?php foreach($car_orders as $car_order): ?>
       <div class="item <?= ($i == 1) ? 'active' : false ?>">
       <p>Шаг <?= $i ?></p>
-          <?= Html::img('@web/uploads/orders/'.$order->image, ['style' => 'float: left; width: 60px; margin: 0 10px 10px 0;']) ?>
-          <?= $order->text ?>
+          <?= Html::img('@web/uploads/car_orders/'.$car_order->image, ['style' => 'float: left; width: 60px; margin: 0 10px 10px 0;']) ?>
+          <?= $car_order->text ?>
       </div>
       <?php $i++; ?>
    <?php endforeach ?>

@@ -22,6 +22,7 @@ return [
             'rules' => [
                 ['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
                 'site/rss' => 'site/rss',
+                'site/createorder' => 'site/createorder',
                 'site/createcollback' => 'site/createcollback',
                 'site/createfeedback' => 'site/createfeedback',
                 'site/search' => 'site/search',

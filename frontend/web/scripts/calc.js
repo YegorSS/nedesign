@@ -105,11 +105,31 @@ $(document).ready(function () {
         
   
       $('#check').click(function(){
-        //if(eval(sum)){
 
             $('#sum').removeClass();
             $('#odometer').html(Math.round(eval(sum)));
-        //}
+
+
+            var variant = $('label[for="variant'+$(".variant:checked").attr("value")+'"]').text();
+            var size = $('label[for="size'+$(".size:checked").attr("value")+'"]').text();
+            var color = $('label[for="'+$(".color:checked").attr("id")+'"]').text();
+            var colorQuantity1 = $('.colorQuantity1').val();
+            var colorQuantity2 = $('.colorQuantity2').val();
+            var serv = [];
+
+            for(var i = 0; i < $('.serv').length; i++ ){
+                if($('#serv'+i+':checked').val()){
+                    serv.push($('label[for="serv' + i + '"]').text());
+                }
+            }
+                   
+
+
+
+            var details = '{"product":"'+productName+'","variant":"' + variant + '","size":"' + size + '","color":"' + color+'","colorQuantity1":"'+colorQuantity1+'","colorQuantity2":"'+colorQuantity2+'","quantity":"'+quantity+'","serv":"['+serv.toString()+']"}';
+
+            $('#orders-details').val(details);
+            $('#form_orders').removeClass('unvisible')
       });
         
     
@@ -144,10 +164,6 @@ $(document).ready(function () {
         var col2 = $('.colorQuantity2').val();
         $('.colorQuantity2').val(parseInt(col2) + 1);
     });
-  
-  
-
-
 
   
 });

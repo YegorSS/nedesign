@@ -9,12 +9,6 @@ $(document).ready(function () {
 
 
 
-
-
-
-
-
-
 $('#carousel-order').carousel({
   interval: 15000
 })

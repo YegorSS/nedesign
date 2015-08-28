@@ -1,5 +1,11 @@
 <?php
 use common\models\Kurs;
+use common\models\Orders;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use yii\widgets\MaskedInput;
+
+$orders = new Orders
 ?>
       
       
@@ -101,15 +107,6 @@ use common\models\Kurs;
 
 
 
-
-
-
-
-
-
-
-
-
 <?php foreach($product->matrelations as $matrelation): ?>
   <div class="checkbox_buttons" style='display: inline'>
 <input id="dopserv<?= $matrelation->materials->id ?>" type="checkbox" class="dopserv" value="( <?= $matrelation->materials->workprice ?> *  quantity)">
@@ -143,16 +140,27 @@ use common\models\Kurs;
     <div id="odometer" class="odometer" style='font-size: 27px; margin-left: 10px;'></div> грн.
   </div>
 
-  <div id='ttt'></div>
-  <div class="clear"></div>
+ 
   </div>
   <br>
  
-  
-  
-  
-  
-  <div class="ttt"></div>
+<div id='form_orders' class='unvisible'>
+  <?php $form = ActiveForm::begin([
+    'action' => 'site/createorder',
+]) ?>
+    <?= $form->field($orders, 'name')->label('Ваше Имя *') ?>
+    <?= $form->field($orders, 'telephone')->widget(MaskedInput::className(), [
+      'mask' => '(999) 999-99-99',
+  ])->textInput(['placeholder' => 'Введите номер телефона'])->label('Телефон *') ?>
+    <?= $form->field($orders, 'mail')->textInput()->label('E-mail *') ?>
+    <?= $form->field($orders, 'details')->textArea()->label(false) ?>
+    <div class="form-group">
+        <div class="">
+            <?= Html::submitButton('Заказать', ['class' => 'btn btn-primary']) ?>
+        </div>
+    </div>
+<?php ActiveForm::end() ?>
+</div>
 
 
 
@@ -185,6 +193,7 @@ var dopworkprice = [];
     <?php endforeach ?>
 var materialsKurs = <?= Kurs::findOne(1)->materials ?>;
 var worksKurs = <?= Kurs::findOne(1)->works ?>;
+var productName = '<?= $product->title ?>';
 </script>
   
       

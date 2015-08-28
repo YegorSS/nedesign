@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $post->header_meny;
       
       
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <div class='summary' style='float: none'>
+      <div class='summary' style='float: none; width:auto;'>
     
       
       
