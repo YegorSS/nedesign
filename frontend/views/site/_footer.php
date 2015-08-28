@@ -92,7 +92,7 @@ use yii\helpers\Url;
 </footer>
 <div id="toTop">
 <p id="back-top" style="display: block;">
-<a href='#top'>
+<a href='#'>
 <span></span>
 </a>
 </p>

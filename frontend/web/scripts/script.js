@@ -68,6 +68,30 @@ $(document).ready(function () {
         $("#searchresults").html('');
         $('#searchClear').addClass('unvisible');
     });
+
+////////////Кнопка наверх/////////////
+$(function() {
+ 
+    $(window).scroll(function() {
+ 
+    if($(this).scrollTop() != 0) {
+     
+      $('#toTop').fadeIn();
+     
+    } else {
+     
+      $('#toTop').fadeOut();
+     
+    }
+     
+  });
+     
+  $('#toTop').click(function() {
+    $('body,html').animate({scrollTop:0},800);
+  });
+});
+////////////Кнопка наверх/////////////
+
             
 });
 
