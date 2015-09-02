@@ -106,24 +106,25 @@ $orders = new Orders
 <br>
 
 
-
+<?php $i = 0; ?>
 <?php foreach($product->matrelations as $matrelation): ?>
   <div class="checkbox_buttons" style='display: inline'>
-<input id="dopserv<?= $matrelation->materials->id ?>" type="checkbox" class="dopserv" value="( <?= $matrelation->materials->workprice ?> *  quantity)">
-<label for='dopserv<?= $matrelation->materials->id ?>'><?= $matrelation->materials->title ?></label>
+<input id="dopserv<?= $i ?>" type="checkbox" class="dopserv" value="( <?= $matrelation->materials->workprice ?> *  quantity)">
+<label for='dopserv<?= $i ?>'><?= $matrelation->materials->title ?></label>
 </div>
 
-      <div id='matcount<?= $matrelation->materials->id ?>' class='unvisible'>
+      <div id='matcount<?= $i ?>' class='unvisible'>
         <div style='display: inline-block; padding: 10px'>
           <p>Длинна, см:</p>
-          <input id='matshir<?= $matrelation->materials->id ?>' type='number' class='matquantity' value='1' style='width: 50px'>
+          <input id='matshir<?= $i ?>' type='number' class='matquantity' value='1' style='width: 50px'>
         </div>
         <div style='display: inline-block; padding: 10px'>
           <p>Высота, см:</p>
-          <input id='matvys<?= $matrelation->materials->id ?>' type='number' class='matquantity' value='1' style='width: 50px'>
+          <input id='matvys<?= $i ?>' type='number' class='matquantity' value='1' style='width: 50px'>
         </div>
       </div>
 <br>
+<?php $i += 1; ?>
 <?php endforeach ?>
 
 
@@ -153,7 +154,7 @@ $orders = new Orders
       'mask' => '(999) 999-99-99',
   ])->textInput(['placeholder' => 'Введите номер телефона'])->label('Телефон *') ?>
     <?= $form->field($orders, 'mail')->textInput()->label('E-mail *') ?>
-    <?= $form->field($orders, 'details')->textArea()->label(false) ?>
+    <?= $form->field($orders, 'details')->hiddenInput()->label(false) ?>
     <div class="form-group">
         <div class="">
             <?= Html::submitButton('Заказать', ['class' => 'btn btn-primary']) ?>
@@ -187,9 +188,11 @@ $orders = new Orders
 <script>
 var material = [];
 var dopworkprice = [];
+<?php $i = 0 ?>
     <?php foreach($product->matrelations as $matrelations): ?>
-      material[<?= $matrelations->materials->id ?>] = <?= $matrelations->materials->price ?>;
-      dopworkprice[<?= $matrelations->materials->id ?>] = <?= $matrelations->materials->workprice ?>;
+      material[<?= $i ?>] = <?= $matrelations->materials->price ?>;
+      dopworkprice[<?= $i ?>] = <?= $matrelations->materials->workprice ?>;
+      <?php $i += 1 ?>
     <?php endforeach ?>
 var materialsKurs = <?= Kurs::findOne(1)->materials ?>;
 var worksKurs = <?= Kurs::findOne(1)->works ?>;

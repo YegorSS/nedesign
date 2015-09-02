@@ -13,6 +13,7 @@ class m150828_080514_create_orders_table extends Migration
             'telephone' => Schema::TYPE_STRING,
             'mail' => Schema::TYPE_STRING,
             'details' => Schema::TYPE_TEXT,
+            'active' => Schema::TYPE_BOOLEAN. ' DEFAULT 1',
         ]);
 
          $this->insert('orders', [
@@ -20,6 +21,7 @@ class m150828_080514_create_orders_table extends Migration
             'telephone' => '1234567',
             'mail' => 'vasya@lala.ua',
             'details' => 'banan;30x40;white;50;1;3',
+            'active' => true,
         ]);
     }
 

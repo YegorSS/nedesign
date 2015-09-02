@@ -101,6 +101,12 @@ AppAsset::register($this);
                             </ul>
                         </li>
                         <li>
+                            <a class="dropdown-toggle" href='<?= Url::toRoute('orders/index') ?>'>
+                              <i class="icsw16-phone-3 icsw16-white"></i>
+                              <span class="menu-text">Заказы продукции</span>
+                            </a>
+                        </li>
+                        <li>
                             <a class="dropdown-toggle" href='<?= Url::toRoute('collback/index') ?>'>
                               <i class="icsw16-phone-3 icsw16-white"></i>
                               <span class="menu-text">Заказы звонка</span>

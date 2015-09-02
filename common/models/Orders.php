@@ -17,7 +17,9 @@ class Orders extends ActiveRecord
     {
         return [
             [['name', 'telephone', 'mail'], 'required'],
+            ['mail', 'email'],
             [['details'], 'safe'],
+            [['active'], 'integer'],
         ];
     }
 }

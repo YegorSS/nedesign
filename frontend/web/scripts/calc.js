@@ -116,20 +116,36 @@ $(document).ready(function () {
             var colorQuantity1 = $('.colorQuantity1').val();
             var colorQuantity2 = $('.colorQuantity2').val();
             var serv = [];
+            var dopserv = [];
 
             for(var i = 0; i < $('.serv').length; i++ ){
                 if($('#serv'+i+':checked').val()){
                     serv.push($('label[for="serv' + i + '"]').text());
                 }
             }
-                   
+
+            for(var i = 0; i < $('.dopserv').length; i++ ){
+                if($('#dopserv'+i+':checked').val()){
+                    dopserv.push({"name":$('label[for="dopserv' + i + '"]').text(),"shir":$('#matshir'+i).val(), "vys":$('#matvys'+i).val()});
+                }
+            }
 
 
+            var details = {};
 
-            var details = '{"product":"'+productName+'","variant":"' + variant + '","size":"' + size + '","color":"' + color+'","colorQuantity1":"'+colorQuantity1+'","colorQuantity2":"'+colorQuantity2+'","quantity":"'+quantity+'","serv":"['+serv.toString()+']"}';
+            details['product'] = productName;
+            details['variant'] = variant;
+            details['size'] = size;
+            details['color'] = color;
+            details['colorQuantity1'] = colorQuantity1;
+            details['colorQuantity2'] = colorQuantity2;
+            details['quantity'] = quantity;
+            details['serv'] = serv;
+            details['dopserv'] = dopserv;
+            details['price'] = Math.round(eval(sum));
 
-            $('#orders-details').val(details);
-            $('#form_orders').removeClass('unvisible')
+            $('#orders-details').val(JSON.stringify(details));
+            $('#form_orders').removeClass('unvisible');
       });
         
     
