@@ -20,6 +20,7 @@ class Orders extends ActiveRecord
             ['mail', 'email'],
             [['details'], 'safe'],
             [['active'], 'integer'],
+            ['created', 'safe']
         ];
     }
 }

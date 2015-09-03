@@ -14,6 +14,7 @@ class m150828_080514_create_orders_table extends Migration
             'mail' => Schema::TYPE_STRING,
             'details' => Schema::TYPE_TEXT,
             'active' => Schema::TYPE_BOOLEAN. ' DEFAULT 1',
+            'created' => Schema::TYPE_TIMESTAMP,
         ]);
 
          $this->insert('orders', [
@@ -22,6 +23,7 @@ class m150828_080514_create_orders_table extends Migration
             'mail' => 'vasya@lala.ua',
             'details' => 'banan;30x40;white;50;1;3',
             'active' => true,
+            'created' => date("Y-m-d H:i:s"),
         ]);
     }
 

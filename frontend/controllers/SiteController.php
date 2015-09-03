@@ -442,6 +442,7 @@ class SiteController extends Controller
     public function actionCreateorder(){
       $model = new Orders();
       if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+          $model->created = date("Y-m-d H:i:s");
           $model->save();
 
           //Yii::$app->mailer->compose('feedback', ['model' => $model])
