@@ -7,6 +7,7 @@ use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
 use common\models\Collback;
 use common\models\Feedback;
+use common\models\Orders;
 
 //$this->registerCssFile('@web/css/ace-rtl.css', ['depends'=>'backend\assets\AppAsset']);
 //$this->registerCssFile('@web/css/ace-skins.css', ['depends'=>'backend\assets\AppAsset']);
@@ -102,7 +103,7 @@ AppAsset::register($this);
                         </li>
                         <li>
                             <a class="dropdown-toggle" href='<?= Url::toRoute('orders/index') ?>'>
-                              <i class="icsw16-phone-3 icsw16-white"></i>
+                              <i class="icsw16-abacus icsw16-white"></i>
                               <span class="menu-text">Заказы продукции</span>
                             </a>
                         </li>
@@ -145,11 +146,16 @@ AppAsset::register($this);
                                 <ul>
                                     <li><a href="<?= Yii::$app->homeUrl ?>" class="ptip_s"><i class="icsw16-home"></i></a></li>
                                     <li><a href="<?= Url::toRoute('posts/create') ?>" class="ptip_s" title="Создать материал"><i class="icsw16-create-write"></i></a></li>
-                                    <li><a href="<?= Url::toRoute('collback/index') ?>" class="ptip_s" title="Заказы звонка"><i class="icsw16-phone-3"></i><span class="badge badge-info">
-                                    <?= Collback::find()->count() ?>
+
+                                    <li><a href="<?= Url::toRoute('orders/index') ?>" class="ptip_s" title="Заказы продукции"><i class="icsw16-abacus icsw16-black"></i><span class="badge badge-important">
+                                    <?= Orders::find()->where(['active' => true])->count() ?>
                                     </span></a></li>
-                                    <li><a href="<?= Url::toRoute('feedback/index') ?>" class="ptip_s" title="Заказы консультации"><i class="icsw16-speech-bubbles"></i><span class="badge badge-important">
-                                    <?= Feedback::find()->count() ?>
+
+                                    <li><a href="<?= Url::toRoute('collback/index') ?>" class="ptip_s" title="Заказы звонка"><i class="icsw16-phone-3"></i><span class="badge badge-info">
+                                    <?= Collback::find()->where(['processed' => true])->count() ?>
+                                    </span></a></li>
+                                    <li><a href="<?= Url::toRoute('feedback/index') ?>" class="ptip_s" title="Заказы консультации"><i class="icsw16-speech-bubbles"></i><span class="badge badge-info">
+                                    <?= Feedback::find()->where(['processed' => true])->count() ?>
                                     </span></a></li>
                                     <li class="active"><span class="ptip_s" title="Statistics (active)"><i class="icsw16-graph"></i></span></li>
                                     <li><a href="#" class="ptip_s" title="Settings"><i class="icsw16-cog"></i></a></li>

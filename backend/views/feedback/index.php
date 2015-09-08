@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created',
             // 'processed',
                 [
-              'label'=>'Выполнено',
+              'label'=>'Новый',
               'attribute' => 'processed',
               'contentOptions' =>['style'=>'text-align: center'],
               'format'=>'raw',

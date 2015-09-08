@@ -55,15 +55,15 @@ $this->params['breadcrumbs'][] = $this->title;
               }
             ],
             [
-              'label'=>'Выполнено',
+              'label'=>'Новый',
               'attribute' => 'active',
               'contentOptions' =>['style'=>'text-align: center'],
               'format'=>'raw',
               'value' => function($data){
               if($data->active){
-                return '<span><i class="splashy-error_x"></i></span>';
-              }else{
                 return '<span><i class="splashy-okay"></i></span>';
+              }else{
+                return '<span><i class="splashy-error_x"></i></span>';
               }
               }
             ],

@@ -16,7 +16,7 @@ class m150626_132034_create_feedback_table extends Migration
             'coment' => Schema::TYPE_TEXT,
             'post' => Schema::TYPE_STRING,
             'created' => Schema::TYPE_TIMESTAMP,
-            'processed' => Schema::TYPE_BOOLEAN,
+            'processed' => Schema::TYPE_BOOLEAN . ' DEFAULT 1',
             ]);
 
         $this->insert('feedback', [
