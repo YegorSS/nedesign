@@ -13,7 +13,7 @@ use yii\helpers\ArrayHelper;
 use frontend\assets\PostsAsset;
 
 
-PostsAsset::register($this);
+//PostsAsset::register($this);
 
 
 

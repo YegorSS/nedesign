@@ -10,7 +10,7 @@ use yii\helpers\Url;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-AppAsset::register($this);
+//AppAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>
@@ -52,7 +52,7 @@ AppAsset::register($this);
 <div class="col-lg-2 col-md-3 col-sm-3 hidden-xs" style='margin-left: -15px'>
  
 <div class="logo pull-left" style='margin-bottom:-55px'>
-  <a href="<?= Url::home() ?>" class="logo_h logo_h__img"><?= Html::img('@web/img/logo.png', ['width' => '136px', 'height' => '152px']) ?>
+  <a href="<?= Url::home() ?>" class="logo_h logo_h__img"><?= Html::img('@web/img/logo.png', ['width' => '136px', 'height' => '152px', 'alt' => '1Design®']) ?>
   </a>
 </div>
 </div>
