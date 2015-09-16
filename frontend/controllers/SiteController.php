@@ -289,6 +289,34 @@ class SiteController extends Controller
             ->setSubject('Поступил заказ звонка')
             ->send();
 
+
+
+
+
+                  ////////////Отправка формы в vTiger /////
+                  $url = 'http://vtiger.charlotteprinting.net/modules/Webforms/capture.php';
+                  $data = array('__vtrftk' => 'sid:c275c26e496f98ef30c0d6da84dac639f505eb33,1442308885',
+                                'publicid' => 'eb54b85589b95d803a520c39749ef85b',
+                                'name' => 'Заказ звонка',
+                                'VTIGER_RECAPTCHA_PUBLIC_KEY' => 'RECAPTCHA PUBLIC KEY FOR THIS DOMAIN',
+                                'lastname' => $model->name,
+                                'phone' => $model->tel);
+                  
+                  // use key 'http' even if you send the request to https://...
+                  $options = array(
+                      'http' => array(
+                          'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                          'method'  => 'POST',
+                          'content' => http_build_query($data),
+                      ),
+                  );
+                  $context  = stream_context_create($options);
+                  file_get_contents($url, false, $context);
+
+                  ////////////Отправка формы в vTiger /////
+
+
+
           Yii::$app->session->setFlash('success', 'Заказ звонка отправлен!');
           return $this->redirect(Yii::$app->request->referrer);
         } else {
@@ -309,6 +337,38 @@ class SiteController extends Controller
             ->setTo('w0683636476@yandex.ru')
             ->setSubject('Поступил заказ консультации')
             ->send();
+
+
+
+
+            ////////////Отправка формы в vTiger /////
+                  $url = 'http://vtiger.charlotteprinting.net/modules/Webforms/capture.php';
+                  $data = array('__vtrftk' => 'sid:a42bdbd6466eda20665dc342b948083a3b799b90,1442314590',
+                                'publicid' => '28901a50c809686a7aee88c23c5e78ef',
+                                'name' => 'Заказ консультации',
+                                'VTIGER_RECAPTCHA_PUBLIC_KEY' => 'RECAPTCHA PUBLIC KEY FOR THIS DOMAIN',
+                                'lastname' => $model->name,
+                                'company' => $model->company,
+                                'email' => $model->email,
+                                'phone' => $model->tel,
+                                'description' => $model->coment
+                                );
+                  
+                  // use key 'http' even if you send the request to https://...
+                  $options = array(
+                      'http' => array(
+                          'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                          'method'  => 'POST',
+                          'content' => http_build_query($data),
+                      ),
+                  );
+                  $context  = stream_context_create($options);
+                  file_get_contents($url, false, $context);
+
+            ////////////Отправка формы в vTiger /////
+
+
+
 
           Yii::$app->session->setFlash('success', 'Заказ консультации отправлен!');
           return $this->redirect(Yii::$app->request->referrer);
@@ -444,6 +504,35 @@ class SiteController extends Controller
       if ($model->load(Yii::$app->request->post()) && $model->validate()) {
           $model->created = date("Y-m-d H:i:s");
           $model->save();
+
+
+
+
+
+          ////////////Отправка формы в vTiger /////
+                  $url = 'http://vtiger.charlotteprinting.net/modules/Webforms/capture.php';
+                  $data = array('__vtrftk' => 'sid:f182bcf6aa4d36711be81cb6fc31a042c99c177e,1442315451',
+                                'publicid' => 'fccfe2cd1b000adc906feb325f4a2939',
+                                'name' => 'Заказ продукции',
+                                'VTIGER_RECAPTCHA_PUBLIC_KEY' => 'RECAPTCHA PUBLIC KEY FOR THIS DOMAIN',
+                                'lastname' => $model->name,
+                                'email' => $model->mail,
+                                'phone' => $model->telephone,
+                                'description' => $model->details
+                                );
+                  
+                  // use key 'http' even if you send the request to https://...
+                  $options = array(
+                      'http' => array(
+                          'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                          'method'  => 'POST',
+                          'content' => http_build_query($data),
+                      ),
+                  );
+                  $context  = stream_context_create($options);
+                  file_get_contents($url, false, $context);
+
+            ////////////Отправка формы в vTiger /////
 
           //Yii::$app->mailer->compose('feedback', ['model' => $model])
           //  ->setFrom('p@charlotteprinting.net')
