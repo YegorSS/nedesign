@@ -15,11 +15,15 @@ $form = ActiveForm::begin([
     <?= $form->field($collback, 'tel')->widget(MaskedInput::className(), [
       'mask' => '(999) 999-99-99',
   ])->textInput(['placeholder' => 'Введите номер телефона']) ?>
+  <div id='time'></div>
     <div class="form-group">
         <div class="">
             <?= Html::submitButton('Заказать', ['class' => 'btn btn-primary']) ?>
         </div>
     </div>
 <?php ActiveForm::end() ?>
+<script>
+    var servDate = "<?= date('F d, Y H:i:s') ?>";
 
+</script>
 

@@ -281,6 +281,7 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
           $model->post = Yii::$app->request->referrer;
+          $model->time = Yii::$app->request->post()['hour'] .":". Yii::$app->request->post()['minute'];
           $model->save();
 
           Yii::$app->mailer->compose('collback', ['model' => $model])
@@ -300,7 +301,9 @@ class SiteController extends Controller
                                 'name' => 'Заказ звонка',
                                 'VTIGER_RECAPTCHA_PUBLIC_KEY' => 'RECAPTCHA PUBLIC KEY FOR THIS DOMAIN',
                                 'lastname' => $model->name,
-                                'phone' => $model->tel);
+                                'phone' => $model->tel,
+                                'label:1DesignUrl' => $model->post,
+                                );
                   
                   // use key 'http' even if you send the request to https://...
                   $options = array(
@@ -351,7 +354,8 @@ class SiteController extends Controller
                                 'company' => $model->company,
                                 'email' => $model->email,
                                 'phone' => $model->tel,
-                                'description' => $model->coment
+                                'description' => $model->coment,
+                                'label:1DesignUrl' => $model->post,
                                 );
                   
                   // use key 'http' even if you send the request to https://...
@@ -518,7 +522,7 @@ class SiteController extends Controller
                                 'lastname' => $model->name,
                                 'email' => $model->mail,
                                 'phone' => $model->telephone,
-                                'description' => $model->details
+                                'description' => $model->details,
                                 );
                   
                   // use key 'http' even if you send the request to https://...

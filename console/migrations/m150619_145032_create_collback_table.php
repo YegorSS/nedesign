@@ -14,6 +14,7 @@ class m150619_145032_create_collback_table extends Migration
             'post' => Schema::TYPE_STRING,
             'created' => Schema::TYPE_TIMESTAMP,
             'processed' => Schema::TYPE_BOOLEAN . ' DEFAULT 1',
+            'time' => Schema::TYPE_STRING,
             ]);
 
         $this->insert('collback', [

@@ -31,6 +31,7 @@ class PostsAsset extends AssetBundle
         'scripts/jquery.prettyPhoto.js',
         'scripts/odometer.js',
         'scripts/post.js',
+        'scripts/collback.js',
         'owl-carousel/owl.carousel.js',
         'owl-carousel/owl_carusel_index.js',
         //'scripts/post.min.js'
