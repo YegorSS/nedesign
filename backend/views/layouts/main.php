@@ -143,24 +143,93 @@ AppAsset::register($this);
             </div>
             <div class="span5">
               <nav class="nav-icons">
-                                <ul>
-                                    <li><a href="<?= Yii::$app->homeUrl ?>" class="ptip_s"><i class="icsw16-home"></i></a></li>
-                                    <li><a href="<?= Url::toRoute('posts/create') ?>" class="ptip_s" title="Создать материал"><i class="icsw16-create-write"></i></a></li>
+                <ul>
+                  <?php if(empty($this->params['breadcrumbs'])): ?>
+                    <li class='active'>
+                      <span href="<?= Yii::$app->homeUrl ?>" class="ptip_s">
+                        <i class="icsw16-home"></i>
+                      </span>
+                    </li>
+                  <?php else: ?>
+                    <li><a href="<?= Yii::$app->homeUrl ?>" class="ptip_s"><i class="icsw16-home"></i></a></li>
+                  <?php endif ?>
+                                    
+                  <?php if(isset($this->params['breadcrumbs'][1]) && $this->params['breadcrumbs'][1] == 'Create Posts'): ?>
+                    <li class='active'>
+                      <span href="<?= Url::toRoute('posts/create') ?>" class="ptip_s" title="Создать материал">
+                        <i class="icsw16-create-write"></i>
+                      </span>
+                    </li>
+                  <?php else: ?>
+                    <li>
+                      <a href="<?= Url::toRoute('posts/create') ?>" class="ptip_s" title="Создать материал">
+                        <i class="icsw16-create-write"></i>
+                      </a>
+                    </li>
+                  <?php endif ?>
 
-                                    <li><a href="<?= Url::toRoute('orders/index') ?>" class="ptip_s" title="Заказы продукции"><i class="icsw16-abacus icsw16-black"></i><span class="badge badge-important">
-                                    <?= Orders::find()->where(['active' => true])->count() ?>
-                                    </span></a></li>
+                  <?php if(isset($this->params['breadcrumbs'][0]) && $this->params['breadcrumbs'][0] == 'Orders'): ?>
+                    <li class="active">
+                      <span href="<?= Url::toRoute('orders/index') ?>" class="ptip_s" title="Заказы продукции">
+                        <i class="icsw16-abacus icsw16-black"></i>
+                        <span class="badge badge-important">
+                          <?= Orders::find()->where(['active' => true])->count() ?>
+                        </span>
+                      </span>
+                    </li>
+                  <?php else: ?>
+                    <li>
+                      <a href="<?= Url::toRoute('orders/index') ?>" class="ptip_s" title="Заказы продукции">
+                        <i class="icsw16-abacus icsw16-black"></i>
+                        <span class="badge badge-important">
+                          <?= Orders::find()->where(['active' => true])->count() ?>
+                        </span>
+                      </a>
+                    </li>
+                  <?php endif ?>
 
-                                    <li><a href="<?= Url::toRoute('collback/index') ?>" class="ptip_s" title="Заказы звонка"><i class="icsw16-phone-3"></i><span class="badge badge-info">
-                                    <?= Collback::find()->where(['processed' => true])->count() ?>
-                                    </span></a></li>
-                                    <li><a href="<?= Url::toRoute('feedback/index') ?>" class="ptip_s" title="Заказы консультации"><i class="icsw16-speech-bubbles"></i><span class="badge badge-info">
-                                    <?= Feedback::find()->where(['processed' => true])->count() ?>
-                                    </span></a></li>
-                                    <li class="active"><span class="ptip_s" title="Statistics (active)"><i class="icsw16-graph"></i></span></li>
-                                    <li><a href="#" class="ptip_s" title="Settings"><i class="icsw16-cog"></i></a></li>
-                                </ul>
-                             </nav>
+                  <?php if(isset($this->params['breadcrumbs'][0]) && $this->params['breadcrumbs'][0] == 'Collbacks'): ?>
+                    <li class='active'>
+                      <span href="<?= Url::toRoute('collback/index') ?>" class="ptip_s" title="Заказы звонка">
+                        <i class="icsw16-phone-3"></i>
+                        <span class="badge badge-info">
+                          <?= Collback::find()->where(['processed' => true])->count() ?>
+                        </span>
+                      </span>
+                    </li>
+                  <?php else: ?>
+                    <li>
+                      <a href="<?= Url::toRoute('collback/index') ?>" class="ptip_s" title="Заказы звонка">
+                        <i class="icsw16-phone-3"></i>
+                        <span class="badge badge-info">
+                          <?= Collback::find()->where(['processed' => true])->count() ?>
+                        </span>
+                      </a>
+                    </li>
+                  <?php endif ?>
+
+                  <?php if(isset($this->params['breadcrumbs'][0]) && $this->params['breadcrumbs'][0] == 'Feedbacks'): ?>
+                    <li class="active">
+                      <span href="<?= Url::toRoute('feedback/index') ?>" class="ptip_s" title="Заказы консультации">
+                        <i class="icsw16-speech-bubbles"></i>
+                        <span class="badge badge-info">
+                          <?= Feedback::find()->where(['processed' => true])->count() ?>
+                        </span>
+                      </span>
+                    </li>
+                  <?php else: ?>
+                    <li>
+                      <a href="<?= Url::toRoute('feedback/index') ?>" class="ptip_s" title="Заказы консультации">
+                        <i class="icsw16-speech-bubbles"></i>
+                        <span class="badge badge-info">
+                          <?= Feedback::find()->where(['processed' => true])->count() ?>
+                        </span>
+                      </a>
+                    </li>
+                  <?php endif ?>
+
+                </ul>
+              </nav>
 
             </div>
             <div class="span4">
