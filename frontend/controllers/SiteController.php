@@ -550,6 +550,100 @@ class SiteController extends Controller
             return $this->redirect(Yii::$app->request->referrer);
         }
     }
+
+
+
+
+
+
+    public function actionLogin()
+    {
+      $categories = Categories::find()->where(['active' => true]);
+        if (!\Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
+        } else {
+            return $this->render('login', [
+                'model' => $model,
+                'categories' => $categories,
+            ]);
+        }
+    }
+
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->goHome();
+    }
+
+    public function actionRequestPasswordReset()
+    {
+      $categories = Categories::find()->where(['active' => true]);
+        $model = new PasswordResetRequestForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail()) {
+                Yii::$app->getSession()->setFlash('success', 'На Ваш email было отправленно письмо с дальнейшей инструкцией.');
+
+                return $this->goHome();
+            } else {
+                Yii::$app->getSession()->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
+            }
+        }
+
+        return $this->render('requestPasswordResetToken', [
+            'model' => $model,
+            'categories' => $categories,
+        ]);
+    }
+
+    public function actionResetPassword($token)
+    {
+      $categories = Categories::find()->where(['active' => true]);
+        try {
+            $model = new ResetPasswordForm($token);
+        } catch (InvalidParamException $e) {
+            throw new BadRequestHttpException($e->getMessage());
+        }
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
+            Yii::$app->getSession()->setFlash('success', 'Новый пароль сохранен.');
+
+            return $this->goHome();
+        }
+
+        return $this->render('resetPassword', [
+            'model' => $model,
+            'categories' => $categories,
+        ]);
+    }
+
+    public function actionSignup()
+    {
+      $categories = Categories::find()->where(['active' => true]);
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        return $this->render('signup', [
+            'model' => $model,
+            'categories' => $categories,
+        ]);
+    }
+
+
+
+
+
     
     protected function findPost($alias)
     {

@@ -21,6 +21,11 @@ return [
             'enableStrictParsing' => false,
             'rules' => [
                 ['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
+                'site/reset-password' => 'site/reset-password',
+                'site/request-password-reset' => 'site/request-password-reset',
+                'site/signup' => 'site/signup',
+                'site/logout' => 'site/logout',
+                'site/login' => 'site/login',
                 'site/rss' => 'site/rss',
                 'site/createorder' => 'site/createorder',
                 'site/createcollback' => 'site/createcollback',

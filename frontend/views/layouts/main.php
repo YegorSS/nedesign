@@ -66,7 +66,7 @@ AppAsset::register($this);
 
 
 <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
-  <div class="social pull-right">
+  <div class="social">
     <a class="twitter" href="https://twitter.com/1DESIGN_ltd" rel="nofollow">
         <i class="fa fa-twitter"></i>
     </a>
@@ -78,7 +78,31 @@ AppAsset::register($this);
     </a>
     <?= Html::a('<i class="fa fa-rss"></i>', $url = ['site/rss', 'type' => isset($this->params['model']) ? $this->params['model'] : false , 'id' => isset($this->params['id']) ? $this->params['id'] : false] ) ?>
   </div>
+                <div class="user-box-inner">
+                  <div class="user-info">
+                      <?php if(Yii::$app->user->isGuest) { ?>
+                    
+                    
+                    
+                   
+                    
+                    
+                    <ul class="unstyled">
+                      <li><a href="<?= Url::toRoute(['site/login']) ?>">Вход</a></li>
+                      <li><?= Html::a('Зарегистрироваться', $url = ['site/signup']) ?></li>
+                    </ul>
+                      <?php } else { ?>
+                    Добро пожаловать, <strong><?= Yii::$app->user->identity->username ?></strong>
+                    <ul class="unstyled">
+                      <li><a href="<?= Url::toRoute(['site/logout']) ?>" data-method="post">Выход</a></li>
+                    </ul> 
+                      <?php } ?>
+                  </div>
+                </div>
  </div>
+
+
+              
 
 
 

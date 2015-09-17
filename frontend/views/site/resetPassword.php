@@ -6,22 +6,34 @@ use yii\bootstrap\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\ResetPasswordForm */
 
-$this->title = 'Reset password';
+$this->title = 'Сброс пароля';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<?= $this->render('_catalog', ['categories' => $categories]) ?>
+
+<div class="content-holder">
+<div class="container">
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <section class="title-section">
+      <h1 class="title-header"><?= Html::encode($this->title) ?> </h1>
+      <p>Введите новый пароль.</p>
+      <br>
+    </section>
+  </div>
+</div>
 <div class="site-reset-password">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please choose your new password:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
+    <div class="row" style='margin-left: -15px; margin-top:40px;'>
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 col-lg-offset-4">
             <?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
                 <?= $form->field($model, 'password')->passwordInput() ?>
                 <div class="form-group">
-                    <?= Html::submitButton('Save', ['class' => 'btn btn-primary']) ?>
+                    <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
                 </div>
             <?php ActiveForm::end(); ?>
         </div>
     </div>
+</div>
+</div>
 </div>
