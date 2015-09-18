@@ -35,7 +35,6 @@ class LoginForm extends Model
     {
         return [
             'username' => 'Логин',
-            'price' => 'Email',
             'password' => 'Пароль',
             'rememberMe' => 'Запомнить меня'
         ];

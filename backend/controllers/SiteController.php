@@ -18,6 +18,14 @@ use common\models\Collback;
  */
 class SiteController extends Controller
 {
+
+    public function init(){
+        parent::init();
+        if (Yii::$app->user->can('user')) {
+           $this->actionLogout();
+        }
+    }
+
     /**
      * @inheritdoc
      */
@@ -32,9 +40,14 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
+                    ],
+                    [
+                        'actions' => ['logout', 'index'],
+                        'allow' => true,
+                        'roles' => ['admin', 'manager', 'user'],
                     ],
                 ],
             ],
@@ -47,11 +60,13 @@ class SiteController extends Controller
         ];
     }
 
+
+
     /**
      * @inheritdoc
      */
     public function actions()
-    {
+    {   
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -59,8 +74,10 @@ class SiteController extends Controller
         ];
     }
 
+
+
     public function actionIndex()
-    {
+    {   
         return $this->render('index');
     }
 

@@ -41,6 +41,8 @@ $this->registerJsFile('@web/beoro/js/beoro_common.js', ['depends'=>'backend\asse
 /* @var $content string */
 
 AppAsset::register($this);
+
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -126,6 +128,7 @@ AppAsset::register($this);
                           </a>
                         </li>
                     </ul>
+                    
                 </div>
             </div>
         </div>
@@ -318,9 +321,6 @@ AppAsset::register($this);
       </li>
     </ul>
   </div>-->
-  
- 
-  
   
             <div class='main-content'>
               <div class="main-content-inner">

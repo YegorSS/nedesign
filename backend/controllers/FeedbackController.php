@@ -28,7 +28,7 @@ class FeedbackController extends Controller
                     [
                         'actions' => ['logout', 'index', 'view', 'create', 'update', 'delete'],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['admin', 'manager'],
                     ],
                 ],
             ],

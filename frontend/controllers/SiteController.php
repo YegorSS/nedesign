@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -12,7 +13,6 @@ use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use yii\data\ActiveDataProvider;
 use yii\data\Pagination;
 use yii\helpers\Url;
@@ -552,10 +552,6 @@ class SiteController extends Controller
     }
 
 
-
-
-
-
     public function actionLogin()
     {
       $categories = Categories::find()->where(['active' => true]);
@@ -565,7 +561,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->goHome();
         } else {
             return $this->render('login', [
                 'model' => $model,

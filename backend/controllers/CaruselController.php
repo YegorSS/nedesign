@@ -30,7 +30,7 @@ class CaruselController extends Controller
                     [
                         'actions' => ['logout', 'index', 'view', 'create', 'update', 'delete', 'upload', 'deleteimage'],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['admin', 'manager'],
                     ],
                 ],
             ],

@@ -21,17 +21,26 @@ class SignupForm extends Model
     {
         return [
             ['username', 'filter', 'filter' => 'trim'],
-            ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Логин должен быть заполнен.'],
-            ['username', 'string', 'min' => 2, 'max' => 255],
+            ['username', 'required', 'message' => 'Данное поле необходимо заполнить.'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Этот логин уже занят.'],
+            ['username', 'string', 'min' => 2, 'max' => 255, 'message' => 'Логин должен быть длиннее 2-х символов.'],
 
             ['email', 'filter', 'filter' => 'trim'],
-            ['email', 'required'],
-            ['email', 'email'],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Email должен быть заполнен.'],
+            ['email', 'required', 'message' => 'Данное поле необходимо заполнить.'],
+            ['email', 'email', 'message' => 'Неверный формат email.'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Пользователь с таким email уже существует.'],
 
-            ['password', 'required'],
-            ['password', 'string', 'min' => 6],
+            ['password', 'required', 'message' => 'Данное поле необходимо заполнить.'],
+            ['password', 'string', 'min' => 6, 'message' => 'Пароль должен состоять из 6-и и более символов.'],
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'username' => 'Логин',
+            'password' => 'Пароль',
+            'rememberMe' => 'Запомнить меня'
         ];
     }
 
@@ -49,6 +58,13 @@ class SignupForm extends Model
             $user->setPassword($this->password);
             $user->generateAuthKey();
             if ($user->save()) {
+
+                // RBAC
+                $auth = Yii::$app->authManager;
+                $authorRole = $auth->getRole('user');
+                $auth->assign($authorRole, $user->getId());
+                // RBAC
+
                 return $user;
             }
         }

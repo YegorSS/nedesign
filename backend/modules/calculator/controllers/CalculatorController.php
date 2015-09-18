@@ -26,17 +26,13 @@ class CalculatorController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['result'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['index', 'logout', 'updateprice', 'createproduct', 'editproduct', 'deleteproduct',
+                        'actions' => ['result', 'index', 'logout', 'updateprice', 'createproduct', 'editproduct', 'deleteproduct',
                                       'createvariant', 'deletevariant', 'editvariant', 'createsize', 'editsize',
                                       'deletesize', 'createcolor', 'editcolor', 'deletecolor', 'createservice',
                                       'editservice', 'deleteservice', 'updatematerialprice', 'creatematerial', 
                                       'deletematerial', 'creatematrelation', 'editmaterial', 'deletematrelation', 'updatekurs'],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['admin', 'manager'],
                     ],
                 ],
             ],
