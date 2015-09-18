@@ -127,6 +127,12 @@ AppAsset::register($this);
                             <span class="menu-text">Калькулятор</span>
                           </a>
                         </li>
+                        <li>
+                          <a class="dropdown-toggle" href="<?= Url::toRoute('user/index') ?>">
+                            <i class="icsw16-users icsw16-white"></i>
+                            <span class="menu-text">Пользователи</span>
+                          </a>
+                        </li>
                     </ul>
                     
                 </div>
