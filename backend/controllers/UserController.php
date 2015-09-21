@@ -91,10 +91,10 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {   
-
+        $model = $this->findModel($id);
         $role = $this->findRole($id);
 
-        if (Yii::$app->request->post()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
 
         $role->item_name = Yii::$app->request->post()["AuthAssignment"]['item_name'];
@@ -107,7 +107,7 @@ class UserController extends Controller
 
 
         } else {
-            return $this->render('update');
+            return $this->render('update', ['model' => $model]);
         }
     }
 
