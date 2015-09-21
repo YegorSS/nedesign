@@ -281,7 +281,7 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
           $model->post = Yii::$app->request->referrer;
-          $model->time = Yii::$app->request->post()['hour'] .":". Yii::$app->request->post()['minute'];
+          $model->time = isset(Yii::$app->request->post()['hour']) ? Yii::$app->request->post()['hour'] .":". Yii::$app->request->post()['minute'] : false;
           $model->save();
 
           Yii::$app->mailer->compose('collback', ['model' => $model])
@@ -300,7 +300,7 @@ class SiteController extends Controller
                                 'publicid' => 'eb54b85589b95d803a520c39749ef85b',
                                 'name' => 'Заказ звонка',
                                 'VTIGER_RECAPTCHA_PUBLIC_KEY' => 'RECAPTCHA PUBLIC KEY FOR THIS DOMAIN',
-                                'lastname' => $model->name,
+                                'lastname' => ($model->name) ? $model->name : 'Аноним',
                                 'phone' => $model->tel,
                                 'label:1DesignUrl' => $model->post,
                                 );

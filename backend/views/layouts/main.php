@@ -162,6 +162,12 @@ AppAsset::register($this);
                   <?php else: ?>
                     <li><a href="<?= Yii::$app->homeUrl ?>" class="ptip_s"><i class="icsw16-home"></i></a></li>
                   <?php endif ?>
+
+                  <li>
+                    <a href="<?= Url::to('@front') ?>" class="ptip_s" title="Перейтина сайт">
+                      <i class="icsw16-running-man"></i>
+                    </a>
+                  </li>
                                     
                   <?php if(isset($this->params['breadcrumbs'][1]) && $this->params['breadcrumbs'][1] == 'Create Posts'): ?>
                     <li class='active'>
@@ -244,8 +250,6 @@ AppAsset::register($this);
             <div class="span4">
               <div class="user-box">
                 <div class="user-box-inner">
-                  <?= Html::img('@web/beoro/img/avatars/avatar.png', ['class' => "user-avatar img-avatar"]) ?>
-                  <div class="user-info">
                       <?php if(Yii::$app->user->isGuest) { ?>
                     
                     
@@ -257,6 +261,7 @@ AppAsset::register($this);
                       <li><a href="<?= Url::toRoute(['site/login']) ?>">Login</a></li>
                     </ul>
                       <?php } else { ?>
+                  <?= Html::img('http://www.gravatar.com/avatar/' . md5(strtolower(trim(Yii::$app->user->identity->email))) . '?s=40', ['class' => "user-avatar img-avatar"]) ?>
                     Добро пожаловать, 
                     <strong><?= Yii::$app->user->identity->username ?></strong>
                     <ul class="unstyled">

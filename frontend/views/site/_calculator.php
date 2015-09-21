@@ -109,7 +109,7 @@ $orders = new Orders
 <?php $i = 0; ?>
 <?php foreach($product->matrelations as $matrelation): ?>
   <div class="checkbox_buttons" style='display: inline'>
-<input id="dopserv<?= $i ?>" type="checkbox" class="dopserv" value="( <?= $matrelation->materials->workprice ?> *  quantity)">
+<input id="dopserv<?= $i ?>" type="checkbox" class="dopserv" value="( <?= $matrelation->materials->workprice ?> * quantity)">
 <label for='dopserv<?= $i ?>'><?= $matrelation->materials->title ?></label>
 </div>
 
@@ -149,11 +149,11 @@ $orders = new Orders
   <?php $form = ActiveForm::begin([
     'action' => 'site/createorder',
 ]) ?>
-    <?= $form->field($orders, 'name')->label('Ваше Имя *') ?>
+    <?= $form->field($orders, 'name')->textInput(['value' => isset(Yii::$app->user->identity->fio) ? Yii::$app->user->identity->fio : false])->label('Ваше Имя *') ?>
     <?= $form->field($orders, 'telephone')->widget(MaskedInput::className(), [
       'mask' => '(999) 999-99-99',
-  ])->textInput(['placeholder' => 'Введите номер телефона'])->label('Телефон *') ?>
-    <?= $form->field($orders, 'mail')->textInput()->label('E-mail *') ?>
+  ])->textInput(['placeholder' => 'Введите номер телефона', 'value' => isset(Yii::$app->user->identity->telephone) ? Yii::$app->user->identity->telephone : false])->label('Телефон *') ?>
+    <?= $form->field($orders, 'mail')->textInput(['value' => isset(Yii::$app->user->identity->email) ? Yii::$app->user->identity->email : false])->label('E-mail *') ?>
     <?= $form->field($orders, 'details')->hiddenInput()->label(false) ?>
     <div class="form-group">
         <div class="">

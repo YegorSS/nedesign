@@ -38,6 +38,7 @@ class Feedback extends \yii\db\ActiveRecord
             [['coment'], 'string'],
             [['name', 'company', 'email', 'tel', 'post'], 'string', 'max' => 255],
             [['name', 'email'], 'required', 'message' => 'Данное поле необходимо заполнить!'],
+            ['user_id', 'integer'],
         ];
     }
 

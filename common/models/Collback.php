@@ -34,7 +34,8 @@ class Collback extends \yii\db\ActiveRecord
             [['tel'], 'string', 'max' => 15],
             [['name'], 'string', 'max' => 255],
             [['tel'], 'required', 'message' => 'Необходимо написать номер телефона!'],
-            [['post'], 'string', 'max' => 255]
+            [['post'], 'string', 'max' => 255],
+            ['user_id', 'integer'],
         ];
     }
 

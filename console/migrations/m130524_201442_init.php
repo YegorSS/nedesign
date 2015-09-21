@@ -20,6 +20,9 @@ class m130524_201442_init extends Migration
             'password_hash' => Schema::TYPE_STRING . ' NOT NULL',
             'password_reset_token' => Schema::TYPE_STRING,
             'email' => Schema::TYPE_STRING . ' NOT NULL',
+            'fio' => Schema::TYPE_STRING,
+            'company' => Schema::TYPE_STRING,
+            'telephone' => Schema::TYPE_STRING,
 
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 10',
             'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
@@ -32,6 +35,10 @@ class m130524_201442_init extends Migration
             'password_hash' => '$2y$13$8WXGcUa2RHbCdD80RlpWSeAm0cNi8Gw9ho3DR4tpG01U7l/9VPN..',
             'password_reset_token' => '',
             'email' => 'yegor@yandex.ru',
+            'fio' => 'Admin Adminivich',
+            'company' => '1design',
+            'telephone' => '(068)3636476',
+
             'created_at' => '1432381596',
             'updated_at' => '1432381596',
         ]);

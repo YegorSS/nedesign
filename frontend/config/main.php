@@ -20,6 +20,8 @@ return [
             'showScriptName' => false,
             'enableStrictParsing' => false,
             'rules' => [
+                'account/index' => 'account/index',
+                'account/update' => 'account/update',
                 ['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
                 'site/reset-password' => 'site/reset-password',
                 'site/request-password-reset' => 'site/request-password-reset',

@@ -17,6 +17,7 @@ class m150626_132034_create_feedback_table extends Migration
             'post' => Schema::TYPE_STRING,
             'created' => Schema::TYPE_TIMESTAMP,
             'processed' => Schema::TYPE_BOOLEAN . ' DEFAULT 1',
+            'user_id' => Schema::TYPE_INTEGER,
             ]);
 
         $this->insert('feedback', [
@@ -28,6 +29,7 @@ class m150626_132034_create_feedback_table extends Migration
             'post' => 'Визитки',
             'created' => date("Y-m-d H:i:s"),
             'processed' => true,
+            'user_id' => 1,
         ]);
     }
 

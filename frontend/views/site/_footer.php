@@ -43,6 +43,7 @@ use yii\helpers\Url;
             </p>
           </div>
           <div class="span4">
+          <?php if(isset($type)): ?>
             <div class="raiting">
               <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
                 <meta itemprop="ratingValue" content="<?= $page->rate / $page->voites ?>">
@@ -71,9 +72,10 @@ use yii\helpers\Url;
                 </span>
               </div>
               <script>
-              var funcrating = '$.ajax({type: "post", url: "<?= Url::to("rating") ?>", data: "rate=" + $(this).val() + "&id=<?= $page->id ?>&type=<?= $type ?>"})';
+                var funcrating = '$.ajax({type: "post", url: "<?= Url::to("rating") ?>", data: "rate=" + $(this).val() + "&id=<?= $page->id ?>&type=<?= $type ?>"})';
               </script>
             </div>
+        <?php endif ?>
           </div>
         <div class='span4'>
           <a class="pull-right" href="http://www.1design.net" style="text-align: right" title="Создание сайтов 1Design">

@@ -10,15 +10,18 @@ use yii\grid\GridView;
 $this->title = 'Пользователи';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="user-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
+<div class="row-fluid">
+  <div class="span12">
+    <div class="w-box w-box-green">
+    <div class="w-box-header">
+    <h4><?= Html::encode($this->title) ?></h4>
+    </div>
+    <div class="w-box-content">
+    <div class="dataTables_wrapper form-inline">
+<div class="dt-top-row">
+    <div class="ColVis TableTools">
+     </div>
+        </div>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -26,7 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             //'id',
-            'username',
+            [
+              'label'=>'Имя пльзователя',
+              'attribute' => 'username',
+              'format'=>'raw',
+              'value' => function($data){
+                return Html::a(Html::encode($data->username), ['update', 'id' => $data->id]);
+              }
+            ],
             //'auth_key',
             //'password_hash',
             //'password_reset_token',
@@ -38,5 +48,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-
+      </div>
+    </div>
+  </div>
+  </div>
 </div>
+

@@ -15,6 +15,7 @@ class m150828_080514_create_orders_table extends Migration
             'details' => Schema::TYPE_TEXT,
             'active' => Schema::TYPE_BOOLEAN. ' DEFAULT 1',
             'created' => Schema::TYPE_TIMESTAMP,
+            'user_id' => Schema::TYPE_INTEGER,
         ]);
 
          $this->insert('orders', [
@@ -24,6 +25,7 @@ class m150828_080514_create_orders_table extends Migration
             'details' => 'banan;30x40;white;50;1;3',
             'active' => true,
             'created' => date("Y-m-d H:i:s"),
+            'user_id' => 1,
         ]);
     }
 

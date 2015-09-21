@@ -92,8 +92,10 @@ AppAsset::register($this);
                       <li><?= Html::a('Зарегистрироваться', $url = ['site/signup']) ?></li>
                     </ul>
                       <?php } else { ?>
-                    Добро пожаловать, <strong><?= Yii::$app->user->identity->username ?></strong>
+                      <?= Html::img('http://www.gravatar.com/avatar/' . md5(strtolower(trim(Yii::$app->user->identity->email))) . '?s=40') ?> 
+                    Добро пожаловать, <strong><?= Html::encode(Yii::$app->user->identity->username) ?></strong>
                     <ul class="unstyled">
+                      <li><a href="<?= Url::toRoute(['account/update']) ?>">Страница пользователя</a></li>
                       <li><a href="<?= Url::toRoute(['site/logout']) ?>" data-method="post">Выход</a></li>
                     </ul> 
                       <?php } ?>

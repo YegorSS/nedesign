@@ -13,6 +13,9 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $fio;
+    public $company;
+    public $telephone;
 
     /**
      * @inheritdoc
@@ -24,6 +27,9 @@ class SignupForm extends Model
             ['username', 'required', 'message' => 'Данное поле необходимо заполнить.'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Этот логин уже занят.'],
             ['username', 'string', 'min' => 2, 'max' => 255, 'message' => 'Логин должен быть длиннее 2-х символов.'],
+
+            [['fio', 'company', 'telephone'], 'string', 'min' => 2, 'max' => 255],
+
 
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required', 'message' => 'Данное поле необходимо заполнить.'],
@@ -38,8 +44,12 @@ class SignupForm extends Model
     public function attributeLabels()
     {
         return [
-            'username' => 'Логин',
-            'password' => 'Пароль',
+            'username' => 'Логин*',
+            'password' => 'Пароль*',
+            'email' => 'Email*',
+            'fio' => 'Ф.И.О.',
+            'company' => 'Компания',
+            'telephone' => 'Телефон',
             'rememberMe' => 'Запомнить меня'
         ];
     }
@@ -55,6 +65,9 @@ class SignupForm extends Model
             $user = new User();
             $user->username = $this->username;
             $user->email = $this->email;
+            $user->fio = $this->fio;
+            $user->telephone = $this->telephone;
+            $user->company = $this->company;
             $user->setPassword($this->password);
             $user->generateAuthKey();
             if ($user->save()) {

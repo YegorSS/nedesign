@@ -58,6 +58,23 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             ['username', 'string'],
             ['email', 'email'],
+            [['fio', 'company', 'telephone'], 'string'],
+            ['username', 'unique', 'message' => 'Данный логин занят'],
+            ['email', 'unique', 'message' => 'Пользователь с таким email уже существует.'],
+            [['username', 'email'], 'required', 'message' => 'Поле не может быть пустым']
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'username' => 'Логин*',
+            'password' => 'Пароль*',
+            'email' => 'Email*',
+            'fio' => 'Ф.И.О.',
+            'company' => 'Компания',
+            'telephone' => 'Телефон',
+            'rememberMe' => 'Запомнить меня'
         ];
     }
 

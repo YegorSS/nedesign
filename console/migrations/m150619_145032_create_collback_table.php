@@ -15,6 +15,7 @@ class m150619_145032_create_collback_table extends Migration
             'created' => Schema::TYPE_TIMESTAMP,
             'processed' => Schema::TYPE_BOOLEAN . ' DEFAULT 1',
             'time' => Schema::TYPE_STRING,
+            'user_id' => Schema::TYPE_INTEGER,
             ]);
 
         $this->insert('collback', [
@@ -23,6 +24,7 @@ class m150619_145032_create_collback_table extends Migration
             'post' => 'Визитки',
             'created' => date("Y-m-d H:i:s"),
             'processed' => true,
+            'user_id' => 1,
         ]);
     }
 
