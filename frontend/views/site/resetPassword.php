@@ -37,3 +37,4 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 </div>
 </div>
+<?= $this->render('_footer',['page' => $post, 'type' => 'post']) ?>
