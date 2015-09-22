@@ -7,7 +7,7 @@ use yii\widgets\MaskedInput;
 <?php
 
 $form = ActiveForm::begin([
-    'action' => 'site/createcollback',
+    'action' => '@web/site/createcollback',
     'id' => 'collback-form',
     'options' => ['class' => ''],
 ]) ?>

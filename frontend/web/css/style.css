@@ -364,3 +364,10 @@ ul.products{
 .footer{
   padding: 140px !important;
 }
+
+/*Поиск*/
+#searchresults{
+  max-height: 500px;
+  overflow: auto;
+}
+/*Поиск*/

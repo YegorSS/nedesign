@@ -72,7 +72,7 @@ use yii\helpers\Url;
                 </span>
               </div>
               <script>
-                var funcrating = '$.ajax({type: "post", url: "<?= Url::to("rating") ?>", data: "rate=" + $(this).val() + "&id=<?= $page->id ?>&type=<?= $type ?>"})';
+                var funcrating = '$.ajax({type: "post", url: "<?= Url::to("@web/rating") ?>", data: "rate=" + $(this).val() + "&id=<?= $page->id ?>&type=<?= $type ?>"})';
               </script>
             </div>
         <?php endif ?>

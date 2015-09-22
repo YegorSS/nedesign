@@ -6,7 +6,7 @@ use yii\widgets\MaskedInput;
 <div class='h2'>Заказать консультацию</div>
 <?php
 $form = ActiveForm::begin([
-    'action' => 'site/createfeedback',
+    'action' => '@web/site/createfeedback',
     'id' => 'feedback-form',
     'options' => ['class' => ''],
 ]) ?>

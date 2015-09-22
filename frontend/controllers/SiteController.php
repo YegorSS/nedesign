@@ -392,7 +392,7 @@ class SiteController extends Controller
         return false;
       }
       
-      return json_encode($posts->limit(10)->asArray()->all());
+      return json_encode($posts->asArray()->all());
       
     }
 

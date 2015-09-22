@@ -160,11 +160,13 @@ AppAsset::register($this);
                       </span>
                     </li>
                   <?php else: ?>
-                    <li><a href="<?= Yii::$app->homeUrl ?>" class="ptip_s"><i class="icsw16-home"></i></a></li>
+                    <li>
+                      <a href="<?= Yii::$app->homeUrl ?>" class="ptip_s" tiltle='Главная'><i class="icsw16-home"></i></a>
+                    </li>
                   <?php endif ?>
 
                   <li>
-                    <a href="<?= Url::to('@front') ?>" class="ptip_s" title="Перейтина сайт">
+                    <a href="<?= Url::to('@front') ?>" class="ptip_s" title="Перейти на сайт">
                       <i class="icsw16-running-man"></i>
                     </a>
                   </li>

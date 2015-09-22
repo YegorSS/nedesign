@@ -147,7 +147,7 @@ $orders = new Orders
  
 <div id='form_orders' class='unvisible'>
   <?php $form = ActiveForm::begin([
-    'action' => 'site/createorder',
+    'action' => '@web/site/createorder',
 ]) ?>
     <?= $form->field($orders, 'name')->textInput(['value' => isset(Yii::$app->user->identity->fio) ? Yii::$app->user->identity->fio : false])->label('Ваше Имя *') ?>
     <?= $form->field($orders, 'telephone')->widget(MaskedInput::className(), [
