@@ -57,15 +57,6 @@ AppAsset::register($this);
 </div>
 </div>
 <div class='col-lg-7 col-md-6 col-sm-6'>
-  <div class='head-title'>Полиграфия</div>
-  <?= $this->render('../site/_searchform') ?>
-</div>
-
-
-
-
-
-<div class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
   <div class="social">
     <a class="twitter" href="https://twitter.com/1DESIGN_ltd" rel="nofollow">
         <i class="fa fa-twitter"></i>
@@ -78,13 +69,17 @@ AppAsset::register($this);
     </a>
     <?= Html::a('<i class="fa fa-rss"></i>', $url = ['site/rss', 'type' => isset($this->params['model']) ? $this->params['model'] : false , 'id' => isset($this->params['id']) ? $this->params['id'] : false] ) ?>
   </div>
+  <?= $this->render('../site/_searchform') ?>
+</div>
+
+
+
+
+
+<div class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
                 <div class="user-box-inner">
                   <div class="user-info">
                       <?php if(Yii::$app->user->isGuest) { ?>
-                    
-                    
-                    
-                   
                     
                     
                     <ul class="unstyled">
@@ -95,18 +90,13 @@ AppAsset::register($this);
                       <?= Html::img('http://www.gravatar.com/avatar/' . md5(strtolower(trim(Yii::$app->user->identity->email))) . '?s=40') ?> 
                     Добро пожаловать, <strong><?= Html::encode(Yii::$app->user->identity->username) ?></strong>
                     <ul class="unstyled">
-                      <li><a href="<?= Url::toRoute(['account/update']) ?>">Страница пользователя</a></li>
+                      <li><a href="<?= Url::toRoute(['account/index']) ?>">Страница пользователя</a></li>
                       <li><a href="<?= Url::toRoute(['site/logout']) ?>" data-method="post">Выход</a></li>
                     </ul> 
                       <?php } ?>
                   </div>
                 </div>
  </div>
-
-
-              
-
-
 
 </div>
   
@@ -147,8 +137,3 @@ var siteurl = "<?= Url::home() ?>";
 </body>
 </html>
 <?php $this->endPage() ?>
-
-
-
-
-

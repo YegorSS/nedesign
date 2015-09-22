@@ -21,6 +21,8 @@ $form = ActiveForm::begin([
     <?= $form->field($feedback, 'tel')->widget(\yii\widgets\MaskedInput::className(), [
       'mask' => '(999) 999-99-99',
   ])->textInput(['placeholder' => 'Введите номер телефона', 'value' => isset(Yii::$app->user->identity->telephone) ? Yii::$app->user->identity->telephone : false])->label('Телефон') ?>
+  <?= $form->field($feedback, 'user_id')->hiddenInput(['value' => isset(Yii::$app->user->identity->id) ? Yii::$app->user->identity->id : false])->label(false) ?>
+  
     <div class="form-group">
         
             <?= Html::submitButton('Заказать', ['class' => 'btn btn-primary']) ?>

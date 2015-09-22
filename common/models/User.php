@@ -209,5 +209,18 @@ class User extends ActiveRecord implements IdentityInterface
         $this->password_reset_token = null;
     }
 
-    
+    public function getOrders()
+    {
+        return $this->hasMany(Orders::className(), ['user_id' => 'id']);
+    }
+
+    public function getFeedback()
+    {
+        return $this->hasMany(Feedback::className(), ['user_id' => 'id']);
+    }
+
+    public function getCollback()
+    {
+        return $this->hasMany(Collback::className(), ['user_id' => 'id']);
+    }
 }

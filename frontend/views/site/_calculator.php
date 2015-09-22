@@ -155,6 +155,7 @@ $orders = new Orders
   ])->textInput(['placeholder' => 'Введите номер телефона', 'value' => isset(Yii::$app->user->identity->telephone) ? Yii::$app->user->identity->telephone : false])->label('Телефон *') ?>
     <?= $form->field($orders, 'mail')->textInput(['value' => isset(Yii::$app->user->identity->email) ? Yii::$app->user->identity->email : false])->label('E-mail *') ?>
     <?= $form->field($orders, 'details')->hiddenInput()->label(false) ?>
+    <?= $form->field($orders, 'user_id')->hiddenInput(['value' => isset(Yii::$app->user->identity->id) ? Yii::$app->user->identity->id : false])->label(false) ?>
     <div class="form-group">
         <div class="">
             <?= Html::submitButton('Заказать', ['class' => 'btn btn-primary']) ?>

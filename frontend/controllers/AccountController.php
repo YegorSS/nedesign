@@ -32,7 +32,8 @@ class AccountController extends Controller
     public function actionIndex()
     {
         $categories = Categories::find()->where(['active' => true]);
-        return $this->render('index', ['categories' => $categories]);
+        $user = $this->findModel(Yii::$app->user->identity->id);
+        return $this->render('index', ['categories' => $categories, 'user' => $user]);
     }
 
     public function actionUpdate()

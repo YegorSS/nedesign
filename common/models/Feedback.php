@@ -59,4 +59,9 @@ class Feedback extends \yii\db\ActiveRecord
             'processed' => 'Processed',
         ];
     }
+
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
 }

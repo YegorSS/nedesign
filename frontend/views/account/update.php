@@ -25,6 +25,7 @@ use yii\widgets\MaskedInput;
 
     <div class="row" style='margin-left: -15px; margin-top:40px;'>
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 col-lg-offset-4">
+      <?= Html::a('Перейти на страницу заказа', 'index', ['class' => 'btn btn-primary']) ?><br><br>
         <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
                 <?= $form->field($user, 'username') ?>
                 <?= $form->field($user, 'email') ?>

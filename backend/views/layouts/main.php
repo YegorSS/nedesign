@@ -273,7 +273,6 @@ AppAsset::register($this);
               </div>
             </div>
           </div>
-        </div>
       </header>
 
         <div class="container">
