@@ -144,7 +144,7 @@ class CaruselController extends Controller
     
     //$postimage = new Postimage;
     $fileName = 'file';
-    $uploadPath = Yii::getAlias('@webroot').'/../../frontend/web/uploads/carusel/img/';
+    $uploadPath = Yii::getAlias('@frontend').'/web/uploads/carusel/img/';
 
     if (isset($_FILES[$fileName])) {
         $file = \yii\web\UploadedFile::getInstanceByName($fileName);
@@ -169,7 +169,7 @@ class CaruselController extends Controller
       $model = $this->findModel($id);
         
         
-        $imageUrl = Yii::getAlias('@webroot').'/../../frontend/web/uploads/carusel/img/';
+        $imageUrl = Yii::getAlias('@frontend').'/web/uploads/carusel/img/';
         
         if(file_exists($imageUrl . $model->image)){
           unlink($imageUrl . $model->image);

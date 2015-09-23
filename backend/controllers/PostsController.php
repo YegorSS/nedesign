@@ -181,7 +181,7 @@ class PostsController extends Controller
     {
         $post = $this->findModel($id);
         
-        $imageUrl = Yii::getAlias('@webroot').'/../../frontend/web/uploads/post/main/';
+        $imageUrl = Yii::getAlias('@frontend').'/frontend/web/uploads/post/main/';
         
        if($post->mainimage)
        {
@@ -193,7 +193,7 @@ class PostsController extends Controller
        }
        
        
-       $imageUrl = Yii::getAlias('@webroot').'/../../frontend/web/uploads/post/images/';
+       $imageUrl = Yii::getAlias('@frontend').'/web/uploads/post/images/';
         
        foreach($post->postimage as $image)
        {
@@ -220,12 +220,9 @@ class PostsController extends Controller
       $mime = \yii\helpers\FileHelper::getMimeType($uploadedFile->tempName);
       $file = time()."_".$uploadedFile->name;
 
-
       $url = Url::to('@front/uploads/ckeditor/'.$file);
-      $uploadPath = Yii::getAlias('@webroot').'/../../frontend/web/uploads/ckeditor/'.$file;
+      $uploadPath = Yii::getAlias('@frontend').'/web/uploads/ckeditor/'.$file;
 
-      //$url = Url::to('@web/../../frontend/web/uploads/ckeditor/'.$file, true);
-      //$uploadPath = Url::to('@webroot/../../frontend/web/uploads/ckeditor/'.$file, true);
       //extensive suitability check before doing anything with the file…
       if ($uploadedFile==null)
       {
@@ -263,13 +260,10 @@ class PostsController extends Controller
    
     //$postimage = new Postimage;
     $fileName = 'file';
-    $uploadPath = Yii::getAlias('@webroot').'/../../frontend/web/uploads/post/img/';
+    $uploadPath = Yii::getAlias('@frontend').'/web/uploads/post/img/';
 
     if (isset($_FILES[$fileName])) {
         $file = \yii\web\UploadedFile::getInstanceByName($fileName);
-        
-        
-        
 
         //Print file data
         //print_r($file);
@@ -306,7 +300,7 @@ class PostsController extends Controller
         $postimage = new Postimage;
         
         
-        $imageUrl = Yii::getAlias('@webroot').'/../../frontend/web/uploads/post/main/';
+        $imageUrl = Yii::getAlias('@frontend').'/web/uploads/post/main/';
         
         if(file_exists($imageUrl . $model->mainimage)){
           unlink($imageUrl . $model->mainimage);
@@ -338,7 +332,7 @@ class PostsController extends Controller
         $postimage = new Postimage;
         
         
-        $imageUrl = Yii::getAlias('@webroot').'/../../frontend/web/uploads/post/images/';
+        $imageUrl = Yii::getAlias('@frontend').'/web/uploads/post/images/';
         if(file_exists($imageUrl . $image->image)){
           unlink($imageUrl . '90/90' . $image->image);
           unlink($imageUrl . $image->image);

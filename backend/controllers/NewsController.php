@@ -11,6 +11,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\helpers\Url;
 
 /**
  * NewsController implements the CRUD actions for News model.
@@ -128,7 +129,8 @@ class NewsController extends Controller
       $file = time()."_".$uploadedFile->name;
 
       $url = Url::to('@front/uploads/ckeditor/'.$file);
-      $uploadPath = Yii::getAlias('@webroot').'/../../frontend/web/uploads/ckeditor/'.$file;
+      $uploadPath = Yii::getAlias('@frontend').'/web/uploads/ckeditor/'.$file;
+
       //extensive suitability check before doing anything with the file…
       if ($uploadedFile==null)
       {
