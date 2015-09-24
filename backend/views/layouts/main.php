@@ -133,6 +133,12 @@ AppAsset::register($this);
                             <span class="menu-text">Пользователи</span>
                           </a>
                         </li>
+                        <li>
+                          <a class="dropdown-toggle" href="<?= Url::toRoute(['subdomain/subdomain/index']) ?>">
+                            <i class="icsw16-image-1 icsw16-white"></i>
+                            <span class="menu-text">Поддомены</span>
+                          </a>
+                        </li>
                     </ul>
                     
                 </div>

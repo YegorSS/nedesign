@@ -16,6 +16,10 @@ return [
             'class' => 'backend\modules\calculator\Module',
             // ... другие настройки модуля ...
         ],
+        'subdomain' => [
+            'class' => 'backend\modules\subdomain\Module',
+            // ... другие настройки модуля ...
+        ],
     ],
     'components' => [
         'urlManager' => [
