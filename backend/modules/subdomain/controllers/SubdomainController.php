@@ -1,9 +1,11 @@
 <?php
 namespace backend\modules\subdomain\controllers;
 
+use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-use Yii;
+use yii\helpers\Url;
+use yii\filters\VerbFilter;
 use backend\modules\subdomain\models\Subdomain;
 
 
@@ -23,6 +25,12 @@ class SubdomainController extends Controller
                     ],
                 ],
             ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['post'],
+                    ],
+                ]
             ];
     }
     
@@ -69,6 +77,7 @@ return [
         fwrite($fileConfig, $txt);
         fclose($fileConfig);
 
+        Yii::$app->session->setFlash('success', 'Поддомен создан!');
         return $this->redirect('index');
       } else{
         return $this->render('create', ['subdomain' => $subdomain]);
@@ -76,11 +85,19 @@ return [
     }
 
     public function actionEdit(){
-
+        Yii::$app->session->setFlash('success', 'Поддомен удален!');
+        return $this->redirect('index');
     }
 
-    public function actionDelete(){
-
+    public function actionDelete($name){
+        if(unlink(Yii::getAlias('@common').'/config/db/' . $name .'.php')){
+            $db = $this->Db();
+            if($db->createCommand('DROP DATABASE IF EXISTS admin_' . $name . ';')->execute()){
+                Yii::$app->session->setFlash('success', 'Поддомен удален!');
+                //Yii::$app->session->setFlash('success', 'Thank you ');
+                return $this->redirect('index');
+            }
+        }
     }
 
     protected function Db($name = ROOT_DB_NAME){

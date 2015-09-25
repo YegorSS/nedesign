@@ -8,6 +8,7 @@ use yii\helpers\Url;
 /* @var $model app\models\LoginForm */
 
 $this->title = 'Создать поддомен';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?php $form = ActiveForm::begin(); ?>

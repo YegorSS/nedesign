@@ -8,6 +8,7 @@ use yii\helpers\Url;
 /* @var $model app\models\LoginForm */
 
 $this->title = 'Домены';
+$this->params['breadcrumbs'][] = $this->title;
 
 foreach($subdomains as $subdomain)
 {
@@ -18,6 +19,7 @@ foreach($subdomains as $subdomain)
 }
 
 ?>
+
 <div class='w-box w-box-orange'>
 	<div class="w-box-header">
 		<h4>Поддомены</h4>
@@ -27,7 +29,7 @@ foreach($subdomains as $subdomain)
 		<div class="dt-top-row">
 			<div class="ColVis TableTools">
 			<button class="ColVis_Button TableTools_Button ColVis_MasterButton btn btn-mini btn-inverse">Columns</button>
-				<?= Html::a('Создать поддомен', 'create', ['class' => 'ColVis_Button btn']) ?>
+				<?= Html::a('Создать поддомен', '@web/subdomain/subdomain/create', ['class' => 'ColVis_Button btn']) ?>
 			</div>
 		</div>
 	<div class="dt-wrapper">
@@ -36,6 +38,12 @@ foreach($subdomains as $subdomain)
 	<tr>
 		<td>
 			<?= Html::a($item .'.'. $_SERVER['HTTP_HOST'], 'http://'.$item .'.'. $_SERVER['HTTP_HOST']) ?>
+		</td>
+		<td>
+			<?= Html::a('Удалить', ['delete', 'name' => $item], ['data' => [
+                'confirm' => 'Вы уверенны?',
+                'method' => 'post',
+            ]]) ?>
 		</td>
 	</tr>
 <?php endforeach ?>

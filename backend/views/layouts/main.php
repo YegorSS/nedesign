@@ -8,6 +8,7 @@ use yii\helpers\Url;
 use common\models\Collback;
 use common\models\Feedback;
 use common\models\Orders;
+use backend\widgets\Alert;
 
 //$this->registerCssFile('@web/css/ace-rtl.css', ['depends'=>'backend\assets\AppAsset']);
 //$this->registerCssFile('@web/css/ace-skins.css', ['depends'=>'backend\assets\AppAsset']);
@@ -76,65 +77,65 @@ AppAsset::register($this);
                             </a>
                             <ul>
                                 <li>
-                                    <a href="<?= Url::toRoute('categories/index') ?>">
+                                    <a href="<?= Url::toRoute('/categories/index') ?>">
                                       Категории <b class="arrow"></b>
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="<?= Url::toRoute('posts/index') ?>">
+                                    <a href="<?= Url::toRoute('/posts/index') ?>">
                                       Материалы <b class="arrow"></b>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?= Url::toRoute('news/index') ?>">
+                                    <a href="<?= Url::toRoute('/news/index') ?>">
                                       Новости <b class="arrow"></b>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?= Url::toRoute('pages/index') ?>">
+                                    <a href="<?= Url::toRoute('/pages/index') ?>">
                                       Отдельные страници <b class="arrow"></b>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?= Url::toRoute('carusel/index') ?>">
+                                    <a href="<?= Url::toRoute('/carusel/index') ?>">
                                       Карусель <b class="arrow"></b>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a class="dropdown-toggle" href='<?= Url::toRoute('orders/index') ?>'>
+                            <a class="dropdown-toggle" href='<?= Url::toRoute('/orders/index') ?>'>
                               <i class="icsw16-abacus icsw16-white"></i>
                               <span class="menu-text">Заказы продукции</span>
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-toggle" href='<?= Url::toRoute('collback/index') ?>'>
+                            <a class="dropdown-toggle" href='<?= Url::toRoute('/collback/index') ?>'>
                               <i class="icsw16-phone-3 icsw16-white"></i>
                               <span class="menu-text">Заказы звонка</span>
                             </a>
                         </li>
                         <li>
-                          <a class="dropdown-toggle" href='<?= Url::toRoute('feedback/index') ?>'>
+                          <a class="dropdown-toggle" href='<?= Url::toRoute('/feedback/index') ?>'>
                               <i class="icsw16-speech-bubbles icsw16-white"></i>
                               <span class="menu-text">Заказы консультации</span>
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-toggle" href='<?= Url::toRoute(['calculator/calculator']) ?>'>
+                          <a class="dropdown-toggle" href='<?= Url::toRoute(['/calculator/calculator']) ?>'>
                             <i class="icsw16-calculator icsw16-white"></i>
                             <span class="menu-text">Калькулятор</span>
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-toggle" href="<?= Url::toRoute('user/index') ?>">
+                          <a class="dropdown-toggle" href="<?= Url::toRoute('/user/index') ?>">
                             <i class="icsw16-users icsw16-white"></i>
                             <span class="menu-text">Пользователи</span>
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-toggle" href="<?= Url::toRoute(['subdomain/subdomain/index']) ?>">
+                          <a class="dropdown-toggle" href="<?= Url::toRoute(['/subdomain/subdomain']) ?>">
                             <i class="icsw16-image-1 icsw16-white"></i>
                             <span class="menu-text">Поддомены</span>
                           </a>
@@ -179,13 +180,13 @@ AppAsset::register($this);
                                     
                   <?php if(isset($this->params['breadcrumbs'][1]) && $this->params['breadcrumbs'][1] == 'Create Posts'): ?>
                     <li class='active'>
-                      <span href="<?= Url::toRoute('posts/create') ?>" class="ptip_s" title="Создать материал">
+                      <span href="<?= Url::toRoute('/posts/create') ?>" class="ptip_s" title="Создать материал">
                         <i class="icsw16-create-write"></i>
                       </span>
                     </li>
                   <?php else: ?>
                     <li>
-                      <a href="<?= Url::toRoute('posts/create') ?>" class="ptip_s" title="Создать материал">
+                      <a href="<?= Url::toRoute('/posts/create') ?>" class="ptip_s" title="Создать материал">
                         <i class="icsw16-create-write"></i>
                       </a>
                     </li>
@@ -193,7 +194,7 @@ AppAsset::register($this);
 
                   <?php if(isset($this->params['breadcrumbs'][0]) && $this->params['breadcrumbs'][0] == 'Orders'): ?>
                     <li class="active">
-                      <span href="<?= Url::toRoute('orders/index') ?>" class="ptip_s" title="Заказы продукции">
+                      <span href="<?= Url::toRoute('/orders/index') ?>" class="ptip_s" title="Заказы продукции">
                         <i class="icsw16-abacus icsw16-black"></i>
                         <span class="badge badge-important">
                           <?= Orders::find()->where(['active' => true])->count() ?>
@@ -202,7 +203,7 @@ AppAsset::register($this);
                     </li>
                   <?php else: ?>
                     <li>
-                      <a href="<?= Url::toRoute('orders/index') ?>" class="ptip_s" title="Заказы продукции">
+                      <a href="<?= Url::toRoute('/orders/index') ?>" class="ptip_s" title="Заказы продукции">
                         <i class="icsw16-abacus icsw16-black"></i>
                         <span class="badge badge-important">
                           <?= Orders::find()->where(['active' => true])->count() ?>
@@ -213,7 +214,7 @@ AppAsset::register($this);
 
                   <?php if(isset($this->params['breadcrumbs'][0]) && $this->params['breadcrumbs'][0] == 'Collbacks'): ?>
                     <li class='active'>
-                      <span href="<?= Url::toRoute('collback/index') ?>" class="ptip_s" title="Заказы звонка">
+                      <span href="<?= Url::toRoute('/collback/index') ?>" class="ptip_s" title="Заказы звонка">
                         <i class="icsw16-phone-3"></i>
                         <span class="badge badge-info">
                           <?= Collback::find()->where(['processed' => true])->count() ?>
@@ -222,7 +223,7 @@ AppAsset::register($this);
                     </li>
                   <?php else: ?>
                     <li>
-                      <a href="<?= Url::toRoute('collback/index') ?>" class="ptip_s" title="Заказы звонка">
+                      <a href="<?= Url::toRoute('/collback/index') ?>" class="ptip_s" title="Заказы звонка">
                         <i class="icsw16-phone-3"></i>
                         <span class="badge badge-info">
                           <?= Collback::find()->where(['processed' => true])->count() ?>
@@ -233,7 +234,7 @@ AppAsset::register($this);
 
                   <?php if(isset($this->params['breadcrumbs'][0]) && $this->params['breadcrumbs'][0] == 'Feedbacks'): ?>
                     <li class="active">
-                      <span href="<?= Url::toRoute('feedback/index') ?>" class="ptip_s" title="Заказы консультации">
+                      <span href="<?= Url::toRoute('/feedback/index') ?>" class="ptip_s" title="Заказы консультации">
                         <i class="icsw16-speech-bubbles"></i>
                         <span class="badge badge-info">
                           <?= Feedback::find()->where(['processed' => true])->count() ?>
@@ -242,7 +243,7 @@ AppAsset::register($this);
                     </li>
                   <?php else: ?>
                     <li>
-                      <a href="<?= Url::toRoute('feedback/index') ?>" class="ptip_s" title="Заказы консультации">
+                      <a href="<?= Url::toRoute('/feedback/index') ?>" class="ptip_s" title="Заказы консультации">
                         <i class="icsw16-speech-bubbles"></i>
                         <span class="badge badge-info">
                           <?= Feedback::find()->where(['processed' => true])->count() ?>
@@ -266,14 +267,14 @@ AppAsset::register($this);
                     
                     
                     <ul class="unstyled">
-                      <li><a href="<?= Url::toRoute(['site/login']) ?>">Login</a></li>
+                      <li><a href="<?= Url::toRoute(['/site/login']) ?>">Login</a></li>
                     </ul>
                       <?php } else { ?>
                   <?= Html::img('http://www.gravatar.com/avatar/' . md5(strtolower(trim(Yii::$app->user->identity->email))) . '?s=40', ['class' => "user-avatar img-avatar"]) ?>
                     Добро пожаловать, 
                     <strong><?= Yii::$app->user->identity->username ?></strong>
                     <ul class="unstyled">
-                      <li><a href="<?= Url::toRoute(['site/logout']) ?>" data-method="post">Выход</a></li>
+                      <li><a href="<?= Url::toRoute(['/site/logout']) ?>" data-method="post">Выход</a></li>
                     </ul> 
                       <?php } ?>
                   </div>
@@ -286,61 +287,6 @@ AppAsset::register($this);
         <div class="container">
         
           <div class="main-container">
-  <!--<div id="sidebar" class="sidebar responsive " data-sidebar="true" data-sidebar-scroll="true" data-sidebar-hover="true">
-    <ul class='nav nav-list'>
-
-      <li class='droopdown'>
-        <a class="dropdown-toggle" href='#'>
-          <i class="menu-icon fa fa-desktop"></i>
-          <span class="menu-text">Материалы</span>
-          <b class="arrow fa fa-angle-down"></b>
-        </a>
-        <ul class='submenu'>
-          <li>
-            <a href="<?= Url::toRoute('categories/index') ?>">
-              <i class="menu-icon fa fa-caret-right"></i>
-              Категории <b class="arrow"></b>
-            </a>
-          </li>
-          <li>
-            <a href="<?= Url::toRoute('posts/index') ?>">
-              <i class="menu-icon fa fa-caret-right"></i>
-              Материалы <b class="arrow"></b>
-            </a>
-          </li>
-          <li>
-            <a href="<?= Url::toRoute('carusel/index') ?>">
-              <i class="menu-icon fa fa-caret-right"></i>
-              Карусель <b class="arrow"></b>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a class="dropdown-toggle" href='<?= Url::toRoute('collback/index') ?>'>
-          <i class="menu-icon glyphicon glyphicon-earphone"></i>
-          <span class="menu-text">Заказы звонка</span>
-        </a>
-      
-      </li>
-      <li>
-        <a class="dropdown-toggle" href='<?= Url::toRoute('feedback/index') ?>'>
-          <i class="menu-icon glyphicon glyphicon-earphone"></i>
-          <span class="menu-text">Заказы консультации</span>
-        </a>
-      
-      </li>
-      <li>
-        <a class="dropdown-toggle" href='<?= Url::toRoute(['calculator/calculator']) ?>'>
-          <i class="menu-icon fa fa-pencil-square-o"></i>
-          <span class="menu-text">Калькулятор</span>
-        </a>
-      
-      </li>
-    </ul>
-  </div>-->
-  
-            <div class='main-content'>
               <div class="main-content-inner">
                 <div class="breadcrumbs">
                  
@@ -349,18 +295,19 @@ AppAsset::register($this);
             </div>
                 </div>
                 <div class="container">
+                <?= Alert::widget() ?>
                   <?= $content ?>
                 </div>
               </div>
             </div>
-</div>
+
           
         </div>
     </div>
 
     <footer class="footer">
         <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">1Design® <?= date('Y') ?></p>
         <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>
