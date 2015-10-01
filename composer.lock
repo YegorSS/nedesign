@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "12e7bb8330877c4b2f6751645fcb4614",
+    "hash": "e3e6868d068672e263363bafa6b69af8",
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -866,16 +866,16 @@
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
-            "version": "v4.2.5",
+            "version": "v4.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "e8a712d4840ba9abe7c1302808e86e55e91aab7f"
+                "reference": "0468bbba9c28c1250aca83eba9b33e32ec135f78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/e8a712d4840ba9abe7c1302808e86e55e91aab7f",
-                "reference": "e8a712d4840ba9abe7c1302808e86e55e91aab7f",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/0468bbba9c28c1250aca83eba9b33e32ec135f78",
+                "reference": "0468bbba9c28c1250aca83eba9b33e32ec135f78",
                 "shasum": ""
             },
             "type": "library",
@@ -910,20 +910,20 @@
                 "progress",
                 "upload"
             ],
-            "time": "2015-07-26 20:29:14"
+            "time": "2015-09-13 17:39:44"
         },
         {
             "name": "kartik-v/bootstrap-star-rating",
-            "version": "v3.5.3",
+            "version": "v3.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-star-rating.git",
-                "reference": "bd9c52db6ac71cb270620c1aee601d142ab2cc00"
+                "reference": "987777ee21a599bebbc545c743063fcee9833842"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-star-rating/zipball/bd9c52db6ac71cb270620c1aee601d142ab2cc00",
-                "reference": "bd9c52db6ac71cb270620c1aee601d142ab2cc00",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-star-rating/zipball/987777ee21a599bebbc545c743063fcee9833842",
+                "reference": "987777ee21a599bebbc545c743063fcee9833842",
                 "shasum": ""
             },
             "type": "library",
@@ -951,7 +951,7 @@
                 "jquery",
                 "star"
             ],
-            "time": "2015-06-18 14:42:46"
+            "time": "2015-09-21 09:06:33"
         },
         {
             "name": "kartik-v/yii2-krajee-base",
@@ -1146,6 +1146,53 @@
             "time": "2014-12-19 12:15:40"
         },
         {
+            "name": "roopz/yii2-imap",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiioverflow/yii2-imap.git",
+                "reference": "393a4bcbec57061c8d203eafaa5504523431704c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiioverflow/yii2-imap/zipball/393a4bcbec57061c8d203eafaa5504523431704c",
+                "reference": "393a4bcbec57061c8d203eafaa5504523431704c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "roopz\\imap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Roopan Valiya Veetil",
+                    "email": "yiioverflow@gmail.com",
+                    "homepage": "http://www.yiioverflow.com/"
+                }
+            ],
+            "description": "yii2 extension to read and process mails from IMAP and PHP",
+            "homepage": "https://github.com/yiioverflow/yii2-imap.git",
+            "keywords": [
+                "cron",
+                "extension",
+                "imap",
+                "inbox",
+                "mail",
+                "widget",
+                "yii2"
+            ],
+            "time": "2015-08-14 07:42:14"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v5.4.1",
             "source": {
@@ -1288,21 +1335,21 @@
         },
         {
             "name": "yiisoft/yii2-bootstrap",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "1b6b1e61cf91c3cdd517d6a7e71d30bb212e4af0"
+                "reference": "1464f93834b1d5edb1f5625f7ffd6c3723fa4923"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/1b6b1e61cf91c3cdd517d6a7e71d30bb212e4af0",
-                "reference": "1b6b1e61cf91c3cdd517d6a7e71d30bb212e4af0",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/1464f93834b1d5edb1f5625f7ffd6c3723fa4923",
+                "reference": "1464f93834b1d5edb1f5625f7ffd6c3723fa4923",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/bootstrap": "3.3.* | 3.2.* | 3.1.*",
-                "yiisoft/yii2": ">=2.0.4"
+                "yiisoft/yii2": ">=2.0.6"
             },
             "type": "yii2-extension",
             "extra": {
@@ -1334,7 +1381,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2015-05-10 22:08:17"
+            "time": "2015-09-23 17:48:24"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -1883,7 +1930,8 @@
     "stability-flags": {
         "nterms/yii2-listjs-widget": 20,
         "kartik-v/yii2-widget-fileinput": 20,
-        "zelenin/yii2-rss": 20
+        "zelenin/yii2-rss": 20,
+        "roopz/yii2-imap": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

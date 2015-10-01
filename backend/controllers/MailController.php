@@ -7,36 +7,17 @@ use yii\web\Controller;
 
 class MailController extends Controller
 {
-    // ...
-   public function behaviors()
-    {
-        return [
-            //'access' => [
-            //    'class' => AccessControl::className(),
-            //    'rules' => [
-            //        [
-            //            'actions' => ['index', 'create', 'edit', 'delete'],
-            //            'allow' => true,
-            //            'roles' => ['admin'],
-            //        ],
-            //    ],
-            //],
-            //'verbs' => [
-            //    'class' => VerbFilter::className(),
-            //    'actions' => [
-            //        'delete' => ['post'],
-            //        ],
-            //    ]
-            ];
-    }
     
     public function actionIndex()
-    {
-      return $this->render('index');
+    {   
+      $mailbox = yii::$app->imap->connection;
+      return $this->render('index', ['mailbox' => $mailbox]);
     }
 
-    
+    public function actionView($mailId){
+        $mailbox = yii::$app->imap->connection;
+        $mail = $mailbox->getMail($mailId);
+        return $this->render('view', ['mail' => $mail]);
+    }
 
-    
-   
 }

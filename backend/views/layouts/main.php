@@ -140,6 +140,12 @@ AppAsset::register($this);
                             <span class="menu-text">Поддомены</span>
                           </a>
                         </li>
+                        <li>
+                          <a class="dropdown-toggle" href="<?= Url::toRoute(['/mail']) ?>">
+                            <i class="icsw16-mail icsw16-white"></i>
+                            <span class="menu-text">Почта</span>
+                          </a>
+                        </li>
                     </ul>
                     
                 </div>
