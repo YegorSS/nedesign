@@ -1151,12 +1151,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiioverflow/yii2-imap.git",
-                "reference": "393a4bcbec57061c8d203eafaa5504523431704c"
+                "reference": "ec6bea0465c8fbb75ff6d1f19c169f10b654212c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiioverflow/yii2-imap/zipball/393a4bcbec57061c8d203eafaa5504523431704c",
-                "reference": "393a4bcbec57061c8d203eafaa5504523431704c",
+                "url": "https://api.github.com/repos/yiioverflow/yii2-imap/zipball/ec6bea0465c8fbb75ff6d1f19c169f10b654212c",
+                "reference": "ec6bea0465c8fbb75ff6d1f19c169f10b654212c",
                 "shasum": ""
             },
             "require": {
@@ -1190,7 +1190,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-08-14 07:42:14"
+            "time": "2015-10-02 04:43:42"
         },
         {
             "name": "swiftmailer/swiftmailer",
