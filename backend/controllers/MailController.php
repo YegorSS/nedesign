@@ -11,7 +11,8 @@ class MailController extends Controller
     public function actionIndex()
     {   
       $mailbox = yii::$app->imap->connection;
-      $boxs = $mailbox->setBox('INBOX');
+      $box = isset($_GET['box']) ? $_GET['box'] : 'INBOX';
+      $boxs = $mailbox->setBox($box);
       $mailIds = $mailbox->searchMailBox('ALL');
       $mails = $mailbox->getMailsInfo($mailIds);
       return $this->render('index', ['mails' => $mails, 'boxs' => $boxs]);
