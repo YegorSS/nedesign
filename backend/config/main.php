@@ -44,9 +44,9 @@ return [
             'errorAction' => 'site/error',
         ],
         'imap' => [
-         'class' => 'roopz\imap\Imap',
+         'class' => 'backend\modules\imap\Imap',
          'connection' => [
-              'imapPath' => '{mail.1design.ua:143/novalidate-cert}INBOX',
+              'imapPath' => '{mail.1design.ua:143/novalidate-cert}',
               'imapLogin' => 'yegor@1design.ua',
               'imapPassword' => '20476',
               'serverEncoding'=>'encoding', // utf-8 default.
